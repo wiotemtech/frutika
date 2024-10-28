@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+
+	<!-- title -->
+	<title>Single Product</title>
+
+	<!-- favicon -->
+	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+	<!-- google font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="assets/css/all.min.css">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+	<!-- owl carousel -->
+	<link rel="stylesheet" href="assets/css/owl.carousel.css">
+	<!-- magnific popup -->
+	<link rel="stylesheet" href="assets/css/magnific-popup.css">
+	<!-- animate css -->
+	<link rel="stylesheet" href="assets/css/animate.css">
+	<!-- mean menu css -->
+	<link rel="stylesheet" href="assets/css/meanmenu.min.css">
+	<!-- main style -->
+	<link rel="stylesheet" href="assets/css/main.css">
+	<!-- responsive -->
+	<link rel="stylesheet" href="assets/css/responsive.css">
+
+</head>
+<body>
+	
+	<!--PreLoader-->
+    <div class="loader">
+        <div class="loader-inner">
+            <div class="circle"></div>
+        </div>
+    </div>
+    <!--PreLoader Ends-->
+	
+	<!-- header -->
+	<div class="top-header-area" id="sticker">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-sm-12 text-center">
+					<div class="main-menu-wrap">
+						<!-- logo -->
+						<div class="site-logo">
+							<a href="index.html">
+								<img src="assets/img/logo.png" alt="">
+							</a>
+						</div>
+						<!-- logo -->
+
+						<!-- menu start -->
+						<nav class="main-menu">
+							<ul>
+								<li class="current-list-item"><a href="index.html">Home</a>
+								</li>
+								<li><a href="shop.html">Product</a>
+								</li>
+								<li><a href="about.html">About us</a></li>
+								<li><a href="contact.html">Contact</a></li>
+								<li>
+									<div class="header-icons">
+										<a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+									</div>
+								</li>
+							</ul>
+						</nav>
+						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+						<div class="mobile-menu"></div>
+						<!-- menu end -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end header -->
+
+	<!-- search area -->
+	<div class="search-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<span class="close-btn"><i class="fas fa-window-close"></i></span>
+					<div class="search-bar">
+						<div class="search-bar-tablecell">
+							<h3>Search For:</h3>
+							<input type="text" placeholder="Keywords">
+							<button type="submit">Search <i class="fas fa-search"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end search arewa -->
+	
+	<!-- breadcrumb-section -->
+	<div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<p>See more Details</p>
+						<h1>Single Product</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end breadcrumb section -->
+
+	<!-- single product -->
+	<div class="container">
+		<div class="row">
+			<!-- Product Image -->
+			<div class="col-md-5">
+				<div class="single-product-img">
+					<img id="product-image" src="assets/img/products/product-img-000.jpg" alt="T-shirt">
+				</div>
+			</div>
+	
+			<!-- Product Details -->
+			<div class="col-md-7">
+				<div class="single-product-content">
+					<h2 class="product-title">Customizable Stylish T-shirt</h2>
+					<p class="single-product-pricing"><span>Price:</span> $50</p>
+					<p class="product-description">Design your own T-shirt with multiple customization options. Choose your favorite color, size, T-shirt type, and design style to create your unique look.</p>
+	
+					<!-- Size Options -->
+					<div class="customization-group">
+						<label class="customization-label"><i class="fas fa-ruler"></i> Choose Size: </label>
+						<div class="row-options">
+							<button class="btn-option">XS</button>
+							<button class="btn-option">S</button>
+							<button class="btn-option">M</button>
+							<button class="btn-option">L</button>
+							<button class="btn-option">XL</button>
+							<button class="btn-option">XXL</button>
+						</div>
+					</div>
+	
+					<!-- T-shirt Color Options -->
+					<div class="customization-group">
+						<label class="customization-label"><i class="fas fa-palette"></i> Choose Color: </label>
+						<div class="row-options">
+							<button class="color-option" style="background-color: #000000;" onclick="changeColor('black')" title="Black"></button>
+							<button class="color-option" style="background-color: #FF5733;" onclick="changeColor('orange')" title="Orange"></button>
+							<button class="color-option" style="background-color: #3498DB;" onclick="changeColor('blue')" title="Blue"></button>
+							<button class="color-option" style="background-color: #2ECC71;" onclick="changeColor('green')" title="Green"></button>
+							<button class="color-option" style="background-color: #c77dff;" onclick="changeColor('orange')" title="Orange"></button>
+							<button class="color-option" style="background-color: #788893;" onclick="changeColor('blue')" title="Blue"></button>
+							<button class="color-option" style="background-color: #104c5d;" onclick="changeColor('green')" title="Green"></button>
+							<button class="color-option" style="background-color: #696b2f;" onclick="changeColor('orange')" title="Orange"></button>
+							<button class="color-option" style="background-color: #db349b;" onclick="changeColor('blue')" title="Blue"></button>
+							<button class="color-option" style="background-color: #2f2e5e;" onclick="changeColor('green')" title="Green"></button>
+						</div>
+					</div>
+	
+					<!-- T-shirt Type Options -->
+					<div class="customization-group">
+						<label class="customization-label"><i class="fas fa-tshirt"></i> T-shirt Type: </label>
+						<div class="row-options">
+							<button class="btn-option">V-neck</button>
+							<button class="btn-option">T-shirt</button>
+							<button class="btn-option">Collared</button>
+							<button class="btn-option">Crew Neck</button>
+						</div>
+					</div>
+	
+					<!-- Design Options -->
+					<div class="customization-group">
+						<label class="customization-label"><i class="fas fa-brush"></i> Design Style: </label>
+						<div class="row-options">
+							<button class="btn-option">Embroidery</button>
+							<button class="btn-option">Screen Print</button>
+						</div>
+					</div>
+	
+					<!-- Quantity and Add to Cart -->
+					<div class="single-product-form">
+						<form action="index.html">
+							<input type="number" placeholder="1" min="1" max="10" class="quantity-input">
+						</form>
+						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					</div>
+	
+					<!-- Product Meta Info -->
+					<p><strong>Categories: </strong>Fashion, T-shirts</p>
+	
+					<!-- Social Sharing Options -->
+					<h4>Share:</h4>
+					<ul class="product-share">
+						<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+						<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+						<li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+						<li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- JavaScript to Handle Color Change -->
+	<script>
+		function changeColor(color) {
+			const productImage = document.getElementById("product-image");
+	
+			switch (color) {
+				case 'black':
+					productImage.src = "assets/img/products/black-tshirt.jpg";
+					break;
+				case 'orange':
+					productImage.src = "assets/img/products/orange-tshirt.jpg";
+					break;
+				case 'blue':
+					productImage.src = "assets/img/products/blue-tshirt.jpg";
+					break;
+				case 'green':
+					productImage.src = "assets/img/products/green-tshirt.jpg";
+					break;
+			}
+		}
+	</script>
+	 <style>
+        /* Styling for the container and layout */
+		.container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .col-md-5, .col-md-7 {
+            flex: 1;
+        }
+
+        /* Product Image Styling */
+        .single-product-img img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+        .single-product-img:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Product Details */
+        .product-title {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .single-product-pricing {
+            font-size: 1.8em;
+            color: #ff5733;
+            margin-bottom: 20px;
+        }
+        .product-description {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        /* Customization Group Styling */
+        .customization-group {
+            margin-bottom: 25px;
+        }
+        .customization-label {
+            font-weight: 600;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            display: inline-block;
+            color: #555;
+        }
+        .row-options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+			/* Adjusted White Buttons with Blank Borders */
+		.btn-option {
+			padding: 8px 18px; /* Reduced padding */
+			background-color: white;
+			color: #333;
+			border: 2px solid #ddd;
+			border-radius: 25px; /* Slightly smaller button radius */
+			cursor: pointer;
+			transition: all 0.3s ease;
+			font-size: 0.9em; /* Reduced font size */
+		}
+
+		/* Adjusted Color Options */
+		.color-option {
+			width: 30px; /* Reduced size */
+			height: 30px; /* Reduced size */
+			border-radius: 50%;
+			cursor: pointer;
+			border: 2px solid transparent; /* Adjusted for better proportions */
+			transition: all 0.3s ease;
+		}
+
+        .color-option:hover {
+            border-color: #3498db;
+        }
+        .color-option.selected {
+            border-color: #27ae60;
+        }
+
+        /* Quantity and Add to Cart */
+        .quantity-input {
+            width: 60px;
+            padding: 8px;
+            margin-right: 15px;
+            border: 2px solid #ddd;
+            border-radius: 30px;
+            text-align: center;
+        }
+        .cart-btn {
+            padding: 12px 40px;
+            background-color: #ff5733;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .cart-btn:hover {
+            background-color: #c0392b;
+        }
+
+        /* Social Media Share */
+        .product-share {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 10px;
+        }
+        .product-share li a {
+            font-size: 1.5em;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+        .product-share li a:hover {
+            color: #ff5733;
+        }
+
+    </style>
+	<!-- end single product -->
+
+	<!-- more products -->
+	<div class="more-products mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="section-title">	
+						<h3><span class="orange-text">Related</span> Products</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4 col-md-6 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href="single-product.html"><img src="assets/img/products/product-img-1.jpg" alt=""></a>
+						</div>
+						<h3>Strawberry</h3>
+						<p class="product-price"><span>Per Kg</span> 85$ </p>
+						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href="single-product.html"><img src="assets/img/products/product-img-2.jpg" alt=""></a>
+						</div>
+						<h3>Berry</h3>
+						<p class="product-price"><span>Per Kg</span> 70$ </p>
+						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href="single-product.html"><img src="assets/img/products/product-img-3.jpg" alt=""></a>
+						</div>
+						<h3>Lemon</h3>
+						<p class="product-price"><span>Per Kg</span> 35$ </p>
+						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end more products -->
+
+	<!-- logo carousel -->
+	<div class="logo-carousel-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="logo-carousel-inner">
+						<div class="single-logo-item">
+							<img src="assets/img/company-logos/1.png" alt="">
+						</div>
+						<div class="single-logo-item">
+							<img src="assets/img/company-logos/2.png" alt="">
+						</div>
+						<div class="single-logo-item">
+							<img src="assets/img/company-logos/3.png" alt="">
+						</div>
+						<div class="single-logo-item">
+							<img src="assets/img/company-logos/4.png" alt="">
+						</div>
+						<div class="single-logo-item">
+							<img src="assets/img/company-logos/5.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end logo carousel -->
+
+	<!-- footer -->
+	<div class="footer-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box about-widget">
+						<h2 class="widget-title">About us</h2>
+						<p>At KQHAH Therapy, we’re dedicated to providing products that nourish, heal, and enhance your natural beauty. Inspired by a commitment to wellness and self-care, our offerings are carefully crafted from all-natural ingredients.</p>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box get-in-touch">
+						<h2 class="widget-title">Get in Touch</h2>
+						<ul>
+							<li>34/8, East Hukupara, Gifirtok, Sadan.</li>
+							<li>Kqhahtherapy09@gmail.com</li>
+							<li>+96596750535</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box pages">
+						<h2 class="widget-title">Pages</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="about.html">About</a></li>
+							<li><a href="shop.html">Shop</a></li>
+							<li><a href="contact.html">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-box subscribe">
+						<h2 class="widget-title">Subscribe</h2>
+						<p>Subscribe to our mailing list to get the latest updates.</p>
+						<form action="index.html">
+							<input type="email" placeholder="Email">
+							<button type="submit"><i class="fas fa-paper-plane"></i></button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end footer -->
+	
+	<!-- copyright -->
+	<div class="copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-12">
+					<p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>,  All Rights Reserved.</p>
+				</div>
+				<div class="col-lg-6 text-right col-md-12">
+					<div class="social-icons">
+						<ul>
+							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end copyright -->
+	
+	<!-- jquery -->
+	<script src="assets/js/jquery-1.11.3.min.js"></script>
+	<!-- bootstrap -->
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<!-- count down -->
+	<script src="assets/js/jquery.countdown.js"></script>
+	<!-- isotope -->
+	<script src="assets/js/jquery.isotope-3.0.6.min.js"></script>
+	<!-- waypoints -->
+	<script src="assets/js/waypoints.js"></script>
+	<!-- owl carousel -->
+	<script src="assets/js/owl.carousel.min.js"></script>
+	<!-- magnific popup -->
+	<script src="assets/js/jquery.magnific-popup.min.js"></script>
+	<!-- mean menu -->
+	<script src="assets/js/jquery.meanmenu.min.js"></script>
+	<!-- sticker js -->
+	<script src="assets/js/sticker.js"></script>
+	<!-- main js -->
+	<script src="assets/js/main.js"></script>
+
+</body>
+</html>
