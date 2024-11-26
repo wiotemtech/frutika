@@ -146,44 +146,7 @@
 						</form>
 					</div>
 
-					<script>
-						function sendEmail(event) {
-							event.preventDefault(); // Prevent the default form submission
-
-							// Get form values
-							const name = document.getElementById('name').value;
-							const email = document.getElementById('email').value;
-							const phone = document.getElementById('phone').value;
-							const subject = document.getElementById('subject').value;
-							const message = document.getElementById('message').value;
-
-							// Validate inputs
-							if (name === "" || email === "" || phone === "" || subject === "" || message === "") {
-								document.getElementById('form_status').innerHTML = "All fields are required.";
-								return false;
-							}
-
-							// Additional validation for email format
-							var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-							if (!emailRegex.test(email)) {
-								document.getElementById('form_status').innerHTML = "Please enter a valid email address.";
-								return false;
-							}
-
-							// Construct the subject and message for the Gmail link
-							const fullSubject = `New message from ${name}: ${subject}`;
-							const fullMessage = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nSubject: ${subject}\n\nMessage:\n${message}`;
-							
-							// Construct Gmail link
-							const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=namronny12@gmail.com&su=${encodeURIComponent(fullSubject)}&body=${encodeURIComponent(fullMessage)}`;
-
-							// Open Gmail in a new tab
-							window.open(gmailLink, '_blank');
-
-							// Optionally, you can show a status message after the email link opens
-							document.getElementById('form_status').innerHTML = "Opening your email client...";
-						}
-					</script>
+					<!--  -->
 
 					
 				</div>
@@ -319,6 +282,45 @@
 		color: red; /* For errors */
 	}
 	</style>
+
+	<script>
+						function sendEmail(event) {
+							event.preventDefault(); // Prevent the default form submission
+
+							// Get form values
+							const name = document.getElementById('name').value;
+							const email = document.getElementById('email').value;
+							const phone = document.getElementById('phone').value;
+							const subject = document.getElementById('subject').value;
+							const message = document.getElementById('message').value;
+
+							// Validate inputs
+							if (name === "" || email === "" || phone === "" || subject === "" || message === "") {
+								document.getElementById('form_status').innerHTML = "All fields are required.";
+								return false;
+							}
+
+							// Additional validation for email format
+							var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+							if (!emailRegex.test(email)) {
+								document.getElementById('form_status').innerHTML = "Please enter a valid email address.";
+								return false;
+							}
+
+							// Construct the subject and message for the Gmail link
+							const fullSubject = `New message from ${name}: ${subject}`;
+							const fullMessage = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nSubject: ${subject}\n\nMessage:\n${message}`;
+							
+							// Construct Gmail link
+							const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=namronny12@gmail.com&su=${encodeURIComponent(fullSubject)}&body=${encodeURIComponent(fullMessage)}`;
+
+							// Open Gmail in a new tab
+							window.open(gmailLink, '_blank');
+
+							// Optionally, you can show a status message after the email link opens
+							document.getElementById('form_status').innerHTML = "Opening your email client...";
+						}
+					</script>
 	
 </body>
 </html>
