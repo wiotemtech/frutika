@@ -113,7 +113,7 @@
 								<li><a href="contact.html">Contact</a></li>
 								<li>
 									<div class="header-icons">
-										<a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+										<a class="shopping-cart" href="cart.php"><i class="fas fa-shopping-cart"></i></a>
 										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
 									</div>
 								</li>
@@ -156,8 +156,8 @@
 					<div class="breadcrumb-text">
 						<h1>Customize Your Scent</h1>
 						<div class="hero-btns1">
-							<a href="custom.html" class="boxed"> Perfumes</a>
-							<a href="custom2.html" class="border" active>Butters</a>
+							<a href="custom.php" class="boxed"> Perfumes</a>
+							<a href="custom2.php" class="border" active>Butters</a>
 						</div>
 					</div>
 				</div>
@@ -312,6 +312,10 @@
 							<input type="text" required id="phone" name="phone" class="customization-input" placeholder="Phone...">
 						</div>
 						<div class="customization-group">
+							<label class="customization-label">Payment reference: </label>
+							<input type="text" required id="payfer" name="payref" class="customization-input" placeholder="Enter the last four digits of your order ID">
+                    	</div>
+						<div class="customization-group">
 							<label class="customization-label">Address: </label>
 							<input type="text" required id="address" name="address" class="customization-input" placeholder="Address...">
 						</div>
@@ -321,7 +325,7 @@
 				
 					<input type="number" placeholder="1" min="1" max="10" class="quantity-input">
 					<div id="paymentMessage" style="margin-top: 10px;">Your submit button will appear here after payment.</div>
-				<button name ="submit_order" type="submit" id="submitOrder" style="display: none;" class="btn-submit">Submit Order</button>
+				<button name ="submit_order" type="submit" id="submitOrder"  class="btn-submit">Submit Order</button>
 			</div>
 		</form>
 		  <!-- Totals Table -->

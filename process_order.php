@@ -1,88 +1,71 @@
 <?php
-header("Content-Type: application/json");
-
-// Get POST data
-$input = file_get_contents('php://input');
-$data = json_decode($input, true);
-
-// Check if input data is valid
-if (!$data || !isset($data['cart']) || empty($data['cart'])) {
-    echo json_encode(['success' => false, 'message' => 'Invalid or missing data']);
-    exit;
-}
-
-// Extract and sanitize fields
-$firstName = htmlspecialchars($data['firstName'] ?? '');
-$email = htmlspecialchars($data['email'] ?? '');
-$phone = htmlspecialchars($data['phone'] ?? '');
-$shippingAddress = htmlspecialchars($data['shippingAddress'] ?? '');
-$billingAddress = htmlspecialchars($data['billingAddress'] ?? '');
-$subtotal = floatval($data['subtotal'] ?? 0);
-$shipping = floatval($data['shipping'] ?? 0);
-$tax = floatval($data['tax'] ?? 0);
-$total = floatval($data['total'] ?? 0);
-$orderDate = htmlspecialchars($data['orderDate'] ?? '');
-
-if (empty($firstName) || empty($email) || empty($phone) || empty($shippingAddress) || empty($billingAddress)) {
-    echo json_encode(['success' => false, 'message' => 'Required fields are missing']);
-    exit;
-}
-
 // Database connection
-$conn = new mysqli('localhost', 'root', 'password', 'your_database');
-if ($conn->connect_error) {
-    echo json_encode(['success' => false, 'message' => 'Database connection failed']);
-    exit;
-}
+$servername = "localhost"; // Replace with your database server if not localhost
+$username = "root"; // Replace with your database username
+$password = ""; // Replace with your database password
+$dbname = "ordermanagement"; // Your existing database name
 
-// Prepare the SQL statement
-$stmt = $conn->prepare(
-    "INSERT INTO orders (customer_first_name, customer_email, customer_phone_number, customer_shipping_address, customer_billing_address, product_name, product_price, quantity, subtotal, shipping, tax, total, order_date) 
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
-);
+// Enable error reporting for debugging
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-if (!$stmt) {
-    echo json_encode(['success' => false, 'message' => 'Failed to prepare SQL statement']);
-    $conn->close();
-    exit;
-}
+header('Content-Type: text/plain'); // Set response content type for debugging
 
-// Insert each cart item into the database
-$cart = $data['cart'];
-foreach ($cart as $item) {
-    $productName = htmlspecialchars($item['name'] ?? '');
-    $productPrice = floatval($item['price'] ?? 0);
-    $quantity = intval($item['quantity'] ?? 0);
+// Check if request method is POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Capture POST data with sanitization and validation
+    $name = isset($_POST['name']) ? trim($_POST['name']) : '';
+    $email = isset($_POST['email']) ? filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL) : '';
+    $phone = isset($_POST['phone']) ? trim($_POST['phone']) : '';
+    $address = isset($_POST['address']) ? trim($_POST['address']) : '';
+    $city = isset($_POST['city']) ? trim($_POST['city']) : '';
+    $street = isset($_POST['street']) ? trim($_POST['street']) : '';
+    $cart_details = isset($_POST['cart_details']) ? trim($_POST['cart_details']) : '';
+    $subtotal = isset($_POST['subtotal']) ? floatval(str_replace('$', '', $_POST['subtotal'])) : 0; // Remove '$' and convert to float
+    $shipping = isset($_POST['shipping']) ? floatval(str_replace('$', '', $_POST['shipping'])) : 0; // Remove '$' and convert to float
+    $tax = isset($_POST['tax']) ? floatval(str_replace('%', '', $_POST['tax'])) : 0; // Remove '%' and convert to float
+    $total = isset($_POST['total']) ? floatval(str_replace('$', '', $_POST['total'])) : 0; // Remove '$' and convert to float
+    $message = isset($_POST['message']) ? trim($_POST['message']) : '';
+    $payref = isset($_POST['payref']) ? trim($_POST['payref']) : '';
 
-    // Bind parameters (ensure the types match the database schema)
-    $stmt->bind_param(
-        "ssssssiddddds",
-        $firstName,
-        $email,
-        $phone,
-        $shippingAddress,
-        $billingAddress,
-        $productName,
-        $productPrice,
-        $quantity,
-        $subtotal,
-        $shipping,
-        $tax,
-        $total,
-        $orderDate
-    );
-
-    // Execute and check for errors
-    if (!$stmt->execute()) {
-        echo json_encode(['success' => false, 'message' => 'Failed to insert order', 'error' => $stmt->error]);
-        $stmt->close();
-        $conn->close();
+    // Validate required fields
+    if (empty($name) || empty($email) || empty($phone) || empty($address) || empty($city) || empty($street)) {
+        echo "Error: Missing required fields.";
         exit;
     }
-}
 
-// Success response
-echo json_encode(['success' => true, 'message' => 'Order inserted successfully']);
-$stmt->close();
-$conn->close();
+    // Debugging: Log received data
+    echo "Received Data:\n";
+    echo "Name: $name\nEmail: $email\nPhone: $phone\nAddress: $address\nCity: $city\nStreet: $street\n";
+    echo "Cart Details: $cart_details\nSubtotal: $subtotal\nShipping: $shipping\nTax: $tax\nTotal: $total\nMessage: $message\n";
+
+    // Database connection using MySQLi
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Check if connection was successful
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Prepare and bind the SQL query to avoid SQL injection
+    $stmt = $conn->prepare("INSERT INTO `regular_orders` 
+                            (`name`, `email`, `phone`, `address`, `city`, `street`, `cart_details`, `subtotal`, `shipping`, `tax`, `total`, `message`, `payref`) 
+                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+    // Bind parameters to the prepared statement
+    $stmt->bind_param("ssssssssdddss", $name, $email, $phone, $address, $city, $street, $cart_details, $subtotal, $shipping, $tax, $total, $message, $payref);
+
+    // Execute the query
+    if ($stmt->execute()) {
+        echo "Order successfully saved to the database.";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+    // Close the statement and connection
+    $stmt->close();
+    $conn->close();
+} else {
+    echo "Invalid request method.";
+}
 ?>

@@ -186,6 +186,8 @@ if (isset($_POST['submit_order'])) {
     $phone = isset($_POST['phone']) ? (string) $_POST['phone'] : null;
     $address = isset($_POST['address']) ? (string) $_POST['address'] : null;
     $quantity = isset($_POST['quantity']) ? (int) $_POST['quantity'] : 1;
+    $total = isset($_POST['total2']) ? (float) $_POST['total2'] : 0;
+    $payref = isset($_POST['payref']) ? (float) $_POST['payref'] : 0;
 
     // Input validation
     // if (empty($name) || empty($email) || empty($phone) || empty($address) || empty($quantity)) {
@@ -195,8 +197,8 @@ if (isset($_POST['submit_order'])) {
     // }
 
     // Using prepared statements for security
-    $query = "INSERT INTO custom_orders (customer_name, customer_email, customer_phone, customer_address, custom_name, specific_fragrance, base_oil, scent_profile, scent_intensity, additional_benefits, packaging, size, quantity) 
-              VALUES (:name, :email, :phone, :address, :customName, :specificFragrance, :baseOil, :scentProfile, :intensity, :benefits, :packaging, :size, :quantity)";
+    $query = "INSERT INTO custom_orders (customer_name, customer_email, customer_phone, customer_address, custom_name, specific_fragrance, base_oil, scent_profile, scent_intensity, additional_benefits, packaging, size, price, quantity, total) 
+              VALUES (:name, :email, :phone, :address, :customName, :specificFragrance, :baseOil, :scentProfile, :intensity, :benefits, :packaging, :size, :payref, :quantity, :total)";
     $stmt = $pdo->prepare($query);
 
     // Bind parameters
@@ -213,7 +215,8 @@ if (isset($_POST['submit_order'])) {
     $stmt->bindParam(':phone', $phone, PDO::PARAM_STR);
     $stmt->bindParam(':address', $address, PDO::PARAM_STR);
     $stmt->bindParam(':quantity', $quantity, PDO::PARAM_INT);
-
+    $stmt->bindParam(':total', $total, PDO::PARAM_STR);
+    $stmt->bindParam(':payref', $payref, PDO::PARAM_STR);
     // Execute and handle response
     if ($stmt->execute()) {
         $sm = "Order submitted successfully!";

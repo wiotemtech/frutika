@@ -124,7 +124,7 @@
 								<li><a href="contact.html">Contact</a></li>
 								<li>
 									<div class="header-icons">
-										<a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+										<a class="shopping-cart" href="cart.php"><i class="fas fa-shopping-cart"></i></a>
 										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
 									</div>
 								</li>
@@ -167,8 +167,8 @@
 					<div class="breadcrumb-text">
 						<h1>Customize Your Scent</h1>
 						<div class="hero-btns">
-							<a href="custom.html" class="boxed-btn"> Perfumes</a>
-							<a href="custom2.html" class="bordered-btn">Butters</a>
+							<a href="custom.php" class="boxed-btn"> Perfumes</a>
+							<a href="custom2.php" class="bordered-btn">Butters</a>
 						</div>
 
 					</div>
@@ -330,12 +330,18 @@
                         <label class="customization-label">Address: </label>
                         <input type="text" required id="address" name="address" class="customization-input" placeholder="Address...">
                     </div>
+                    <div class="customization-group">
+                        <label class="customization-label">Payment reference: </label>
+                        <input type="text" required id="payfer" name="payref" class="customization-input" placeholder="Enter the last four digits of your order ID">
+                    </div>
 
                     <!-- Quantity and Add to Cart -->
                     <div class="single-product-form">
                         <input type="number" name="quantity" placeholder="1" min="1" max="10" class="quantity-input">
                         <button name ="submit_order" type="submit" id="submitOrder" class="btn-submit">Submit Order</button>
                     </div>
+                    <input type="hidden" id="total2" name="total2" value="">
+
                 </form>
                                     <!-- Totals Table -->
                                     <table id="totalsTable">
@@ -397,24 +403,7 @@
     </div>
 </div>
 
-<!-- JavaScript to Handle Image Changes -->
-<script>
-    function changeColor(color) {
-        const productImage = document.getElementById("product-image");
 
-        switch (color) {
-            case 'plastic':
-                productImage.src = "assets/img/products/plastic-bottle.jpg";
-                break;
-            case 'glass':
-                productImage.src = "assets/img/products/glass-bottle.jpg";
-                break;
-            case 'spray':
-                productImage.src = "assets/img/products/spray-bottle.jpg";
-                break;
-        }
-    }
-</script>
 
 <!-- Styles -->
 <style>
@@ -783,200 +772,61 @@ input[type="radio"]:focus + label {
 	<!-- main js -->
 	<script src="assets/js/main.js"></script>
 
+	
 
-
-  <!-- Submit button -->
-
-
-<!-- <script>
-    // Object to store selected options and input values
-    const customizationData = {};
-
-    // Function to handle button selections
-    const handleButtonClick = (button) => {
-        const category = button.dataset.category; // e.g., baseOil, scentProfile, size
-        const value = button.dataset.size || button.dataset.price || button.textContent.trim(); // Extract data or button text
-
-        if (!category) return; // Skip if category is undefined
-
-        // Save the selected option in the customizationData object
-        customizationData[category] = value;
-
-        // Highlight the selected button for better UX
-        document.querySelectorAll(`[data-category="${category}"]`).forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-
-        console.log(`Selected ${category}: ${value}`); // Debugging
-    };
-
-    // Function to collect text input values
-    const collectInputFields = () => {
-        const inputFields = ['specificFragrance', 'customName', 'name', 'email', 'phone', 'address'];
-        inputFields.forEach(field => {
-            const input = document.getElementById(field);
-            if (input) {
-                // Treat empty fields as empty strings to avoid null values
-                customizationData[field] = input.value.trim() || '';
-            }
-        });
-    };
-
-    // Function to validate required fields
-    //const validateForm = () => {
-   //     if (!customizationData.name || !customizationData.email || !customizationData.size) {
-    //        alert('Please fill in all required fields (Name, Email, and Size).');
-    //        return false;
-    //    }
-    //    return true;
-    //};
-
-    // Function to handle form submission
-    const handleFormSubmit = (event) => {
-        event.preventDefault(); // Prevent the default form submission
-
-        // Collect text input values
-        collectInputFields();
-
-        // Validate required fields
-        if (!validateForm()) return;
-
-        console.log('Collected customization data:', customizationData); // Debugging
-
-        // Submit data to the server
-        fetch('submit_order.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(customizationData),
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert('Order submitted successfully!');
-                    clearForm(); // Optionally clear form or reset
-                } else {
-                    alert('Error: ' + (data.message || 'Unknown error occurred.'));
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('An error occurred while submitting your order. Please try again.');
-            });
-    };
-
-    // Function to clear form and reset selections
-    const clearForm = () => {
-        // Clear text inputs
-        document.querySelectorAll('input').forEach(input => input.value = '');
-
-        // Reset customizationData object
-        for (const key in customizationData) {
-            customizationData[key] = null;
-        }
-
-        // Remove active highlights from buttons
-        document.querySelectorAll('.btn-option').forEach(button => button.classList.remove('active'));
-
-        console.log('Form cleared and selections reset.');
-    };
-
-    // Add event listeners to buttons
-    document.querySelectorAll('.btn-option').forEach(button => {
-        button.addEventListener('click', () => handleButtonClick(button));
-    });
-
-    // Add event listener to the form
-    document.querySelector('form').addEventListener('submit', handleFormSubmit);
-</script> -->
-
-
-<script>
-    // Function to display the popup
-    function showPopup(title, message) {
-        document.getElementById('popup-title').innerText = title;
-        document.getElementById('popup-message').innerText = message;
-        document.getElementById('popup').style.display = 'block';
-        document.getElementById('popup-overlay').style.display = 'block';
-    }
-
-    // Function to close the popup
-    function closePopup() {
-        document.getElementById('popup').style.display = 'none';
-        document.getElementById('popup-overlay').style.display = 'none';
-    }
-
-    // Check for success or error messages
-    <?php if ($successMessage): ?>
-        showPopup("Success", "<?php echo $successMessage; ?>");
-    <?php elseif ($errorMessage): ?>
-        showPopup("Error", "<?php echo $errorMessage; ?>");
-    <?php endif; ?>
-
-
-
-</script>
-<script>
+	<script>
    function calculateTotal() {
-    // Global variables that need to be defined earlier in the script or HTML
     const taxRate = 0.10; // 10% tax rate
-    const shippingCost = 10; // Fixed shipping cost
+    const shippingCost = 2; // Fixed shipping cost
 
-    let selectedSizePrice = 0;
+    // Find the selected size radio button
+    const selectedSizeElement = document.querySelector('input[name="size"]:checked');
     
-    // Check which radio button is selected
-    if (document.getElementById('size2Oz').checked) {
-        selectedSizePrice = 35;
-        console.log("2 Oz selected");
-    } else if (document.getElementById('size4Oz').checked) {
-        selectedSizePrice = 45;
-        console.log("4 Oz selected");
-    } else if (document.getElementById('size6Oz').checked) {
-        selectedSizePrice = 55;
-        console.log("6 Oz selected");
-    }
-    
-    if (selectedSizePrice === 0) {
+    if (!selectedSizeElement) {
         console.log("No size selected");
         return;
     }
-    
-    // Get the quantity entered by the user
+
+    // Extract price from the value attribute
+    const selectedSizeValue = selectedSizeElement.value;
+    const selectedSizePrice = parseInt(selectedSizeValue.match(/\$(\d+)/)[1]);
+
+    // Get quantity (default to 1 if not specified)
     const quantityInput = document.querySelector('.quantity-input');
-    const quantity = parseInt(quantityInput.value) || 1; // Default to 1 if no value
-    console.log("Quantity entered:", quantity);
-    
-    // Calculate subtotal: price of selected size * quantity
+    const quantity = parseInt(quantityInput.value) || 1;
+
+    // Calculate totals
     const subtotal = selectedSizePrice * quantity;
-    console.log("Subtotal:", subtotal);
-    
-    // Calculate tax (10%)
     const tax = subtotal * taxRate;
-    console.log("Tax:", tax);
-    
-    // Calculate total
     const total = subtotal + shippingCost + tax;
-    console.log("Total:", total);
-    
-    // Update the totals in the table
-    const subtotalElement = document.getElementById('subtotal');
-    const shippingElement = document.getElementById('shipping');
-    const taxElement = document.getElementById('tax');
-    const totalElement = document.getElementById('total');
-    
-    subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
-    shippingElement.textContent = `$${shippingCost.toFixed(2)}`;
-    taxElement.textContent = `$${tax.toFixed(2)}`;
-    totalElement.textContent = `$${total.toFixed(2)}`;
+
+    // Update table elements
+    document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+    document.getElementById('shipping').textContent = `$${shippingCost.toFixed(2)}`;
+    document.getElementById('tax').textContent = `$${tax.toFixed(2)}`;
+    document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+    document.getElementById('total2').value = total.toFixed(2);
 }
 
-// Add event listeners to radio buttons and quantity input
-document.getElementById('size2Oz').addEventListener('change', calculateTotal);
-    document.getElementById('size4Oz').addEventListener('change', calculateTotal);
-    document.getElementById('size6Oz').addEventListener('change', calculateTotal);
+// Add event listeners
+document.querySelectorAll('input[name="size"]').forEach(radio => {
+    radio.addEventListener('change', calculateTotal);
+});
+
+
+
+
+
+
+// // Add event listeners to radio buttons and quantity input
+// document.getElementById('size2Oz').addEventListener('change', calculateTotal);
+//     document.getElementById('size4Oz').addEventListener('change', calculateTotal);
+//     document.getElementById('size6Oz').addEventListener('change', calculateTotal);
     
-    document.querySelector('.quantity-input').addEventListener('input', calculateTotal);
+//     document.querySelector('.quantity-input').addEventListener('input', calculateTotal);
 
 </script>
-<script>
+<!-- <script>
 // Function to get the total from the table
 function getTotalAmount() {
     // Get the total value from the table
@@ -1013,10 +863,71 @@ paypal.Buttons({
         });
     }
 }).render('#paypal-button-container'); // This renders the PayPal button inside the container
+</script> -->
 
 
+<script>
+  document.addEventListener("DOMContentLoaded", async () => {
+    // Initialize Square Payments API
+    const payments = Square.payments(
+      "sandbox-sq0idb-aJFDlfafbvJ-CHYnPel2EQ", // Replace with your Square Application ID
+      "sandbox" // Use 'production' for live transactions, or 'sandbox' for testing
+    );
+
+    try {
+      // Create the payment form
+      const paymentForm = await payments.card({
+       
+      });
+
+      // Attach the payment form to the element with ID 'payment-form'
+      await paymentForm.attach("#payment-form");
+
+      // Ensure the payment form is successfully attached before enabling the pay button
+      document.getElementById("pay-button").disabled = false; // Enable the Pay button
+
+      // Add event listener to the Pay button
+      document.getElementById("pay-button").addEventListener("click", async () => {
+		const totalAmount = parseFloat(document.getElementById("total").innerText) * 100;  // Retrieve the total amount (in cents)
+
+        try {
+          // Tokenize the payment form to generate a payment token
+          const result = await paymentForm.tokenize();
+
+          if (result.status === "OK") {
+			console.log("Tokenization successful:", result.token);
+            // Send payment token and amount to your backend for processing
+            const response = await fetch("process-payment.php", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ token: result.token, amount: totalAmount}),
+            });
+
+            const data = await response.json();
+            if (data.success) {
+            alert("Payment successful!");
+            showSubmitOrderButton(); // Assuming this is defined elsewhere
+          } else {
+            alert("Payment failed: " + data.error);
+          }
+        } else {
+          console.error("Tokenization failed:", result.errors);
+        }
+      } catch (error) {
+        console.error("Error processing payment:", error);
+      }
+      });
+    } catch (error) {
+      console.error("Error initializing the payment form:", error);
+    }
+  });
 
 
+  // Function to display the Submit Order button
+function showSubmitOrderButton() {
+    const submitOrderButton = document.getElementById("submitOrder");
+    submitOrderButton.style.display = "block"; // Make the button visible
+}
 
 // Get the current page's URL path (e.g., "custom.html" or "custom2.html")
 const currentPage = window.location.pathname.split("/").pop();
@@ -1030,12 +941,11 @@ menuButtons.forEach((button) => {
     button.classList.add('active'); // Add the 'active' class to highlight
   }
 });
+// Update the hidden total input field before form submission
+document.getElementById('total2').value = total.toFixed(2);
 
 
 </script>
-
-
-    
 
 
 
