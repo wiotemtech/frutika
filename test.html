@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Square Payment Integration</title>
+  <script src="https://web.squarecdn.com/v1/square.js"></script>
+  <style>
+    #payment-form {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    #pay-button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 15px 32px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="payment-form"></div>
+  <input type="text" id="total-amount" placeholder="Enter total amount" />
+  <button id="pay-button">Pay</button>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const payments = Square.payments(
+        "YOUR_APPLICATION_ID", // Replace with your Square Application ID
+        "sandbox" // Use 'sandbox' for testing, 'production' for live transactions
+      );
+
+      const card = await payments.card();
+      await card.attach("#payment-form");
+
+      document.getElementById("pay-button").addEventListener("click", async () => {
+        const totalAmount = document.getElementById("total-amount").value;
+
+        try {
+          const result = await card.tokenize();
+          if (result.status === "OK") {
+            const response = await fetch("process-payment.php", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ token: result.token, amount: totalAmount }),
+            });
+
+            const data = await response.json();
+            if (data.success) {
+              alert("Payment successful!");
+            } else {
+              alert("Payment failed: " + data.error);
+            }
+          } else {
+            console.error("Tokenization failed:", result.errors);
+          }
+        } catch (error) {
+          console.error("Error during tokenization:", error);
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
+S

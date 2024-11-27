@@ -31,6 +31,65 @@
 	<!-- responsive -->
 	<link rel="stylesheet" href="assets/css/responsive.css">
 
+	<style>
+		/* Base styles for buttons */
+			.product-filters1 a {
+			font-family: 'Poppins', sans-serif;
+			display: inline-block;
+			padding: 10px 20px;
+			text-decoration: none;
+			text-align: center;
+			border-radius: 40px; /* Add rounded corners */
+			transition: all 0.3s ease; /* Smooth transition for hover effects */
+			}
+
+			/* Styling for the boxed button */
+			.product-filters1 a.border {
+			background-color: #F28123;
+			color: #fff;
+			border: 2px solid transparent; /* No visible border */
+			}
+
+			/* Styling for the border button */
+			.product-filters1 a.boxed {
+			background-color: transparent;
+			color: #F28123;
+			border: 2px solid #F28123; /* Orange border */
+			}
+
+			/* Active state for the border button */
+			.product-filters1 a.border.active {
+			border: 2px solid #c56b18; /* Darker orange for active state */
+			color: #c56b18; /* Darker orange text */
+			font-weight: bold; /* Make the active button text bold */
+			}
+
+			/* Hover effects */
+			.product-filters1 a:hover {
+			transform: scale(1.05); /* Slight zoom on hover */
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+			}
+			.product-filters1 ul {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				text-align: center;
+				}
+				.product-filters1 ul li {
+					display: inline-block;
+					font-weight: 700;
+					font-size: 18px;
+					margin: 15px;
+					cursor: pointer;
+					padding: 8px 10px;
+					border-radius: 25px;
+				}
+				.product-filters1 {
+					margin-bottom: 50px;
+					margin-top: -110px;
+				}
+	</style>
+
 </head>
 <body>
 	
@@ -58,15 +117,15 @@
 						<!-- menu start -->
 						<nav class="main-menu">
 							<ul>
-								<li class="current-list-item"><a href="index.html">Home</a>
+								<li ><a href="index.html">Home</a>
 								</li>
-								<li><a href="shop.html">Product</a>
+								<li class="current-list-item"><a href="shop.html">Product</a>
 								</li>
 								<li><a href="about.html">About us</a></li>
 								<li><a href="contact.html">Contact</a></li>
 								<li>
 									<div class="header-icons">
-										<a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+										<a class="shopping-cart" href="cart.php"><i class="fas fa-shopping-cart"></i></a>
 										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
 									</div>
 								</li>
@@ -122,11 +181,11 @@
 
 			<div class="row">
                 <div class="col-md-12">
-                    <div class="product-filters">
+					<div class="product-filters1">
                         <ul>
-                            <li><a href="shop.html">All</li></a>
-							<li><a href="shop4.html">Butter</li></a>
-                            <li><a href="shop5.html">Body Oils</li></a>
+                            <li><a href="shop.html" class="border">All</li></a>
+							<li><a  href="shop4.html" class="boxed" active >Butter</li></a>
+                            <li><a href="shop5.html" class="boxed">Body Oils</li></a>
                         </ul>
                     </div>
                 </div>
@@ -136,16 +195,16 @@
 				<div class="col-lg-4 col-md-6 text-center strawberry">
 				<div class="single-product-item">
 					<div class="product-image">
-						<img src="assets/img/products/product-img-1.png" alt="Shea Butter">
+						<img src="assets/img/products/b2.jpg" alt="Shea Butter">
 					</div>
 					<h3>Bite Me</h3>
 					
 					<div class="product-details">
 						<label for="quantity-select-1">Select Size:</label>
-						<select id="quantity-select-1" onchange="updatePrice(12.5, 'price-1', this.value)">
-							<option value="2">3oz - $25</option>
-							<option value="2.8">6oz - $35</option>
-							<option value="3.6">8oz - $45</option>
+						<select id="quantity-select-1" onchange="updatePrice(15, 'price-1', this.value)">
+							<option value="2">3oz - $30</option>
+							<option value="2.67">6oz - $40</option>
+							<option value="3.33">8oz - $50</option>
 						</select>
 						<p class="product-price">Price: <span id="price-1">$25</span></p>
 					</div>
@@ -219,16 +278,16 @@
 			<div class="col-lg-4 col-md-6 text-center lemon">
 				<div class="single-product-item">
 					<div class="product-image">
-						<img src="assets/img/products/product-img-5.jpg" alt="Baccarat 540">
+						<img src="assets/img/products/product-img-13.jpg" alt="Baccarat 540">
 					</div>
 					<h3>Miss Dior</h3>
 					
 					<div class="product-details">
 						<label for="quantity-select-3">Select Size:</label>
-						<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-5', this.value)">
-							<option value="2">2oz - $25</option>
-							<option value="2.8">4oz - $35</option>
-							<option value="3.6">6oz - $45</option>
+						<select id="quantity-select-3" onchange="updatePrice(15, 'price-5', this.value)">
+							<option value="2">3oz - $30</option>
+							<option value="2.67">6oz - $40</option>
+							<option value="3.33">8oz - $50</option>
 						</select>
 						<p class="product-price">Price: <span id="price-5">$25</span></p>
 					</div>
@@ -239,16 +298,16 @@
 			<div class="col-lg-4 col-md-6 text-center lemon">
 				<div class="single-product-item">
 					<div class="product-image">
-						<img src="assets/img/products/product-img-6.jpg" alt="Baccarat 540">
+						<img src="assets/img/products/product-img-1.png" alt="Baccarat 540">
 					</div>
 					<h3>Killing Me Slowly</h3>
 					
 					<div class="product-details">
 						<label for="quantity-select-3">Select Size:</label>
 						<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-6', this.value)">
-							<option value="2">2oz - $25</option>
-							<option value="2.8">4oz - $35</option>
-							<option value="3.6">6oz - $45</option>
+							<option value="2">3oz - $30</option>
+							<option value="2.67">6oz - $40</option>
+							<option value="3.33">8oz - $50</option>
 						</select>
 						<p class="product-price">Price: <span id="price-6">$25</span></p>
 					</div>
@@ -405,10 +464,10 @@
 				
 				<div class="product-details">
 					<label for="quantity-select-3">Select Size:</label>
-					<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-8', this.value)">
-						<option value="2">2oz - $25</option>
-						<option value="2.8">4oz - $35</option>
-						<option value="3.6">6oz - $45</option>
+					<select id="quantity-select-3" onchange="updatePrice(15, 'price-8', this.value)">
+						<option value="2">3oz - $30</option>
+						<option value="2.67">6oz - $40</option>
+						<option value="3.33">8oz - $50</option>
 					</select>
 					<p class="product-price">Price: <span id="price-8">$25</span></p>
 				</div>
