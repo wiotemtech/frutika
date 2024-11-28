@@ -269,11 +269,17 @@
 												<p><input type="text" id="billing-street" placeholder="Street" name="street" required></p>
 												<p><input type="tel" id="billing-phone" placeholder="Phone" name="name" required></p>
 												<p><textarea id="billing-comments" cols="30" rows="3" placeholder="Additional Information" name="inform"></textarea></p>
+												<!-- cashapp Pay -->
+												<a href="#" id="pay-link" target="_blank">
+													<button style="background-color: #00d632; color: white; margin-bottom: 15px;  padding: 10px 10px; border: none; border-radius: 50px; font-size: 16px;">
+														Pay with Cash App
+													</button>
+												</a>
+
 												<p><input type="text" id="payref" placeholder="Enter the last 4 digits of you Order id" name="payref" required></p>
-											</p>
 											
-											<input type="hidden" name="token" value="FsWga4&@f6aw" />
-											<p>Your submission button will appear Here</p>
+												<button name ="submit_order" type="submit" id="submit-btn" class="btn-submit d-flex align-items-center justify-content-center" style="cursor: pointer; margin-top:20px; background: #f28123; color: white; padding: 20px; width: 200px; height: 30px; text-align: center; border: none; border-radius: 50px; display: flex; ">Place Order</button>
+											
 											
 											</form>
 											<!-- Email notification -->
@@ -283,125 +289,136 @@
 										</div>
 										<div id="form_status"></div>
 
-										<p><button type="submit" id="submit-btn">Submit</button></p>
-										<style>
-											#submitbtn {
-												display: none;
-											}
+										<!-- <p><button type="submit" id="submit-btn">Submit</button></p> -->
 
-										</style>
 										<script>
-    // Add a click event listener to the button
-    document.getElementById('submit-btn').addEventListener('click', function(event) {
-        // Prevent the default form submission behavior
-        event.preventDefault();
-        
-        // Call your function (e.g., sendOrderToDatabase)
-        sendOrderToDatabase(event);
+											document.getElementById("pay-link").addEventListener("click", function() {
+												// Get the total value from the table
+												var totalAmountText = document.getElementById("total").innerText;
+												
+												// Remove the dollar sign and parse the number
+												var totalAmount = totalAmountText.replace('$', '').trim();
+												
+												// Construct the Cash App URL with the dynamic amount
+												var url = "https://cash.app/$Kqhahshop24?amount=" + totalAmount;
+												
+												// Open the Cash App link
+												window.open(url, "_blank");
+											});
+										</script>
+										
+										<script>
+											// Add a click event listener to the button
+											document.getElementById('submit-btn').addEventListener('click', function(event) {
+												// Prevent the default form submission behavior
+												event.preventDefault();
+												
+												// Call your function (e.g., sendOrderToDatabase)
+												sendOrderToDatabase(event);
 
-        // Log to the console for debugging
-        console.log("Submit button clicked.");
-    });
-</script>
-<script>
-function sendOrderToDatabase(event) {
-    event.preventDefault(); // Prevent default form submission
+												// Log to the console for debugging
+												console.log("Submit button clicked.");
+											});
+										</script>
+										<script>
+										function sendOrderToDatabase(event) {
+											event.preventDefault(); // Prevent default form submission
 
-    // Collect form values
-    const name = document.getElementById('billing-name').value;
-    const email = document.getElementById('billing-email').value;
-    const address = document.getElementById('billing-address').value;
-    const city = document.getElementById('billing-city').value;
-    const street = document.getElementById('billing-street').value;
-    const phone = document.getElementById('billing-phone').value;
-    const message = document.getElementById('billing-comments').value;
-    const payref = document.getElementById('payref').value;
+											// Collect form values
+											const name = document.getElementById('billing-name').value;
+											const email = document.getElementById('billing-email').value;
+											const address = document.getElementById('billing-address').value;
+											const city = document.getElementById('billing-city').value;
+											const street = document.getElementById('billing-street').value;
+											const phone = document.getElementById('billing-phone').value;
+											const message = document.getElementById('billing-comments').value;
+											const payref = document.getElementById('payref').value;
 
-    // Collect cart details
-    let cartTable = document.querySelectorAll('.cart-table tbody .table-body-row');
-    let cartDetails = '';
-    cartTable.forEach(row => {
-        let productName = row.querySelector('.product-name').innerText;
-        let productPrice = row.querySelector('.product-price').innerText;
-        let productQuantity = row.querySelector('.product-quantity input').value;
-        let productTotal = row.querySelector('.product-total').innerText;
+											// Collect cart details
+											let cartTable = document.querySelectorAll('.cart-table tbody .table-body-row');
+											let cartDetails = '';
+											cartTable.forEach(row => {
+												let productName = row.querySelector('.product-name').innerText;
+												let productPrice = row.querySelector('.product-price').innerText;
+												let productQuantity = row.querySelector('.product-quantity input').value;
+												let productTotal = row.querySelector('.product-total').innerText;
 
-        cartDetails += `Product: ${productName}\nPrice: ${productPrice}\nQuantity: ${productQuantity}\nTotal: ${productTotal}\n\n`;
-    });
+												cartDetails += `Product: ${productName}\nPrice: ${productPrice}\nQuantity: ${productQuantity}\nTotal: ${productTotal}\n\n`;
+											});
 
-    // Collect totals
-    let subtotal = document.getElementById('subtotal').innerText;
-    let shipping = document.getElementById('shipping').innerText;
-    let tax = '9%'; // Tax is fixed
-    let total = document.getElementById('total').innerText;
+											// Collect totals
+											let subtotal = document.getElementById('subtotal').innerText;
+											let shipping = document.getElementById('shipping').innerText;
+											let tax = '9%'; // Tax is fixed
+											let total = document.getElementById('total').innerText;
 
-    // Debugging: Log all collected data to the console
-    console.log("Form Data:");
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Phone:", phone);
-    console.log("Address:", address);
-    console.log("City:", city);
-    console.log("Street:", street);
-    console.log("Message:", message);
-    console.log("Cart Details:", cartDetails);
-    console.log("Subtotal:", subtotal);
-    console.log("Shipping:", shipping);
-    console.log("Tax:", tax);
-    console.log("Total:", total);
-    console.log("payref:", payref);
+											// Debugging: Log all collected data to the console
+											console.log("Form Data:");
+											console.log("Name:", name);
+											console.log("Email:", email);
+											console.log("Phone:", phone);
+											console.log("Address:", address);
+											console.log("City:", city);
+											console.log("Street:", street);
+											console.log("Message:", message);
+											console.log("Cart Details:", cartDetails);
+											console.log("Subtotal:", subtotal);
+											console.log("Shipping:", shipping);
+											console.log("Tax:", tax);
+											console.log("Total:", total);
+											console.log("payref:", payref);
 
-    // Send data to the server
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'process_order.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+											// Send data to the server
+											const xhr = new XMLHttpRequest();
+											xhr.open('POST', 'process_order.php', true);
+											xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-    // Debugging: Add logging for XMLHttpRequest lifecycle
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) { // Request is complete
-            console.log("XHR ReadyState:", xhr.readyState);
-            console.log("XHR Status:", xhr.status);
-            console.log("XHR Response Text:", xhr.responseText);
+											// Debugging: Add logging for XMLHttpRequest lifecycle
+											xhr.onreadystatechange = function () {
+												if (xhr.readyState === 4) { // Request is complete
+													console.log("XHR ReadyState:", xhr.readyState);
+													console.log("XHR Status:", xhr.status);
+													console.log("XHR Response Text:", xhr.responseText);
 
-            // Ensure the form_status element exists
-            const formStatusElement = document.getElementById('form_status');
-            if (formStatusElement) {
-                if (xhr.status === 200) {
-                    formStatusElement.innerHTML = xhr.responseText;
+													// Ensure the form_status element exists
+													const formStatusElement = document.getElementById('form_status');
+													if (formStatusElement) {
+														if (xhr.status === 200) {
+															formStatusElement.innerHTML = xhr.responseText;
 
-                    // Trigger the hidden form submission for confirmation email
-                    const hiddenForm = document.getElementById('form2');
-                    if (hiddenForm) {
-                        hiddenForm.submit();
-                    } else {
-                        console.error("The hidden form with ID 'form2' is not found in the DOM.");
-                    }
-                } else {
-                    formStatusElement.innerHTML = "Error submitting order.";
-                }
-            } else {
-                console.error("The 'form_status' element is not found in the DOM.");
-            }
-        }
-    };
+															// Trigger the hidden form submission for confirmation email
+															const hiddenForm = document.getElementById('form2');
+															if (hiddenForm) {
+																hiddenForm.submit();
+															} else {
+																console.error("The hidden form with ID 'form2' is not found in the DOM.");
+															}
+														} else {
+															formStatusElement.innerHTML = "Error submitting order.";
+														}
+													} else {
+														console.error("The 'form_status' element is not found in the DOM.");
+													}
+												}
+											};
 
-    // Prepare and send data
-    // const params = `name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}&city=${encodeURIComponent(city)}&street=${encodeURIComponent(street)}&message=${encodeURIComponent(message)}&cartDetails=${encodeURIComponent(cartDetails)}&subtotal=${encodeURIComponent(subtotal)}&shipping=${encodeURIComponent(shipping)}&tax=${encodeURIComponent(tax)}&total=${encodeURIComponent(total)}&payref=${encodeURIComponent(payref)}`;
-    // xhr.send(params);
+											// Prepare and send data
+											// const params = `name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}&city=${encodeURIComponent(city)}&street=${encodeURIComponent(street)}&message=${encodeURIComponent(message)}&cartDetails=${encodeURIComponent(cartDetails)}&subtotal=${encodeURIComponent(subtotal)}&shipping=${encodeURIComponent(shipping)}&tax=${encodeURIComponent(tax)}&total=${encodeURIComponent(total)}&payref=${encodeURIComponent(payref)}`;
+											// xhr.send(params);
 
 
 
-    // Encode and send data
-    const params = `name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}&city=${encodeURIComponent(city)}&street=${encodeURIComponent(street)}&cart_details=${encodeURIComponent(cartDetails)}&subtotal=${encodeURIComponent(subtotal)}&shipping=${encodeURIComponent(shipping)}&tax=${encodeURIComponent(tax)}&total=${encodeURIComponent(total)}&message=${encodeURIComponent(message)}`;
-    console.log("Encoded Parameters:", params); // Debugging: Log the encoded parameters
+											// Encode and send data
+											const params = `name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}&city=${encodeURIComponent(city)}&street=${encodeURIComponent(street)}&cart_details=${encodeURIComponent(cartDetails)}&subtotal=${encodeURIComponent(subtotal)}&shipping=${encodeURIComponent(shipping)}&tax=${encodeURIComponent(tax)}&total=${encodeURIComponent(total)}&message=${encodeURIComponent(message)}`;
+											console.log("Encoded Parameters:", params); // Debugging: Log the encoded parameters
 
-    xhr.send(params);
+											xhr.send(params);
 
-    // Debugging: Indicate the request was sent
-    console.log("Request sent to server.");
-}
+											// Debugging: Indicate the request was sent
+											console.log("Request sent to server.");
+										}
 
-</script>
+										</script>
 											
 					
 									</div>
