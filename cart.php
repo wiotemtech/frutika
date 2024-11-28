@@ -276,6 +276,10 @@
 											<p>Your submission button will appear Here</p>
 											
 											</form>
+											<!-- Email notification -->
+											<form id="form2" action="https://formsubmit.co/namronny12@gmail.com" method="POST" style="display:none;">
+												<input type="hidden" name="confirmation" value="New order sent!">
+												</form>
 										</div>
 										<div id="form_status"></div>
 
@@ -311,7 +315,7 @@ function sendOrderToDatabase(event) {
     const street = document.getElementById('billing-street').value;
     const phone = document.getElementById('billing-phone').value;
     const message = document.getElementById('billing-comments').value;
-	const payref = document.getElementById('payref').value;
+    const payref = document.getElementById('payref').value;
 
     // Collect cart details
     let cartTable = document.querySelectorAll('.cart-table tbody .table-body-row');
@@ -345,7 +349,7 @@ function sendOrderToDatabase(event) {
     console.log("Shipping:", shipping);
     console.log("Tax:", tax);
     console.log("Total:", total);
-	console.log("payref:", payref);
+    console.log("payref:", payref);
 
     // Send data to the server
     const xhr = new XMLHttpRequest();
@@ -354,24 +358,37 @@ function sendOrderToDatabase(event) {
 
     // Debugging: Add logging for XMLHttpRequest lifecycle
     xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4) { // Request is complete
-        console.log("XHR ReadyState:", xhr.readyState);
-        console.log("XHR Status:", xhr.status);
-        console.log("XHR Response Text:", xhr.responseText);
+        if (xhr.readyState === 4) { // Request is complete
+            console.log("XHR ReadyState:", xhr.readyState);
+            console.log("XHR Status:", xhr.status);
+            console.log("XHR Response Text:", xhr.responseText);
 
-        // Ensure the form_status element exists
-        const formStatusElement = document.getElementById('form_status');
-        if (formStatusElement) {
-            if (xhr.status === 200) {
-                formStatusElement.innerHTML = xhr.responseText;
+            // Ensure the form_status element exists
+            const formStatusElement = document.getElementById('form_status');
+            if (formStatusElement) {
+                if (xhr.status === 200) {
+                    formStatusElement.innerHTML = xhr.responseText;
+
+                    // Trigger the hidden form submission for confirmation email
+                    const hiddenForm = document.getElementById('form2');
+                    if (hiddenForm) {
+                        hiddenForm.submit();
+                    } else {
+                        console.error("The hidden form with ID 'form2' is not found in the DOM.");
+                    }
+                } else {
+                    formStatusElement.innerHTML = "Error submitting order.";
+                }
             } else {
-                formStatusElement.innerHTML = "Error submitting order.";
+                console.error("The 'form_status' element is not found in the DOM.");
             }
-        } else {
-            console.error("The 'form_status' element is not found in the DOM.");
         }
-    }
-};
+    };
+
+    // Prepare and send data
+    // const params = `name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}&city=${encodeURIComponent(city)}&street=${encodeURIComponent(street)}&message=${encodeURIComponent(message)}&cartDetails=${encodeURIComponent(cartDetails)}&subtotal=${encodeURIComponent(subtotal)}&shipping=${encodeURIComponent(shipping)}&tax=${encodeURIComponent(tax)}&total=${encodeURIComponent(total)}&payref=${encodeURIComponent(payref)}`;
+    // xhr.send(params);
+
 
 
     // Encode and send data

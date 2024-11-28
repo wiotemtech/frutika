@@ -161,40 +161,38 @@ $dbName = 'ordermanagement';
 $username = 'root';
 $password = '';
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    echo '<pre>';
+    print_r($_POST); // Display all incoming POST data
+    echo '</pre>';
+}
+
 // Connect to the database
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbName;charset=utf8", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    error_log($e->getMessage(), 3, '/path/to/logfile.log');
-    echo json_encode(['status' => 'error', 'message' => 'Database connection failed.']);
+    echo "Database connection failed: " . $e->getMessage();
     exit;
 }
 
-if (isset($_POST['submit_order'])) {
+if (isset($_POST['name']) && isset($_POST['email'])) { // Ensure required fields are set
     // Retrieve form data
-    $baseOil = isset($_POST['baseOil']) ? (string) $_POST['baseOil'] : null;
-    $scentProfile = isset($_POST['scentProfile']) ? (string) $_POST['scentProfile'] : null;
-    $specificFragrance = isset($_POST['specificFragrance']) ? (string) $_POST['specificFragrance'] : null;
-    $intensity = isset($_POST['intensity']) ? (string) $_POST['intensity'] : null;
-    $benefits = isset($_POST['benefits']) ? (string) $_POST['benefits'] : null;
-    $packaging = isset($_POST['packaging']) ? (string) $_POST['packaging'] : null;
-    $size = isset($_POST['size']) ? (string) $_POST['size'] : null;
-    $customName = isset($_POST['customName']) ? (string) $_POST['customName'] : null;
-    $name = isset($_POST['name']) ? (string) $_POST['name'] : null;
-    $email = isset($_POST['email']) ? (string) $_POST['email'] : null;
-    $phone = isset($_POST['phone']) ? (string) $_POST['phone'] : null;
-    $address = isset($_POST['address']) ? (string) $_POST['address'] : null;
-    $quantity = isset($_POST['quantity']) ? (int) $_POST['quantity'] : 1;
-    $total = isset($_POST['total2']) ? (float) $_POST['total2'] : 0;
-    $payref = isset($_POST['payref']) ? (float) $_POST['payref'] : 0;
-
-    // Input validation
-    // if (empty($name) || empty($email) || empty($phone) || empty($address) || empty($quantity)) {
-    //     $err = "Please fill in all required fields!";
-    //     header("location:order_form.php?error=$err");
-    //     exit;
-    // }
+    $baseOil = $_POST['baseOil'] ?? null;
+    $scentProfile = $_POST['scentProfile'] ?? null;
+    $specificFragrance = $_POST['specificFragrance'] ?? null;
+    $intensity = $_POST['intensity'] ?? null;
+    $benefits = $_POST['benefits'] ?? null;
+    $packaging = $_POST['packaging'] ?? null;
+    $size = $_POST['size'] ?? null;
+    $customName = $_POST['customName'] ?? null;
+    $name = $_POST['name'] ?? null;
+    $email = $_POST['email'] ?? null;
+    $phone = $_POST['phone'] ?? null;
+    $address = $_POST['address'] ?? null;
+    $quantity = $_POST['quantity'] ?? 1;
+    $total = $_POST['total2'] ?? 0.0;
+    $payref = $_POST['payref'] ?? 0.0;
 
     // Using prepared statements for security
     $query = "INSERT INTO custom_orders (customer_name, customer_email, customer_phone, customer_address, custom_name, specific_fragrance, base_oil, scent_profile, scent_intensity, additional_benefits, packaging, size, price, quantity, total) 
@@ -217,16 +215,14 @@ if (isset($_POST['submit_order'])) {
     $stmt->bindParam(':quantity', $quantity, PDO::PARAM_INT);
     $stmt->bindParam(':total', $total, PDO::PARAM_STR);
     $stmt->bindParam(':payref', $payref, PDO::PARAM_STR);
+
     // Execute and handle response
     if ($stmt->execute()) {
-        $sm = "Order submitted successfully!";
-        header("location:custom.php?success=" . urlencode($sm));
-        exit;
+        echo "Order submitted successfully!";
     } else {
-        $err = "Order submission failed. Please try again!";
-        header("location:custom.php?error=" . urlencode($err));
-        exit;
+        print_r($stmt->errorInfo()); // Display error details
     }
-    
+} else {
+    echo "Required fields are missing!";
 }
 ?>

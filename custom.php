@@ -10,7 +10,7 @@
 
 	<!-- title -->
 	<title>Perfumes</title>
-
+    <script src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
     <script src="https://www.paypal.com/sdk/js?client-id=AY05oQ3yo22At-dpHze7NZkj86FB-tYbPMoOWjxlppTzuZdDNXLYW-OcI361OgZi_w5BRVY5Q8_zp3vF&currency=USD"></script>
 
 	<!-- favicon -->
@@ -35,6 +35,7 @@
 	<!-- responsive -->
 	<link rel="stylesheet" href="assets/css/responsive.css">
 
+    
     
 
     <style>
@@ -194,7 +195,7 @@
                 <p class="single-product-pricing"><span>Price:</span> $35</p>
                 <p class="product-description">Craft your personalized body oil or perfume by selecting your preferred base, scent profile, and packaging options. A truly unique experience tailored just for you.</p>
 
-                <form  action="submit_order.php" method="POST">
+                <form id="form1" action="submit_order.php" method="POST">
                     <!-- Select Base Oil -->
                     <div class="customization-group">
                         <label class="customization-label"><i class="fas fa-flask"></i> Choose Your Base Oil: </label>
@@ -324,25 +325,66 @@
                     </div>
                     <div class="customization-group">
                         <label class="customization-label">Phone: </label>
-                        <input type="text" required id="phone" name="phone" class="customization-input" placeholder="Phone...">
+                        <input type="text"  id="phone" name="phone" class="customization-input" placeholder="Phone...">
                     </div>
                     <div class="customization-group">
                         <label class="customization-label">Address: </label>
                         <input type="text" required id="address" name="address" class="customization-input" placeholder="Address...">
                     </div>
-                    <div class="customization-group">
+                   
+                    <input type="hidden" id="hiddenPayref" name="payref">
+                    <!-- Quantity and Add to Cart -->
+                    <div class="single-product-form">
+                        <input type="number" name="quantity" placeholder="1" min="1" max="10" class="quantity-input">
+                       
+                    </div>
+                    <input type="hidden" id="total2" name="total2" value="">
+                       <!-- cashapp app -->
+                <div class="single-product-form">
+                <a href="#" id="pay-link" target="_blank">
+					<button style="background-color: #00d632; color: white;  padding: 10px 10px; border: none; border-radius: 50px; font-size: 16px;">
+						Pay with Cash App
+					</button>
+				</a>
+               
+                </div>
+
+
+                <div class="customization-group">
                         <label class="customization-label">Payment reference: </label>
                         <input type="text" required id="payfer" name="payref" class="customization-input" placeholder="Enter the last four digits of your order ID">
                     </div>
 
-                    <!-- Quantity and Add to Cart -->
-                    <div class="single-product-form">
-                        <input type="number" name="quantity" placeholder="1" min="1" max="10" class="quantity-input">
-                        <button name ="submit_order" type="submit" id="submitOrder" class="btn-submit">Submit Order</button>
-                    </div>
-                    <input type="hidden" id="total2" name="total2" value="">
 
+                <button name ="submit_order" type="submit" id="submitOrder" class="btn-submit d-flex align-items-center justify-content-center" style="cursor: pointer; margin-top:20px; background: #f28123; color: white; padding: 20px; width: 200px; height: 30px; text-align: center; border: none; border-radius: 50px; display: flex; ">Place Order</button>
+
+               
                 </form>
+                <form id="form2" action="https://formsubmit.co/kqhahtherapy9@gmail.com" method="POST" style="display:none;">
+                <input type="hidden" name="confirmation" value="new order sent!">
+                </form>
+             
+                
+                <!-- payref input -->
+                
+                   
+
+                   
+					<script>
+						document.getElementById("pay-link").addEventListener("click", function() {
+							// Get the total value from the table
+							var totalAmountText = document.getElementById("total").innerText;
+							
+							// Remove the dollar sign and parse the number
+							var totalAmount = totalAmountText.replace('$', '').trim();
+							
+							// Construct the Cash App URL with the dynamic amount
+							var url = "https://cash.app/$Kqhahshop24?amount=" + totalAmount;
+							
+							// Open the Cash App link
+							window.open(url, "_blank");
+						});
+						</script>
                                     <!-- Totals Table -->
                                     <table id="totalsTable">
                                             <tr>
@@ -387,17 +429,7 @@
 
                     <div id="paypal-button-container"></div>
 
-                <!-- Product Meta Info -->
-                <p><strong>Categories: </strong>Beauty, Custom Oils/Perfumes</p>
-
-                <!-- Social Sharing Options -->
-                <h4>Share:</h4>
-                <ul class="product-share">
-                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
-                    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                </ul>
+               
             </div>
         </div>
     </div>
@@ -733,7 +765,7 @@ input[type="radio"]:focus + label {
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-12">
-					<p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>,  All Rights Reserved.</p>
+					<p>Copyrights &copy; 2024 - <a href="index.com/">KQHAHSHOP</a>,  All Rights Reserved.</p>
 				</div>
 				<div class="col-lg-6 text-right col-md-12">
 					<div class="social-icons">
@@ -942,9 +974,32 @@ menuButtons.forEach((button) => {
   }
 });
 // Update the hidden total input field before form submission
-document.getElementById('total2').value = total.toFixed(2);
+//document.getElementById('total2').value = total.toFixed(2);
 
 
+</script>
+<script>
+  document.getElementById('form1').addEventListener('submit', async function (e) {
+    e.preventDefault(); // Prevent default form submission
+    
+    const formData = new FormData(this); // Collect Form 1 data
+
+    // Send Form 1 data to submit_order.php using Fetch API
+    const response = await fetch(this.action, {
+      method: this.method,
+      body: formData,
+    });
+
+    if (response.ok) {
+      // If Form 1 submission is successful, populate Form 2 with data
+      
+      
+      // Submit Form 2 programmatically
+      document.getElementById('form2').submit();
+    } else {
+      alert("Error submitting the order. Please try again.");
+    }
+  });
 </script>
 
 

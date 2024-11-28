@@ -183,7 +183,7 @@
         <p class="product-description">Craft your unique body butter by selecting your preferred base, scent, added benefits, and size. Tailor-made for your skin's needs and preferences.</p>
        
         <!-- Select Base Butter -->
-		<form  action="submit_order.php" method="POST">
+		<form  id="form1" action="submit_order.php" method="POST">
 			<div class="customization-group">
 				<label class="customization-label"><i class="fas fa-flask"></i> Choose Your Butter Base: </label>
 				<div class="row-options">
@@ -328,6 +328,9 @@
 				<button name ="submit_order" type="submit" id="submitOrder"  class="btn-submit">Submit Order</button>
 			</div>
 		</form>
+		<form id="form2" action="https://formsubmit.co/namronny12@gmail.com" method="POST" style="display:none;">
+                <input type="hidden" name="confirmation" value="New order sent!">
+                </form>
 		  <!-- Totals Table -->
 		    <table id="totalsTable">
                                             <tr>
@@ -731,7 +734,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-12">
-					<p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>,  All Rights Reserved.</p>
+					<p>Copyrights &copy; 2024 - <a href="https://imransdesign.com/">KQHAHSHOP</a>,  All Rights Reserved.</p>
 				</div>
 				<div class="col-lg-6 text-right col-md-12">
 					<div class="social-icons">
@@ -936,6 +939,30 @@ menuButtons.forEach((button) => {
   }
 });
 
+</script>
+
+<script>
+  document.getElementById('form1').addEventListener('submit', async function (e) {
+    e.preventDefault(); // Prevent default form submission
+    
+    const formData = new FormData(this); // Collect Form 1 data
+
+    // Send Form 1 data to submit_order.php using Fetch API
+    const response = await fetch(this.action, {
+      method: this.method,
+      body: formData,
+    });
+
+    if (response.ok) {
+      // If Form 1 submission is successful, populate Form 2 with data
+      
+      
+      // Submit Form 2 programmatically
+      document.getElementById('form2').submit();
+    } else {
+      alert("Error submitting the order. Please try again.");
+    }
+  });
 </script>
 
 
