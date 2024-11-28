@@ -363,13 +363,7 @@
                 <form id="form2" action="https://formsubmit.co/kqhahtherapy9@gmail.com" method="POST" style="display:none;">
                 <input type="hidden" name="confirmation" value="new order sent!">
                 </form>
-             
-                
-                <!-- payref input -->
-                
-                   
 
-                   
 					<script>
 						document.getElementById("pay-link").addEventListener("click", function() {
 							// Get the total value from the table

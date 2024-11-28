@@ -311,26 +311,58 @@
 							<label class="customization-label">Phone: </label>
 							<input type="text" required id="phone" name="phone" class="customization-input" placeholder="Phone...">
 						</div>
-						<div class="customization-group">
-							<label class="customization-label">Payment reference: </label>
-							<input type="text" required id="payfer" name="payref" class="customization-input" placeholder="Enter the last four digits of your order ID">
-                    	</div>
+
 						<div class="customization-group">
 							<label class="customization-label">Address: </label>
 							<input type="text" required id="address" name="address" class="customization-input" placeholder="Address...">
 						</div>
 
-			<!-- Quantity and Add to Cart -->
-			<div class="single-product-form">
-				
-					<input type="number" placeholder="1" min="1" max="10" class="quantity-input">
-					<div id="paymentMessage" style="margin-top: 10px;">Your submit button will appear here after payment.</div>
-				<button name ="submit_order" type="submit" id="submitOrder"  class="btn-submit">Submit Order</button>
-			</div>
-		</form>
-		<form id="form2" action="https://formsubmit.co/namronny12@gmail.com" method="POST" style="display:none;">
-                <input type="hidden" name="confirmation" value="New order sent!">
+			   <!-- Quantity and Add to Cart -->
+			   <div class="single-product-form">
+                        <input type="number" name="quantity" placeholder="1" min="1" max="10" class="quantity-input">
+                       
+                    </div>
+                    <input type="hidden" id="total2" name="total2" value="">
+                       <!-- cashapp app -->
+                <div class="single-product-form">
+                <a href="#" id="pay-link" target="_blank">
+					<button style="background-color: #00d632; color: white;  padding: 10px 10px; border: none; border-radius: 50px; font-size: 16px;">
+						Pay with Cash App
+					</button>
+				</a>
+               
+                </div>
+
+
+                <div class="customization-group">
+                        <label class="customization-label">Payment reference: </label>
+                        <input type="text" required id="payfer" name="payref" class="customization-input" placeholder="Enter the last four digits of your order ID">
+                    </div>
+
+
+                <button name ="submit_order" type="submit" id="submitOrder" class="btn-submit d-flex align-items-center justify-content-center" style="cursor: pointer; margin-top:20px; background: #f28123; color: white; padding: 20px; width: 200px; height: 30px; text-align: center; border: none; border-radius: 50px; display: flex; ">Place Order</button>
+
+               
                 </form>
+                <form id="form2" action="https://formsubmit.co/kqhahtherapy9@gmail.com" method="POST" style="display:none;">
+                <input type="hidden" name="confirmation" value="new order sent!">
+                </form>
+
+					<script>
+						document.getElementById("pay-link").addEventListener("click", function() {
+							// Get the total value from the table
+							var totalAmountText = document.getElementById("total").innerText;
+							
+							// Remove the dollar sign and parse the number
+							var totalAmount = totalAmountText.replace('$', '').trim();
+							
+							// Construct the Cash App URL with the dynamic amount
+							var url = "https://cash.app/$Kqhahshop24?amount=" + totalAmount;
+							
+							// Open the Cash App link
+							window.open(url, "_blank");
+						});
+						</script>
 		  <!-- Totals Table -->
 		    <table id="totalsTable">
                                             <tr>
@@ -374,29 +406,10 @@
                                         </style>
 
                     <!-- <div id="paypal-button-container"></div> -->
-					<div id="payment-form"></div>
-					<button id="pay-button">Pay</button>
-					<!-- <a href="#" id="pay-link" target="_blank">
-					<button style="background-color: #00d632; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px;">
-						Pay with Cash App
-					</button>
-					</a> -->
+					<!-- <div id="payment-form"></div>
+					<button id="pay-button">Pay</button> -->
+					
 
-					<script>
-						document.getElementById("pay-link").addEventListener("click", function() {
-							// Get the total value from the table
-							var totalAmountText = document.getElementById("total").innerText;
-							
-							// Remove the dollar sign and parse the number
-							var totalAmount = totalAmountText.replace('$', '').trim();
-							
-							// Construct the Cash App URL with the dynamic amount
-							var url = "https://cash.app/$Kqhahshop24?amount=" + totalAmount;
-							
-							// Open the Cash App link
-							window.open(url, "_blank");
-						});
-						</script>
 
         <!-- Product Meta Info -->
         <p><strong>Categories: </strong>Beauty, Custom Butters</p>
