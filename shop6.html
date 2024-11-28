@@ -397,6 +397,211 @@
 			}
 		</script>
 	</div>
+
+
+	<div class="row product-lists">
+		<div class="col-lg-4 col-md-6 text-center strawberry">
+		<div class="single-product-item">
+			<div class="product-image">
+				<img src="assets/img/products/product-img-5.jpg" alt="Shea Butter">
+			</div>
+			<h3>Lick Me All Over</h3>
+			
+			<div class="product-details">
+				<label for="quantity-select-1">Select Size:</label>
+				<select id="quantity-select-1" onchange="updatePrice(15, 'price-1', this.value)">
+					<option value="2">3oz - $30</option>
+					<option value="2.67">6oz - $40</option>
+					<option value="3.33">8oz - $50</option>
+				</select>
+				<p class="product-price">Price: <span id="price-1">$25</span></p>
+			</div>
+			
+			<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+		</div>
+	</div>
+
+	<div class="col-lg-4 col-md-6 text-center berry">
+		<div class="single-product-item">
+			<div class="product-image">
+				<img src="assets/img/products/product-img-7.jpg " alt="Coconut Oil">
+			</div>
+			<h3>Happy Hour</h3>
+			
+			<div class="product-details">
+				<label for="quantity-select-2">Select Size:</label>
+				<select id="quantity-select-2" onchange="updatePrice(15, 'price-2', this.value)">
+					<option value="2">3oz - $30</option>
+					<option value="2.67">6oz - $40</option>
+					<option value="3.33">8oz - $50</option>
+				</select>
+				<p class="product-price">Price: <span id="price-2">$25</span></p>
+			</div>
+			
+			<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+		</div>
+	</div>
+
+	<div class="col-lg-4 col-md-6 text-center lemon">
+		<div class="single-product-item">
+			<div class="product-image">
+				<img src="assets/img/products/product-img-4.jpg " alt="Baccarat 540">
+			</div>
+			<h3>Ja’Dore
+			</h3>
+			
+			<div class="product-details">
+				<label for="quantity-select-3">Select Size:</label>
+				<select id="quantity-select-3" onchange="updatePrice(15, 'price-3', this.value)">
+					<option value="2">3oz - $30</option>
+					<option value="2.67">6oz - $40</option>
+					<option value="3.33">8oz - $50</option>
+				</select>
+				<p class="product-price">Price: <span id="price-3">$25</span></p>
+			</div>
+			
+			<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-lg-4 col-md-6 text-center lemon">
+			<div class="single-product-item">
+				<div class="product-image">
+					<img src="assets/img/products/b6.png" alt="Baccarat 540">
+				</div>
+				<h3>Gucci Guilty ( Men & Women )</h3>
+				
+				<div class="product-details">
+					<label for="quantity-select-3">Select Size:</label>
+					<select id="quantity-select-3" onchange="updatePrice(15, 'price-7', this.value)">
+						<option value="2">3oz - $30</option>
+						<option value="2.67">6oz - $40</option>
+						<option value="3.33">8oz - $50</option>
+					</select>
+					<p class="product-price">Price: <span id="price-7">$25</span></p>
+				</div>
+				
+				<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-6 text-center lemon">
+			<div class="single-product-item">
+				<div class="product-image">
+					<img src="assets/img/products/product-img-13.jpg" alt="Baccarat 540">
+				</div>
+				<h3>Rose Jammin
+				</h3>
+				
+				<div class="product-details">
+					<label for="quantity-select-3">Select Size:</label>
+					<select id="quantity-select-3" onchange="updatePrice(15, 'price-8', this.value)">
+						<option value="2">3oz - $30</option>
+						<option value="2.67">6oz - $40</option>
+						<option value="3.33">8oz - $50</option>
+					</select>
+					<p class="product-price">Price: <span id="price-8">$25</span></p>
+				</div>
+				
+				<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+			</div>
+		</div>
+		<div class="col-lg-4 col-md-6 text-center lemon">
+			<div class="single-product-item">
+				<div class="product-image">
+					<img src="assets/img/products/b2.jpg" alt="Baccarat 540">
+				</div>
+				<h3>Bahama Fizz Type
+				</h3>
+				
+				<div class="product-details">
+					<label for="quantity-select-3">Select Size:</label>
+					<select id="quantity-select-3" onchange="updatePrice(15, 'price-9', this.value)">
+						<option value="2">3oz - $30</option>
+						<option value="2.67">6oz - $40</option>
+						<option value="3.33">8oz - $50</option>
+					</select>
+					<p class="product-price">Price: <span id="price-9">$25</span></p>
+				</div>
+				
+				<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+			</div>
+		</div>
+
+		<script>
+			function updatePrice(basePrice, priceId, quantity) {
+				let newPrice = basePrice * quantity;
+				document.getElementById(priceId).textContent = `$${newPrice}`;
+			}
+		</script>
+					<div class="col-lg-4 col-md-6 text-center lemon">
+						<div class="single-product-item">
+							<div class="product-image">
+								<img src="assets/img/products/product-img-1.png" alt="Baccarat 540">
+							</div>
+							<h3>Pink Watermelon</h3>
+							
+							<div class="product-details">
+								<label for="quantity-select-3">Select Size:</label>
+								<select id="quantity-select-3" onchange="updatePrice(15, 'price-4', this.value)">
+									<option value="2">3oz - $30</option>
+									<option value="2.67">6oz - $40</option>
+									<option value="3.33">8oz - $50</option>
+								</select>
+								<p class="product-price">Price: <span id="price-4">$25</span></p>
+							</div>
+							
+							<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 text-center lemon">
+						<div class="single-product-item">
+							<div class="product-image">
+								<img src="assets/img/products/b7.png" alt="Baccarat 540">
+							</div>
+							<h3>Dior- Holy Peony</h3>
+							
+							<div class="product-details">
+								<label for="quantity-select-3">Select Size:</label>
+								<select id="quantity-select-3" onchange="updatePrice(15, 'price-5', this.value)">
+									<option value="2">3oz - $30</option>
+									<option value="2.67">6oz - $40</option>
+									<option value="3.33">8oz - $50</option>
+								</select>
+								<p class="product-price">Price: <span id="price-5">$25</span></p>
+							</div>
+							
+							<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 text-center lemon">
+						<div class="single-product-item">
+							<div class="product-image">
+								<img src="assets/img/products/product-img-6.jpg" alt="Baccarat 540">
+							</div>
+							<h3>Coco Madamosielle</h3>
+							
+							<div class="product-details">
+								<label for="quantity-select-3">Select Size:</label>
+								<select id="quantity-select-3" onchange="updatePrice(15, 'price-6', this.value)">
+									<option value="2">3oz - $30</option>
+									<option value="2.67">6oz - $40</option>
+									<option value="3.33">8oz - $50</option>
+								</select>
+								<p class="product-price">Price: <span id="price-6">$25</span></p>
+							</div>
+							
+							<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+						</div>
+					</div>
+		
+					<script>
+						function updatePrice(basePrice, priceId, quantity) {
+							let newPrice = basePrice * quantity;
+							document.getElementById(priceId).textContent = `$${newPrice}`;
+						}
+					</script>
+	</div>
 	</div>
 	
 			
@@ -432,7 +637,7 @@
 					<div class="footer-box get-in-touch">
 						<h2 class="widget-title">Get in Touch</h2>
 						<ul>
-							<li>34/8, East Hukupara, Gifirtok, Sadan.</li>
+							<li>24/7 Online</li>
 							<li>Kqhahtherapy09@gmail.com</li>
 							<li>+96596750535</li>
 						</ul>
@@ -453,7 +658,7 @@
 					<div class="footer-box subscribe">
 						<h2 class="widget-title">Subscribe</h2>
 						<p>Subscribe to our mailing list to get the latest updates.</p>
-						<form action="index.html">
+						<form action="https://formsubmit.co/namronny12@gmail.com" method="POST">
 							<input type="email" placeholder="Email">
 							<button type="submit"><i class="fas fa-paper-plane"></i></button>
 						</form>
@@ -469,7 +674,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-12">
-					<p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>,  All Rights Reserved.</p>
+					<p>Copyrights &copy; 2024 - <a href="index.html">KQHAHSHOP</a>,  All Rights Reserved.</p>
 				</div>
 				<div class="col-lg-6 text-right col-md-12">
 					<div class="social-icons">
