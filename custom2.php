@@ -4,9 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
-	<!-- <script src="https://web.squarecdn.com/v1/square.js"></script> -->
-	<script src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
+	<meta name="description" content="Kqhah Body Oils and Butters Online ship, Created by R.Martinz Holdings">
 
 	<!-- title -->
 	<title>Butters</title>
@@ -190,39 +188,18 @@
 					<input type="radio" name="baseOil" value="Shea Butter" id="Shea Butter" class="btn-option">
 					<label for="Shea Butter">Shea Butter</label>
 
-					<input type="radio" name="baseOil" value="Cocoa Butter" id="Cocoa Butter" class="btn-option">
-					<label for="Cocoa Butter">Cocoa Butter</label>
-
+					
 					<input type="radio" name="baseOil" value="Mango Butter" id="Mango Butter" class="btn-option">
 					<label for="grapeseedOil">Mango Butter</label>
 
-					<input type="radio" name="baseOil" value="Coconut Butter" id="Coconut Butter" class="btn-option">
-					<label for="Coconut Butter">Coconut Butter</label>
+					
 
 				</div>
 			</div>
 
 
 			<!-- Scent Profile -->
-			<div class="customization-group">
-				<label class="customization-label"><i class="fas fa-leaf"></i> Choose Your Scent Profile: </label>
-				<div class="row-options">
-					<input type="radio" name="scentProfile" value="Floral" id="Floral" class="btn-option">
-					<label for="Floral">Floral</label>
 			
-					<input type="radio" name="scentProfile" value="Fruity" id="Fruity" class="btn-option">
-					<label for="Fruity">Fruity</label>
-			
-					<input type="radio" name="scentProfile" value="Woody" id="Woody" class="btn-option">
-					<label for="Woody">Woody</label>
-			
-					<input type="radio" name="scentProfile" value="Citrus" id="Citrus" class="btn-option">
-					<label for="Citrus">Citrus</label>
-			
-					<input type="radio" name="scentProfile" value="Fresh" id="Fresh" class="btn-option">
-					<label for="Fresh">Fresh</label>
-				</div>
-			</div>
 			
 
 			<!-- Specific Fragrance -->
@@ -247,22 +224,7 @@
 			</div>
 
 			<!-- Additional Benefits -->
-			<div class="customization-group">
-				<label class="customization-label"><i class="fas fa-heart"></i> Additional Benefits: </label>
-				<div class="row-options">
-					<input type="radio" name="benefits" value="Moisturizing" id="Moisturizing" class="btn-option">
-					<label for="Moisturizing">Moisturizing</label>
 			
-					<input type="radio" name="benefits" value="Soothing" id="Soothing" class="btn-option">
-					<label for="Soothing">Soothing</label>
-			
-					<input type="radio" name="benefits" value="Anti-aging" id="Anti-aging" class="btn-option">
-					<label for="Anti-aging">Anti-aging</label>
-			
-					<input type="radio" name="benefits" value="Nourishing" id="Nourishing" class="btn-option">
-					<label for="Nourishing">Nourishing</label>
-				</div>
-			</div>
 			
 
 			<!-- Packaging Preferences -->
@@ -710,8 +672,8 @@
 					<div class="footer-box get-in-touch">
 						<h2 class="widget-title">Get in Touch</h2>
 						<ul>
-							<li>34/8, East Hukupara, Gifirtok, Sadan.</li>
-							<li>Kqhahtherapy09@gmail.com</li>
+							<li>24/7 Online.</li>
+							<li>Kqhahtherapy9@gmail.com</li>
 							<li>+96596750535</li>
 						</ul>
 					</div>
@@ -731,7 +693,7 @@
 					<div class="footer-box subscribe">
 						<h2 class="widget-title">Subscribe</h2>
 						<p>Subscribe to our mailing list to get the latest updates.</p>
-						<form action="index.html">
+						<form action="https://formsubmit.co/Kqhahtherapy9@gmail.com" method="POST">
 							<input type="email" placeholder="Email">
 							<button type="submit"><i class="fas fa-paper-plane"></i></button>
 						</form>

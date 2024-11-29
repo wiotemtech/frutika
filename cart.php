@@ -4,11 +4,11 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+	<meta name="description" content="Kqhah Body Oils and Butters Online ship, Created by R.Martinz Holdings">
 
 	<!-- title -->
 	<title>Cart</title>
-	<script src="https://www.paypal.com/sdk/js?client-id=AY05oQ3yo22At-dpHze7NZkj86FB-tYbPMoOWjxlppTzuZdDNXLYW-OcI361OgZi_w5BRVY5Q8_zp3vF&currency=USD"></script>
+	
 
 	
 	
@@ -231,11 +231,7 @@
 							
 						</table>
 
-						<div class="cart-buttons">
-							<a href="cart.html" class="boxed-btn">Update Cart</a>
-							
-							
-						</div>
+						
 						
 					</div>
 				</div>
@@ -409,7 +405,8 @@
 
 
 											// Encode and send data
-											const params = `name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}&city=${encodeURIComponent(city)}&street=${encodeURIComponent(street)}&cart_details=${encodeURIComponent(cartDetails)}&subtotal=${encodeURIComponent(subtotal)}&shipping=${encodeURIComponent(shipping)}&tax=${encodeURIComponent(tax)}&total=${encodeURIComponent(total)}&message=${encodeURIComponent(message)}`;
+											const params = `name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}&city=${encodeURIComponent(city)}&street=${encodeURIComponent(street)}&cart_details=${encodeURIComponent(cartDetails)}&subtotal=${encodeURIComponent(subtotal)}&shipping=${encodeURIComponent(shipping)}&tax=${encodeURIComponent(tax)}&total=${encodeURIComponent(total)}&message=${encodeURIComponent(message)}&payref=${encodeURIComponent(payref)}`;
+
 											console.log("Encoded Parameters:", params); // Debugging: Log the encoded parameters
 
 											xhr.send(params);
@@ -424,8 +421,7 @@
 									</div>
 								</div>
 							</div>
-							<div id="paypal-button-container"> 
-								
+							
 							</div>
 							<!-- Shipping Address -->
 							
@@ -455,8 +451,8 @@
 					<div class="footer-box get-in-touch">
 						<h2 class="widget-title">Get in Touch</h2>
 						<ul>
-							<li>34/8, East Hukupara, Gifirtok, Sadan.</li>
-							<li>Kqhahtherapy09@gmail.com/li>
+							<li>24/7 Online</li>
+							<li>Kqhahtherapy9@gmail.com/li>
 							<li>+96596750535</li>
 						</ul>
 					</div>
@@ -467,8 +463,8 @@
 						<ul>
 							<li><a href="index.html">Home</a></li>
 							<li><a href="about.html">About</a></li>
-							<li><a href="services.html">Shop</a></li>
-							<li><a href="news.html">News</a></li>
+							<li><a href="shop.html">Shop</a></li>
+							
 							<li><a href="contact.html">Contact</a></li>
 						</ul>
 					</div>
@@ -477,7 +473,7 @@
 					<div class="footer-box subscribe">
 						<h2 class="widget-title">Subscribe</h2>
 						<p>Subscribe to our mailing list to get the latest updates.</p>
-						<form action="index.html">
+						<form action="https://formsubmit.co/Kqhahtherapy9@gmail.com" method="POST">
 							<input type="email" placeholder="Email">
 							<button type="submit"><i class="fas fa-paper-plane"></i></button>
 						</form>
@@ -493,10 +489,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-12">
-					<p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>,  All Rights Reserved.</p>
+					<p>Copyrights &copy; 2024 - <a href="index.html">KQHAHSHOP</a>,  All Rights Reserved.</p>
 				</div>
 				<div class="col-lg-6 text-right col-md-12">
-					<div class="social-icons">
+					<!-- <div class="social-icons">
 						<ul>
 							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
 							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
@@ -504,7 +500,7 @@
 							<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
 							<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
 						</ul>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
@@ -571,7 +567,7 @@
 		});
 	
 		// Update totals
-		const shipping = 1; // Example shipping cost
+		const shipping = 10; // Example shipping cost
 		shippingElement.innerText = `$${shipping.toFixed(2)}`;
 		const total = subtotal + shipping + subtotal * 0.09;
 	
@@ -646,38 +642,38 @@
 	// Call populateOrderDetails on page load
 	window.onload = populateOrderDetails;
 	
-	// PayPal button setup
-	function setupPayPalButton() {
-		paypal.Buttons({
-			createOrder: function(data, actions) {
-				const totalAmount = parseFloat(document.getElementById('total').textContent.replace('$', ''));
+	// // PayPal button setup
+	// function setupPayPalButton() {
+	// 	paypal.Buttons({
+	// 		createOrder: function(data, actions) {
+	// 			const totalAmount = parseFloat(document.getElementById('total').textContent.replace('$', ''));
 	
-				return actions.order.create({
-					purchase_units: [{
-						amount: {
-							value: totalAmount.toFixed(2) // The total amount for the transaction
-						}
-					}]
-				});
-			},
-			onApprove: function(data, actions) {
-				return actions.order.capture().then(function(details) {
-					alert('Transaction completed by ' + details.payer.name.given_name);
-					document.getElementById('submit-btn').style.display = 'block';
-					// You can redirect the user or update the UI as needed
-				});
-			},
-			onError: function(err) {
-				console.error(err);
-			}
-		}).render('#paypal-button-container'); // Render the PayPal button into the container
-	}
+	// 			return actions.order.create({
+	// 				purchase_units: [{
+	// 					amount: {
+	// 						value: totalAmount.toFixed(2) // The total amount for the transaction
+	// 					}
+	// 				}]
+	// 			});
+	// 		},
+	// 		onApprove: function(data, actions) {
+	// 			return actions.order.capture().then(function(details) {
+	// 				alert('Transaction completed by ' + details.payer.name.given_name);
+	// 				document.getElementById('submit-btn').style.display = 'block';
+	// 				// You can redirect the user or update the UI as needed
+	// 			});
+	// 		},
+	// 		onError: function(err) {
+	// 			console.error(err);
+	// 		}
+	// 	}).render('#paypal-button-container'); // Render the PayPal button into the container
+	// }
 	
-	// Setup the PayPal button after the page loads
-	window.onload = function() {
-		populateOrderDetails();
-		setupPayPalButton();
-	};
+	// // Setup the PayPal button after the page loads
+	// window.onload = function() {
+	// 	populateOrderDetails();
+	// 	setupPayPalButton();
+	// };
     
 
 	</script>

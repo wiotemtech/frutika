@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+	<meta name="description" content="Kqhah Body Oils and Butters Online ship, Created by R.Martinz Holdings">
 
 	<!-- title -->
 	<title>Kqhah</title>
@@ -238,155 +238,72 @@
 			</div>
 
 			<div class="row">
-				<div class="col-lg-4 col-md-6 text-center">
-					<div class="single-product-item">
-						<div class="product-image">
-							<!--a href="single-product.html"--><img src="assets/img/products/product-img-1.png" alt=""></a>
-						</div>
-						<h3>Coconut & Lavender</h3>
-						<span>2 Oz</span>
-						<p class="product-price"> $25 </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center">
-					<div class="single-product-item">
-						<div class="product-image">
-							<!--a href="single-product.html"--><img src="assets/img/products/product-img-2.jpg" alt=""></a>
-						</div>
-						<h3>Rose Cognac Sugar</h3>
-						<span>6 Oz</span>
-						<p class="product-price"> $45 </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
-					<div class="single-product-item">
-						<div class="product-image">
-							<!--a href="single-product.html"--><img src="assets/img/products/product-img-3.jpg" alt=""></a>
-						</div>
-						<h3>Coconut oil</h3>
-						<span>4 Oz</span>
-						<p class="product-price"> $35 </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<!-- Small T-shirt -->
-				<div class="col-lg-4 col-md-6 text-center">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html">
-								<img src="assets/img/products/Human Being Mockup.jpg" alt="Small T-shirt">
-							</a>
-						</div>
-						<h3>T-shirt</h3>
-						<p class="product-price"><span>Price: </span> $20 </p>
-						
-						
-						<!-- Add to Cart Button -->
-						<a href="cart.html" class="cart-btn btn-primary">
-							<i class="fas fa-shopping-cart"></i> Add to Cart
-						</a>
-					</div>
-				</div>
-			<style>
-					.cart-btn {
-					background-color: #5a5aed;
-					color: white;
-					padding: 8px 20px; /* Reduced size */
-					border: none;
-					border-radius: 25px;
-					text-transform: uppercase;
-					font-size: 0.8em; /* Smaller font */
-					transition: background-color 0.3s ease;
-					margin: 20px 0; /* Increased space between buttons */
-					display: inline-block;
-				}
-
-				.cart-btn:hover {
-					background-color: #4444e0; /* Darker on hover */
-				}
-
-			</style>
 				
-
-				<!-- Medium T-shirt -->
-				<div class="col-lg-4 col-md-6 text-center">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html">
-								<img src="assets/img/products/Human Being Mockup1.jpg" alt="Small T-shirt">
-							</a>
-						</div>
-						<h3>T-shirt</h3>
-						<p class="product-price"><span>Price: </span> $20 </p>
-						
-						
-						<!-- Add to Cart Button -->
-						<a href="cart.html" class="cart-btn btn-primary">
-							<i class="fas fa-shopping-cart"></i> Add to Cart
-						</a>
-					</div>
-				</div>
-			<style>
-					.cart-btn {
-					background-color: #5a5aed;
-					color: white;
-					padding: 8px 20px; /* Reduced size */
-					border: none;
-					border-radius: 25px;
-					text-transform: uppercase;
-					font-size: 0.8em; /* Smaller font */
-					transition: background-color 0.3s ease;
-					margin: 20px 0; /* Increased space between buttons */
-					display: inline-block;
-				}
-
-				.cart-btn:hover {
-					background-color: #4444e0; /* Darker on hover */
-				}
-
-			</style>
-			
-			<div class="col-lg-4 col-md-6 text-center">
+	
+			<div class="col-lg-4 col-md-6 text-center strawberry">
 				<div class="single-product-item">
 					<div class="product-image">
-						<a href="single-product.html">
-							<img src="assets/img/products/Human Being Mockup3.jpg" alt="Small T-shirt">
-						</a>
+						<img src="assets/img/products/product-img-1.png" alt="Shea Butter">
 					</div>
-					<h3>T-shirt</h3>
-					<p class="product-price"><span>Price: </span> $20 </p>
+					<h3>Shea Butter</h3>
 					
+					<div class="product-details">
+						<label for="quantity-select-1">Select Size:</label>
+						<select id="quantity-select-1" onchange="updatePrice(15, 'price-1', this.value)">
+							<option value="2">3oz - $30</option>
+							<option value="2.67">6oz - $40</option>
+							<option value="3.33">8oz - $50</option>
+						</select>
+						<p class="product-price">Price: <span id="price-1">$25</span></p>
+					</div>
 					
-					<!-- Add to Cart Button -->
-					<a href="cart.html" class="cart-btn btn-primary">
-						<i class="fas fa-shopping-cart"></i> Add to Cart
-					</a>
+					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 				</div>
 			</div>
-		<style>
-				.cart-btn {
-				background-color: #5a5aed;
-				color: white;
-				padding: 8px 20px; /* Reduced size */
-				border: none;
-				border-radius: 25px;
-				text-transform: uppercase;
-				font-size: 0.8em; /* Smaller font */
-				transition: background-color 0.3s ease;
-				margin: 20px 0; /* Increased space between buttons */
-				display: inline-block;
-			}
 
-			.cart-btn:hover {
-				background-color: #4444e0; /* Darker on hover */
-			}
+			<div class="col-lg-4 col-md-6 text-center berry">
+				<div class="single-product-item">
+					<div class="product-image">
+						<img src="assets/img/products/product-img-2.jpg" alt="Coconut Oil">
+					</div>
+					<h3>Coconut Oil</h3>
+					
+					<div class="product-details">
+						<label for="quantity-select-2">Select Size:</label>
+						<select id="quantity-select-2" onchange="updatePrice(12.5, 'price-2', this.value)">
+							<option value="2">2oz - $25</option>
+							<option value="2.8">4oz - $35</option>
+							<option value="3.6">6oz - $45</option>
+						</select>
+						<p class="product-price">Price: <span id="price-2">$25</span></p>
+					</div>
+					
+					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+				</div>
+			</div>
 
-		</style>
-	
+			<div class="col-lg-4 col-md-6 text-center lemon">
+				<div class="single-product-item">
+					<div class="product-image">
+						<img src="assets/img/products/product-img-3.jpg" alt="Baccarat 540">
+					</div>
+					<h3>Butt Naked
+					</h3>
+					
+					<div class="product-details">
+						<label for="quantity-select-3">Select Size:</label>
+						<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-3', this.value)">
+							<option value="2">2oz - $25</option>
+							<option value="2.8">4oz - $35</option>
+							<option value="3.6">6oz - $45</option>
+						</select>
+						<p class="product-price">Price: <span id="price-3">$25</span></p>
+					</div>
+					
+					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+				</div>
+			</div>
+				
 	
 	<!-- end product section -->
 

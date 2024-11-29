@@ -6,13 +6,10 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
-
+	<meta name="description" content="Kqhah Body Oils and Butters Online ship, Created by R.Martinz Holdings">
 	<!-- title -->
 	<title>Perfumes</title>
-    <script src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
-    <script src="https://www.paypal.com/sdk/js?client-id=AY05oQ3yo22At-dpHze7NZkj86FB-tYbPMoOWjxlppTzuZdDNXLYW-OcI361OgZi_w5BRVY5Q8_zp3vF&currency=USD"></script>
-
+   
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
 	<!-- google font -->
@@ -722,8 +719,8 @@ input[type="radio"]:focus + label {
 					<div class="footer-box get-in-touch">
 						<h2 class="widget-title">Get in Touch</h2>
 						<ul>
-							<li>34/8, East Hukupara, Gifirtok, Sadan.</li>
-							<li>Kqhahtherapy09@gmail.com</li>
+							<li>24/7 Online.</li>
+							<li>Kqhahtherapy9@gmail.com</li>
 							<li>+96596750535</li>
 						</ul>
 					</div>
@@ -763,13 +760,13 @@ input[type="radio"]:focus + label {
 				</div>
 				<div class="col-lg-6 text-right col-md-12">
 					<div class="social-icons">
-						<ul>
+						<!-- <ul>
 							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
 							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
 							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
 							<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
 							<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
-						</ul>
+						</ul> -->
 					</div>
 				</div>
 			</div>
