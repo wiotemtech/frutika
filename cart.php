@@ -261,7 +261,7 @@
 								<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
 									<div class="card-body">
 										<div class="billing-address-form">
-											<form type="POST" id="fruitkha-contact" onsubmit="sendEmail(event);">
+											<form type="POST" id="fruitkha-contact" action="payment.php" onsubmit="sendEmail(event);">
 												<p><input type="text" id="billing-name" placeholder="Name" name="name" required></p>
 												<p><input type="email" id="billing-email" placeholder="Email" name="email" required></p>
 												<p><input type="text" id="billing-address" placeholder="Address" name="address" required></p>
@@ -277,7 +277,10 @@
 											
 											</form>
 											<!-- Email notification -->
-											<form id="form2" action="https://formsubmit.co/namronny12@gmail.com" method="POST" style="display:none;">
+											<!-- action="https://formsubmit.co/namronny12@gmail.com"  -->
+											<form id="form2"
+												 action="payment.php" 
+												 method="POST" style="display:none;">
 												<input type="hidden" name="confirmation" value="New order sent!">
 												</form>
 										</div>
