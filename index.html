@@ -254,7 +254,7 @@
 							<option value="2.67">6oz - $40</option>
 							<option value="3.33">8oz - $50</option>
 						</select>
-						<p class="product-price">Price: <span id="price-1">$25</span></p>
+						<p class="product-price">Price: <span id="price-1">$30</span></p>
 					</div>
 					
 					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
@@ -317,7 +317,7 @@
                     	<div class="price-box">
                         	<div class="inner-price">
                                 <span class="price">
-                                    <strong>30%</strong> <br> off per kg
+                                    <strong>5%</strong> <br> off
                                 </span>
                             </div>
                         </div>
@@ -326,11 +326,61 @@
                 </div>
                 <!--Content Column-->
                 <div class="content-column col-lg-6">
-					<h3><span class="orange-text">Deal</span> of the month</h3>
+					<h3><span class="orange-text">December</span> Deal</h3>
                     <h4>Hikan Strwaberry</h4>
                     <div class="text">Discover limited-time offers on our nourishing butters, natural oils, and comfortable t-shirts. These exclusive deals are designed to bring balance and comfort to your daily routine. Don’t miss out—refresh your self-care today with KQHA!</div>
                     <!--Countdown Timer-->
-                    <div class="time-counter"><div class="time-countdown clearfix" data-countdown="2020/2/01"><div class="counter-column"><div class="inner"><span class="count">00</span>Days</div></div> <div class="counter-column"><div class="inner"><span class="count">00</span>Hours</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Mins</div></div>  <div class="counter-column"><div class="inner"><span class="count">00</span>Secs</div></div></div></div>
+					<div class="time-counter">
+						<div class="time-countdown clearfix">
+						  <div class="counter-column">
+							<div class="inner"><span id="days" class="count">00</span> Days</div>
+						  </div>
+						  <div class="counter-column">
+							<div class="inner"><span id="hours" class="count">00</span> Hours</div>
+						  </div>
+						  <div class="counter-column">
+							<div class="inner"><span id="minutes" class="count">00</span> Mins</div>
+						  </div>
+						  <div class="counter-column">
+							<div class="inner"><span id="seconds" class="count">00</span> Secs</div>
+						  </div>
+						</div>
+					  </div>
+					  	<script>
+
+							// Set target date to one month from now
+							const targetDate = new Date();
+							targetDate.setMonth(targetDate.getMonth() + 1); // Add 1 month to the current date
+
+							const countdown = () => {
+								const now = new Date().getTime(); // Current time in milliseconds
+								const gap = targetDate.getTime() - now; // Difference between now and target date
+
+								if (gap <= 0) {
+									document.querySelector(".time-countdown").innerHTML = "Countdown Complete!";
+									return;
+								}
+
+								const second = 1000;
+								const minute = second * 60;
+								const hour = minute * 60;
+								const day = hour * 24;
+
+								const days = Math.floor(gap / day);
+								const hours = Math.floor((gap % day) / hour);
+								const minutes = Math.floor((gap % hour) / minute);
+								const seconds = Math.floor((gap % minute) / second);
+
+								document.getElementById("days").textContent = days;
+								document.getElementById("hours").textContent = hours;
+								document.getElementById("minutes").textContent = minutes;
+								document.getElementById("seconds").textContent = seconds;
+							};
+
+							// Update countdown every second
+							setInterval(countdown, 1000);
+
+						</script>
                 	<a href="cart.html" class="cart-btn mt-3"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
                 </div>
             </div>
