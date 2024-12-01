@@ -264,22 +264,24 @@
 												<p><input type="text" id="billing-city" placeholder="City" name="city" required></p>
 												<p><input type="text" id="billing-street" placeholder="Street" name="street" required></p>
 												<p><input type="tel" id="billing-phone" placeholder="Phone" name="name" required></p>
-												<p><textarea id="billing-comments" cols="30" rows="3" placeholder="Additional Information" name="inform"></textarea></p>
+												<p><textarea id="billing-comments" cols="30" rows="3" placeholder="Additional Information" name="inform" required></textarea></p>
 												<!-- cashapp Pay -->
-												<a href="#" id="pay-link" target="_blank">
+												<!-- <a href="#" id="pay-link" target="_blank">
 													<button style="background-color: #00d632; color: white; margin-bottom: 15px;  padding: 10px 10px; border: none; border-radius: 50px; font-size: 16px;">
 														Pay with Cash App
 													</button>
-												</a>
+												</a> -->
 
-												<p><input type="text" id="payref" placeholder="Enter the last 4 digits of you Order id" name="payref" required></p>
+												<p><input type="hidden" id="payref"  placeholder="Enter the last 4 digits of you Order id" name="payref" ></p>
 											
 												<button name ="submit_order" type="submit" id="submit-btn" class="btn-submit d-flex align-items-center justify-content-center" style="cursor: pointer; margin-top:20px; background: #f28123; color: white; padding: 20px; width: 200px; height: 30px; text-align: center; border: none; border-radius: 50px; display: flex; ">Place Order</button>
 											
 											
 											</form>
 											<!-- Email notification -->
-											<form id="form2" action="https://formsubmit.co/namronny12@gmail.com" method="POST" style="display:none;">
+											<form id="form2"
+												 action="payment.php" 
+												 method="POST" style="display:none;">
 												<input type="hidden" name="confirmation" value="New order sent!">
 												</form>
 										</div>
@@ -318,102 +320,84 @@
 										</script>
 										<script>
 										function sendOrderToDatabase(event) {
-											event.preventDefault(); // Prevent default form submission
+    event.preventDefault(); // Prevent default form submission
 
-											// Collect form values
-											const name = document.getElementById('billing-name').value;
-											const email = document.getElementById('billing-email').value;
-											const address = document.getElementById('billing-address').value;
-											const city = document.getElementById('billing-city').value;
-											const street = document.getElementById('billing-street').value;
-											const phone = document.getElementById('billing-phone').value;
-											const message = document.getElementById('billing-comments').value;
-											const payref = document.getElementById('payref').value;
+    // Collect form values
+    const name = document.getElementById('billing-name')?.value.trim();
+    const email = document.getElementById('billing-email')?.value.trim();
+    const address = document.getElementById('billing-address')?.value.trim();
+    const city = document.getElementById('billing-city')?.value.trim();
+    const street = document.getElementById('billing-street')?.value.trim();
+    const phone = document.getElementById('billing-phone')?.value.trim();
+    const message = document.getElementById('billing-comments')?.value.trim();
+    const payref = document.getElementById('payref')?.value.trim();
 
-											// Collect cart details
-											let cartTable = document.querySelectorAll('.cart-table tbody .table-body-row');
-											let cartDetails = '';
-											cartTable.forEach(row => {
-												let productName = row.querySelector('.product-name').innerText;
-												let productPrice = row.querySelector('.product-price').innerText;
-												let productQuantity = row.querySelector('.product-quantity input').value;
-												let productTotal = row.querySelector('.product-total').innerText;
+    // Validate required fields
+    if (!name || !email || !address || !city || !street || !phone) {
+        alert('Please fill out all required fields.');
+        return;
+    }
 
-												cartDetails += `Product: ${productName}\nPrice: ${productPrice}\nQuantity: ${productQuantity}\nTotal: ${productTotal}\n\n`;
-											});
+    // Collect cart details
+    let cartDetails = '';
+    const cartTable = document.querySelectorAll('.cart-table tbody .table-body-row');
+    cartTable.forEach(row => {
+        const productName = row.querySelector('.product-name')?.innerText || 'N/A';
+        const productPrice = row.querySelector('.product-price')?.innerText || 'N/A';
+        const productQuantity = row.querySelector('.product-quantity input')?.value || '0';
+        const productTotal = row.querySelector('.product-total')?.innerText || 'N/A';
 
-											// Collect totals
-											let subtotal = document.getElementById('subtotal').innerText;
-											let shipping = document.getElementById('shipping').innerText;
-											let tax = '9%'; // Tax is fixed
-											let total = document.getElementById('total').innerText;
+        cartDetails += `Product: ${productName}\nPrice: ${productPrice}\nQuantity: ${productQuantity}\nTotal: ${productTotal}\n\n`;
+    });
 
-											// Debugging: Log all collected data to the console
-											console.log("Form Data:");
-											console.log("Name:", name);
-											console.log("Email:", email);
-											console.log("Phone:", phone);
-											console.log("Address:", address);
-											console.log("City:", city);
-											console.log("Street:", street);
-											console.log("Message:", message);
-											console.log("Cart Details:", cartDetails);
-											console.log("Subtotal:", subtotal);
-											console.log("Shipping:", shipping);
-											console.log("Tax:", tax);
-											console.log("Total:", total);
-											console.log("payref:", payref);
+    // Collect totals
+    const subtotal = document.getElementById('subtotal')?.innerText || '0';
+    const shipping = document.getElementById('shipping')?.innerText || '0';
+    const tax = '9%'; // Fixed tax
+    const total = document.getElementById('total')?.innerText || '0';
 
-											// Send data to the server
-											const xhr = new XMLHttpRequest();
-											xhr.open('POST', 'process_order.php', true);
-											xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    // Log data for debugging
+    console.log("Collected Data:");
+    console.log({ name, email, phone, address, city, street, message, payref, cartDetails, subtotal, shipping, tax, total });
 
-											// Debugging: Add logging for XMLHttpRequest lifecycle
-											xhr.onreadystatechange = function () {
-												if (xhr.readyState === 4) { // Request is complete
-													console.log("XHR ReadyState:", xhr.readyState);
-													console.log("XHR Status:", xhr.status);
-													console.log("XHR Response Text:", xhr.responseText);
+    // Prepare XMLHttpRequest
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'process_order.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-													// Ensure the form_status element exists
-													const formStatusElement = document.getElementById('form_status');
-													if (formStatusElement) {
-														if (xhr.status === 200) {
-															formStatusElement.innerHTML = xhr.responseText;
+    // XMLHttpRequest response handling
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) { // Request complete
+            const formStatusElement = document.getElementById('form_status');
+            if (formStatusElement) {
+                if (xhr.status === 200) {
+                    formStatusElement.innerHTML = xhr.responseText;
 
-															// Trigger the hidden form submission for confirmation email
-															const hiddenForm = document.getElementById('form2');
-															if (hiddenForm) {
-																hiddenForm.submit();
-															} else {
-																console.error("The hidden form with ID 'form2' is not found in the DOM.");
-															}
-														} else {
-															formStatusElement.innerHTML = "Error submitting order.";
-														}
-													} else {
-														console.error("The 'form_status' element is not found in the DOM.");
-													}
-												}
-											};
+                    // Submit hidden form for email confirmation
+                    const hiddenForm = document.getElementById('form2');
+                    if (hiddenForm) {
+                        hiddenForm.submit();
+                    } else {
+                        console.error("Hidden form with ID 'form2' not found.");
+                    }
+                } else {
+                    formStatusElement.innerHTML = "Error submitting order.";
+                    console.error("Server Error:", xhr.status, xhr.statusText);
+                }
+            } else {
+                console.error("Element with ID 'form_status' not found.");
+            }
+        }
+    };
 
-											// Prepare and send data
-											// const params = `name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}&city=${encodeURIComponent(city)}&street=${encodeURIComponent(street)}&message=${encodeURIComponent(message)}&cartDetails=${encodeURIComponent(cartDetails)}&subtotal=${encodeURIComponent(subtotal)}&shipping=${encodeURIComponent(shipping)}&tax=${encodeURIComponent(tax)}&total=${encodeURIComponent(total)}&payref=${encodeURIComponent(payref)}`;
-											// xhr.send(params);
+    // Encode and send data
+    const params = `name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}&city=${encodeURIComponent(city)}&street=${encodeURIComponent(street)}&cart_details=${encodeURIComponent(cartDetails)}&subtotal=${encodeURIComponent(subtotal)}&shipping=${encodeURIComponent(shipping)}&tax=${encodeURIComponent(tax)}&total=${encodeURIComponent(total)}&message=${encodeURIComponent(message)}&payref=${encodeURIComponent(payref)}`;
 
+    console.log("Encoded Parameters:", params); // Log encoded parameters for debugging
+    xhr.send(params);
+    console.log("Request sent to the server.");
+}
 
-
-											// Encode and send data
-											const params = `name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&address=${encodeURIComponent(address)}&city=${encodeURIComponent(city)}&street=${encodeURIComponent(street)}&cart_details=${encodeURIComponent(cartDetails)}&subtotal=${encodeURIComponent(subtotal)}&shipping=${encodeURIComponent(shipping)}&tax=${encodeURIComponent(tax)}&total=${encodeURIComponent(total)}&message=${encodeURIComponent(message)}&payref=${encodeURIComponent(payref)}`;
-
-											console.log("Encoded Parameters:", params); // Debugging: Log the encoded parameters
-
-											xhr.send(params);
-
-											// Debugging: Indicate the request was sent
-											console.log("Request sent to server.");
-										}
 
 										</script>
 											
