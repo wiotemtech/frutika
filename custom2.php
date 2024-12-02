@@ -4,9 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
-	<!-- <script src="https://web.squarecdn.com/v1/square.js"></script> -->
-	<script src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
+	<meta name="description" content="Kqhah Body Oils and Butters Online ship, Created by R.Martinz Holdings">
 
 	<!-- title -->
 	<title>Butters</title>
@@ -190,39 +188,18 @@
 					<input type="radio" name="baseOil" value="Shea Butter" id="Shea Butter" class="btn-option">
 					<label for="Shea Butter">Shea Butter</label>
 
-					<input type="radio" name="baseOil" value="Cocoa Butter" id="Cocoa Butter" class="btn-option">
-					<label for="Cocoa Butter">Cocoa Butter</label>
-
+					
 					<input type="radio" name="baseOil" value="Mango Butter" id="Mango Butter" class="btn-option">
 					<label for="grapeseedOil">Mango Butter</label>
 
-					<input type="radio" name="baseOil" value="Coconut Butter" id="Coconut Butter" class="btn-option">
-					<label for="Coconut Butter">Coconut Butter</label>
+					
 
 				</div>
 			</div>
 
 
 			<!-- Scent Profile -->
-			<div class="customization-group">
-				<label class="customization-label"><i class="fas fa-leaf"></i> Choose Your Scent Profile: </label>
-				<div class="row-options">
-					<input type="radio" name="scentProfile" value="Floral" id="Floral" class="btn-option">
-					<label for="Floral">Floral</label>
 			
-					<input type="radio" name="scentProfile" value="Fruity" id="Fruity" class="btn-option">
-					<label for="Fruity">Fruity</label>
-			
-					<input type="radio" name="scentProfile" value="Woody" id="Woody" class="btn-option">
-					<label for="Woody">Woody</label>
-			
-					<input type="radio" name="scentProfile" value="Citrus" id="Citrus" class="btn-option">
-					<label for="Citrus">Citrus</label>
-			
-					<input type="radio" name="scentProfile" value="Fresh" id="Fresh" class="btn-option">
-					<label for="Fresh">Fresh</label>
-				</div>
-			</div>
 			
 
 			<!-- Specific Fragrance -->
@@ -247,22 +224,7 @@
 			</div>
 
 			<!-- Additional Benefits -->
-			<div class="customization-group">
-				<label class="customization-label"><i class="fas fa-heart"></i> Additional Benefits: </label>
-				<div class="row-options">
-					<input type="radio" name="benefits" value="Moisturizing" id="Moisturizing" class="btn-option">
-					<label for="Moisturizing">Moisturizing</label>
 			
-					<input type="radio" name="benefits" value="Soothing" id="Soothing" class="btn-option">
-					<label for="Soothing">Soothing</label>
-			
-					<input type="radio" name="benefits" value="Anti-aging" id="Anti-aging" class="btn-option">
-					<label for="Anti-aging">Anti-aging</label>
-			
-					<input type="radio" name="benefits" value="Nourishing" id="Nourishing" class="btn-option">
-					<label for="Nourishing">Nourishing</label>
-				</div>
-			</div>
 			
 
 			<!-- Packaging Preferences -->
@@ -311,26 +273,58 @@
 							<label class="customization-label">Phone: </label>
 							<input type="text" required id="phone" name="phone" class="customization-input" placeholder="Phone...">
 						</div>
-						<div class="customization-group">
-							<label class="customization-label">Payment reference: </label>
-							<input type="text" required id="payfer" name="payref" class="customization-input" placeholder="Enter the last four digits of your order ID">
-                    	</div>
+
 						<div class="customization-group">
 							<label class="customization-label">Address: </label>
 							<input type="text" required id="address" name="address" class="customization-input" placeholder="Address...">
 						</div>
 
-			<!-- Quantity and Add to Cart -->
-			<div class="single-product-form">
-				
-					<input type="number" placeholder="1" min="1" max="10" class="quantity-input">
-					<div id="paymentMessage" style="margin-top: 10px;">Your submit button will appear here after payment.</div>
-				<button name ="submit_order" type="submit" id="submitOrder"  class="btn-submit">Submit Order</button>
-			</div>
-		</form>
-		<form id="form2" action="https://formsubmit.co/namronny12@gmail.com" method="POST" style="display:none;">
-                <input type="hidden" name="confirmation" value="New order sent!">
+			   <!-- Quantity and Add to Cart -->
+			   <div class="single-product-form">
+                        <input type="number" name="quantity" placeholder="1" min="1" max="10" class="quantity-input">
+                       
+                    </div>
+                    <input type="hidden" id="total2" name="total2" value="">
+                       <!-- cashapp app -->
+                <div class="single-product-form">
+                <a href="#" id="pay-link" target="_blank">
+					<button style="background-color: #00d632; color: white;  padding: 10px 10px; border: none; border-radius: 50px; font-size: 16px;">
+						Pay with Cash App
+					</button>
+				</a>
+               
+                </div>
+
+
+                <div class="customization-group">
+                        <label class="customization-label">Payment reference: </label>
+                        <input type="text" required id="payfer" name="payref" class="customization-input" placeholder="Enter the last four digits of your order ID">
+                    </div>
+
+
+                <button name ="submit_order" type="submit" id="submitOrder" class="btn-submit d-flex align-items-center justify-content-center" style="cursor: pointer; margin-top:20px; background: #f28123; color: white; padding: 20px; width: 200px; height: 30px; text-align: center; border: none; border-radius: 50px; display: flex; ">Place Order</button>
+
+               
                 </form>
+                <form id="form2" action="https://formsubmit.co/kqhahtherapy9@gmail.com" method="POST" style="display:none;">
+                <input type="hidden" name="confirmation" value="new order sent!">
+                </form>
+
+					<script>
+						document.getElementById("pay-link").addEventListener("click", function() {
+							// Get the total value from the table
+							var totalAmountText = document.getElementById("total").innerText;
+							
+							// Remove the dollar sign and parse the number
+							var totalAmount = totalAmountText.replace('$', '').trim();
+							
+							// Construct the Cash App URL with the dynamic amount
+							var url = "https://cash.app/$Kqhahshop24?amount=" + totalAmount;
+							
+							// Open the Cash App link
+							window.open(url, "_blank");
+						});
+						</script>
 		  <!-- Totals Table -->
 		    <table id="totalsTable">
                                             <tr>
@@ -374,29 +368,10 @@
                                         </style>
 
                     <!-- <div id="paypal-button-container"></div> -->
-					<div id="payment-form"></div>
-					<button id="pay-button">Pay</button>
-					<!-- <a href="#" id="pay-link" target="_blank">
-					<button style="background-color: #00d632; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px;">
-						Pay with Cash App
-					</button>
-					</a> -->
+					<!-- <div id="payment-form"></div>
+					<button id="pay-button">Pay</button> -->
+					
 
-					<script>
-						document.getElementById("pay-link").addEventListener("click", function() {
-							// Get the total value from the table
-							var totalAmountText = document.getElementById("total").innerText;
-							
-							// Remove the dollar sign and parse the number
-							var totalAmount = totalAmountText.replace('$', '').trim();
-							
-							// Construct the Cash App URL with the dynamic amount
-							var url = "https://cash.app/$Kqhahshop24?amount=" + totalAmount;
-							
-							// Open the Cash App link
-							window.open(url, "_blank");
-						});
-						</script>
 
         <!-- Product Meta Info -->
         <p><strong>Categories: </strong>Beauty, Custom Butters</p>
@@ -697,8 +672,8 @@
 					<div class="footer-box get-in-touch">
 						<h2 class="widget-title">Get in Touch</h2>
 						<ul>
-							<li>34/8, East Hukupara, Gifirtok, Sadan.</li>
-							<li>Kqhahtherapy09@gmail.com</li>
+							<li>24/7 Online.</li>
+							<li>Kqhahtherapy9@gmail.com</li>
 							<li>+96596750535</li>
 						</ul>
 					</div>
@@ -718,7 +693,7 @@
 					<div class="footer-box subscribe">
 						<h2 class="widget-title">Subscribe</h2>
 						<p>Subscribe to our mailing list to get the latest updates.</p>
-						<form action="index.html">
+						<form action="https://formsubmit.co/Kqhahtherapy9@gmail.com" method="POST">
 							<input type="email" placeholder="Email">
 							<button type="submit"><i class="fas fa-paper-plane"></i></button>
 						</form>

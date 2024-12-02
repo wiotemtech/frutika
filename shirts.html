@@ -5,6 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Kqhah Body Oils and Butters Online ship, Created by R.Martinz Holdings">
+
 	<!-- title -->
 	<title>Shop</title>
 
@@ -87,8 +88,23 @@
 					margin-bottom: 50px;
 					margin-top: -110px;
 				}
-	</style>
+				.countdown {
+					display: flex;
+					justify-content: space-between;
+					margin-bottom: 30px;
+				}
 
+				.countdown div {
+					font-size: 1.5rem;
+					margin: 0 10px;
+				}
+
+				.countdown span {
+					font-size: 2.5rem;
+					display: block;
+					margin-bottom: 10px;
+				}
+					</style>
 
 </head>
 <body>
@@ -117,11 +133,11 @@
 						<!-- menu start -->
 						<nav class="main-menu">
 							<ul>
-								<li class="current-list-item"><a href="index.html">Home</a>
+								<li><a href="index.html">Home</a>
 								</li>
-								<li class="current-list-item"><a href="shop.html">Product</a>
+								<li  class="current-list-item"><a href="shop.html">Product</a>
 								</li>
-								<li><a href="about.html">About us</a></li>
+								<li><a href="about.html">About us</a></li></li>
 								<li><a href="contact.html">Contact</a></li>
 								<li>
 									<div class="header-icons">
@@ -167,7 +183,7 @@
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="breadcrumb-text">
 						<p>Fresh and Organic</p>
-						<h1>Shop</h1>
+						<h1>T-Shirts</h1>
 					</div>
 				</div>
 			</div>
@@ -181,270 +197,80 @@
 
 			<div class="row">
                 <div class="col-md-12">
-					<div class="product-filters1">
+                    <div class="product-filters1">
                         <ul>
-                            <li><a href="shop.html" class="border">All</li></a>
+                            <li><a href="shop.html" class="boxed">All</li></a>
 							<li><a  href="shop4.html" class="boxed" active >Butter</li></a>
                             <li><a href="shop5.html" class="boxed">Body Oils</li></a>
-							<li><a href="shirts.html" class="boxed">T-Shirts</li></a>
+							<li><a  href="shop4.html" class="border" active >T-shirts</li></a>
                         </ul>
                     </div>
                 </div>
             </div>
 
 			<div class="row product-lists">
-				<div class="col-lg-4 col-md-6 text-center strawberry">
-				<div class="single-product-item">
-					<div class="product-image">
-						<img src="assets/img/products/product-img-6.jpg" alt="Shea Butter">
+				<div class="col-lg-8 offset-lg-2 text-center">		
+					<div class="section-title">		
+					<h1><span class="orange-text">Coming Soon</span></h1>
 					</div>
-					<h3>Coco Madamosielle</h3>
-					
-					<div class="product-details">
-						<label for="quantity-select-1">Select Size:</label>
-						<select id="quantity-select-1" onchange="updatePrice(15, 'price-1', this.value)">
-							<option value="2">3oz - $30</option>
-							<option value="2.67">6oz - $40</option>
-							<option value="3.33">8oz - $50</option>>
-						</select>
-						<p class="product-price">Price: <span id="price-1">$30</span></p>
-					</div>
-					
-					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-				</div>
-			</div>
 
-			<div class="col-lg-4 col-md-6 text-center berry">
-				<div class="single-product-item">
-					<div class="product-image">
-						<img src="assets/img/products/product-img-2.jpg" alt="Coconut Oil">
+						<!-- Small T-shirt -->
+				
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href="#">
+								<img src="assets/img/products/Human Being Mockup.jpg" alt="Small T-shirt">
+							</a>
+						</div>
+						<h3>T-shirt</h3>
+						<p class="product-price"><span>Price: </span> $20 </p>
+						
+						
+						<!-- Add to Cart Button -->
+						<a href="#" class="cart-btn btn-primary">
+							<i class="fas fa-shopping-cart"></i> Add to Cart
+						</a>
 					</div>
-					<h3>Acqua Dio Gio
-					</h3>
-					
-					<div class="product-details">
-						<label for="quantity-select-2">Select Size:</label>
-						<select id="quantity-select-2" onchange="updatePrice(12.5, 'price-2', this.value)">
-							<option value="2">2oz - $25</option>
-							<option value="2.8">4oz - $35</option>
-							<option value="3.6">6oz - $45</option>
-						</select>
-						<p class="product-price">Price: <span id="price-2">$25</span></p>
-					</div>
-					
-					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-				</div>
-			</div>
-
-			<div class="col-lg-4 col-md-6 text-center lemon">
-				<div class="single-product-item">
-					<div class="product-image">
-						<img src="assets/img/products/product-img-3.jpg" alt="Baccarat 540">
-					</div>
-					<h3>Gucci-Flora</h3>
-					
-					<div class="product-details">
-						<label for="quantity-select-3">Select Size:</label>
-						<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-3', this.value)">
-							<option value="2">2oz - $25</option>
-							<option value="2.8">4oz - $35</option>
-							<option value="3.6">6oz - $45</option>
-						</select>
-						<p class="product-price">Price: <span id="price-3">$25</span></p>
-					</div>
-					
-					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 text-center lemon">
-				<div class="single-product-item">
-					<div class="product-image">
-						<img src="assets/img/products/product-img-4.jpg" alt="Baccarat 540">
-					</div>
-					<h3>Creed- Silver
-					</h3>
-					
-					<div class="product-details">
-						<label for="quantity-select-3">Select Size:</label>
-						<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-4', this.value)">
-							<option value="2">2oz - $25</option>
-							<option value="2.8">4oz - $35</option>
-							<option value="3.6">6oz - $45</option>
-						</select>
-						<p class="product-price">Price: <span id="price-4">$25</span></p>
-					</div>
-					
-					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 text-center lemon">
-				<div class="single-product-item">
-					<div class="product-image">
-						<img src="assets/img/products/product-img-5.jpg" alt="Baccarat 540">
-					</div>
-					<h3>Dior- Holy Peony</h3>
-					
-					<div class="product-details">
-						<label for="quantity-select-3">Select Size:</label>
-						<select id="quantity-select-3" onchange="updatePrice(15, 'price-5', this.value)">
-							<option value="2">3oz - $30</option>
-							<option value="2.67">6oz - $40</option>
-							<option value="3.33">8oz - $50</option>
-						</select>
-						<p class="product-price">Price: <span id="price-5">$30</span></p>
-					</div>
-					
-					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 text-center lemon">
-				<div class="single-product-item">
-					<div class="product-image">
-						<img src="assets/img/products/product-img-1.png" alt="Baccarat 540">
-					</div>
-					<h3>Taj Sunset Escada</h3>
-					
-					<div class="product-details">
-						<label for="quantity-select-3">Select Size:</label>
-						<select id="quantity-select-3" onchange="updatePrice(15, 'price-6', this.value)">
-							<option value="2">3oz - $30</option>
-							<option value="2.67">6oz - $40</option>
-							<option value="3.33">8oz - $50</option>
-						</select>
-						<p class="product-price">Price: <span id="price-6">$25</span></p>
-					</div>
-					
-					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-				</div>
-			</div>
-
-			<script>
-				function updatePrice(basePrice, priceId, quantity) {
-					let newPrice = basePrice * quantity;
-					document.getElementById(priceId).textContent = `$${newPrice}`;
+				
+			<style>
+					.cart-btn {
+					background-color: #5a5aed;
+					color: white;
+					padding: 8px 20px; /* Reduced size */
+					border: none;
+					border-radius: 25px;
+					text-transform: uppercase;
+					font-size: 0.8em; /* Smaller font */
+					transition: background-color 0.3s ease;
+					margin: 20px 0; /* Increased space between buttons */
+					display: inline-block;
 				}
-			</script>
 
-				
-	</div>
-	
-	<div class="row">
-		<div class="col-lg-4 col-md-6 text-center lemon">
-			<div class="single-product-item">
-				<div class="product-image">
-					<img src="assets/img/products/product-img-9.jpg" alt="Baccarat 540">
-				</div>
-				<h3>Creed Absolut
-				</h3>
-				
-				<div class="product-details">
-					<label for="quantity-select-3">Select Size:</label>
-					<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-7', this.value)">
-						<option value="2">2oz - $25</option>
-						<option value="2.8">4oz - $35</option>
-						<option value="3.6">6oz - $45</option>
-					</select>
-					<p class="product-price">Price: <span id="price-7">$25</span></p>
-				</div>
-				
-				<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-			</div>
-		</div>
-		<div class="col-lg-4 col-md-6 text-center lemon">
-			<div class="single-product-item">
-				<div class="product-image">
-					<img src="assets/img/products/product-img-7.jpg" alt="Baccarat 540">
-				</div>
-				<h3>Paco Rabenne</h3>
-				
-				<div class="product-details">
-					<label for="quantity-select-3">Select Size:</label>
-					<select id="quantity-select-3" onchange="updatePrice(15, 'price-8', this.value)">
-						<option value="2">3oz - $30</option>
-						<option value="2.67">6oz - $40</option>
-						<option value="3.33">8oz - $50</option>
-					</select>
-					<p class="product-price">Price: <span id="price-8">$30</span></p>
-				</div>
-				
-				<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-			</div>
-		</div>
-		<div class="col-lg-4 col-md-6 text-center lemon">
-			<div class="single-product-item">
-				<div class="product-image">
-					<img src="assets/img/products/product-img-8.jpg" alt="Baccarat 540">
-				</div>
-				<h3>Strong W/ You
-				</h3>
-				
-				<div class="product-details">
-					<label for="quantity-select-3">Select Size:</label>
-					<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-9', this.value)">
-						<option value="2">2oz - $25</option>
-						<option value="2.8">4oz - $35</option>
-						<option value="3.6">6oz - $45</option>
-					</select>
-					<p class="product-price">Price: <span id="price-9">$25</span></p>
-				</div>
-				
-				<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-			</div>
-		</div>
+				.cart-btn:hover {
+					background-color: #4444e0; /* Darker on hover */
+				}
 
-		<script>
-			function updatePrice(basePrice, priceId, quantity) {
-				let newPrice = basePrice * quantity;
-				document.getElementById(priceId).textContent = `$${newPrice}`;
-			}
-		</script>
-	</div>
-	</div>
+			</style>
+
+					<div class="countdown" id="countdown">
+						<div><h2><span class="orange-text" id="days">00</span> Days</h2></div>
+						<div><h2><span class="orange-text" id="hours">00</span> Hours</h2></div>
+						<div><h2><span class="orange-text" id="minutes">00</span> Minutes</h2></div>
+						<div><h2><span class="orange-text"  id="seconds">00</span> Seconds</h2></div>
+					</div>
+
+				</div>
+			</div>
+		</div>
 	
 			
 
-			<div class="row">
-				<div class="col-lg-12 text-center">
-					<div class="pagination-wrap">
-						<ul>
-							<li><a href="shop2.html">Prev</a></li>
-							
-							<li><a href="shop.html">Next</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
+			
 		</div>
 	</div>
 	<!-- end products -->
 
-	<!-- logo carousel -->
-	<div class="logo-carousel-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="logo-carousel-inner">
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/1.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/2.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/3.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/4.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/5.png" alt="">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end logo carousel -->
+
 
 	<!-- footer -->
 	<div class="footer-area">
@@ -460,7 +286,7 @@
 					<div class="footer-box get-in-touch">
 						<h2 class="widget-title">Get in Touch</h2>
 						<ul>
-							<li>24/7 0nline</li>
+							<li>24/7 Online</li>
 							<li>Kqhahtherapy9@gmail.com</li>
 							<li>+96596750535</li>
 						</ul>
@@ -481,7 +307,7 @@
 					<div class="footer-box subscribe">
 						<h2 class="widget-title">Subscribe</h2>
 						<p>Subscribe to our mailing list to get the latest updates.</p>
-						<form action="index.html">
+						<form action="https://formsubmit.co/namronny12@gmail.com" method="POST">
 							<input type="email" placeholder="Email">
 							<button type="submit"><i class="fas fa-paper-plane"></i></button>
 						</form>
@@ -536,6 +362,37 @@
 	<!-- main js -->
 	<script src="assets/js/main.js"></script>
 	<script>
+
+const daysToCount = 4; // Set the number of days you want to count down from today
+const targetDate = new Date().getTime() + daysToCount * 24 * 60 * 60 * 1000; // Calculate target date in milliseconds
+
+const countdown = () => {
+    const now = new Date().getTime();
+    const gap = targetDate - now;
+
+    const second = 1000;
+    const minute = second * 60;
+    const hour = minute * 60;
+    const day = hour * 24;
+
+    const days = Math.floor(gap / day);
+    const hours = Math.floor((gap % day) / hour);
+    const minutes = Math.floor((gap % hour) / minute);
+    const seconds = Math.floor((gap % minute) / second);
+
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
+
+    if (gap < 0) {
+        clearInterval(timer);
+        document.querySelector(".countdown").innerHTML = "Time's Up!";
+    }
+};
+
+const timer = setInterval(countdown, 1000);
+
 		// Add to Cart button functionality
 		document.querySelectorAll('.cart-btn').forEach(button => {
 		  button.addEventListener('click', function(event) {

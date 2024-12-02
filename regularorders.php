@@ -51,7 +51,7 @@ $weeklySales = $result['weekly_sales']; // Weekly sales revenue
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+    <meta name="description" content="Kqhah Body Oils and Butters Online ship, Created by R.Martinz Holdings">
     <title>Admin Dashboard - Custom Orders</title>
 
 
