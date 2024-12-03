@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
+	<meta name="description" content="Created by R.Martinz">
 
 	<!-- title -->
 	<title>Single Product</title>
@@ -67,7 +67,7 @@
 								<li><a href="contact.html">Contact</a></li>
 								<li>
 									<div class="header-icons">
-										<a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+										<a class="shopping-cart" href="cart.php"><i class="fas fa-shopping-cart"></i></a>
 										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
 									</div>
 								</li>
@@ -135,74 +135,215 @@
 					<p class="product-description">Design your own T-shirt with multiple customization options. Choose your favorite color, size, T-shirt type, and design style to create your unique look.</p>
 	
 					<!-- Size Options -->
-					<div class="customization-group">
-						<label class="customization-label"><i class="fas fa-ruler"></i> Choose Size: </label>
-						<div class="row-options">
-							<button class="btn-option">XS</button>
-							<button class="btn-option">S</button>
-							<button class="btn-option">M</button>
-							<button class="btn-option">L</button>
-							<button class="btn-option">XL</button>
-							<button class="btn-option">XXL</button>
+					<form id="form1" action="submit_customization.php" method="POST">
+						<!-- Choose Size -->
+						<div class="customization-group">
+							<label class="customization-label"><i class="fas fa-ruler"></i> Choose Size: </label>
+							<div class="row-options">
+								<input type="radio" name="size" id="size-xs" value="XS">
+								<label for="size-xs" class="btn-option">XS</label>
+					
+								<input type="radio" name="size" id="size-s" value="S">
+								<label for="size-s" class="btn-option">S</label>
+					
+								<input type="radio" name="size" id="size-m" value="M">
+								<label for="size-m" class="btn-option">M</label>
+					
+								<input type="radio" name="size" id="size-l" value="L">
+								<label for="size-l" class="btn-option">L</label>
+					
+								<input type="radio" name="size" id="size-xl" value="XL">
+								<label for="size-xl" class="btn-option">XL</label>
+					
+								<input type="radio" name="size" id="size-xxl" value="XXL">
+								<label for="size-xxl" class="btn-option">XXL</label>
+							</div>
 						</div>
-					</div>
-	
-					<!-- T-shirt Color Options -->
-					<div class="customization-group">
-						<label class="customization-label"><i class="fas fa-palette"></i> Choose Color: </label>
-						<div class="row-options">
-							<button class="color-option" style="background-color: #000000;" onclick="changeColor('black')" title="Black"></button>
-							<button class="color-option" style="background-color: #FF5733;" onclick="changeColor('orange')" title="Orange"></button>
-							<button class="color-option" style="background-color: #3498DB;" onclick="changeColor('blue')" title="Blue"></button>
-							<button class="color-option" style="background-color: #2ECC71;" onclick="changeColor('green')" title="Green"></button>
-							<button class="color-option" style="background-color: #c77dff;" onclick="changeColor('orange')" title="Orange"></button>
-							<button class="color-option" style="background-color: #788893;" onclick="changeColor('blue')" title="Blue"></button>
-							<button class="color-option" style="background-color: #104c5d;" onclick="changeColor('green')" title="Green"></button>
-							<button class="color-option" style="background-color: #696b2f;" onclick="changeColor('orange')" title="Orange"></button>
-							<button class="color-option" style="background-color: #db349b;" onclick="changeColor('blue')" title="Blue"></button>
-							<button class="color-option" style="background-color: #2f2e5e;" onclick="changeColor('green')" title="Green"></button>
+					
+						<!-- T-shirt Color Options -->
+						<!-- T-shirt Color Options -->
+						<div class="customization-group">
+							<label class="customization-label"><i class="fas fa-palette"></i> Shirt Color: </label>
+							<div class="row-options">
+								<input type="radio" name="shirtcolor" id="color-black" value="black">
+								<label for="color-black" class="color-option" style="background-color: #000000;" title="Black"></label>
+
+								<input type="radio" name="shirtcolor" id="color-orange" value="orange">
+								<label for="color-orange" class="color-option" style="background-color: #FF5733;" title="Orange"></label>
+
+								<input type="radio" name="shirtcolor" id="color-blue" value="blue">
+								<label for="color-blue" class="color-option" style="background-color: #3498DB;" title="Blue"></label>
+
+								<input type="radio" name="shirtcolor" id="color-green" value="green">
+								<label for="color-green" class="color-option" style="background-color: #2ECC71;" title="Green"></label>
+							</div>
 						</div>
-					</div>
-	
-					<!-- T-shirt Type Options -->
-					<div class="customization-group">
-						<label class="customization-label"><i class="fas fa-tshirt"></i> T-shirt Type: </label>
-						<div class="row-options">
-							<button class="btn-option">V-neck</button>
-							<button class="btn-option">T-shirt</button>
-							<button class="btn-option">Collared</button>
-							<button class="btn-option">Crew Neck</button>
+
+
+						<div class="customization-group">
+							<label class="customization-label"><i class="fas fa-palette"></i> design Color: </label>
+							<div class="row-options">
+								<input type="radio" name="color" id="color-black" value="black">
+								<label for="color-black" class="color-option" style="background-color: #000000;" title="Black"></label>
+					
+								<input type="radio" name="color" id="color-orange" value="orange">
+								<label for="color-orange" class="color-option" style="background-color: #FF5733;" title="Orange"></label>
+					
+								<input type="radio" name="color" id="color-blue" value="blue">
+								<label for="color-blue" class="color-option" style="background-color: #3498DB;" title="Blue"></label>
+					
+								<input type="radio" name="color" id="color-green" value="green">
+								<label for="color-green" class="color-option" style="background-color: #2ECC71;" title="Green"></label>
+							</div>
 						</div>
-					</div>
-	
-					<!-- Design Options -->
-					<div class="customization-group">
-						<label class="customization-label"><i class="fas fa-brush"></i> Design Style: </label>
-						<div class="row-options">
-							<button class="btn-option">Embroidery</button>
-							<button class="btn-option">Screen Print</button>
+					
+						<!-- T-shirt Type Options -->
+						<div class="customization-group">
+							<label class="customization-label"><i class="fas fa-tshirt"></i> T-shirt Type: </label>
+							<div class="row-options">
+								<input type="radio" name="type" id="type-vneck" value="V-neck">
+								<label for="type-vneck" class="btn-option">V-neck</label>
+					
+								<input type="radio" name="type" id="type-tshirt" value="T-shirt">
+								<label for="type-tshirt" class="btn-option">T-shirt</label>
+					
+								<input type="radio" name="type" id="type-collared" value="Collared">
+								<label for="type-collared" class="btn-option">Collared</label>
+					
+								<input type="radio" name="type" id="type-crewneck" value="Crew Neck">
+								<label for="type-crewneck" class="btn-option">Crew Neck</label>
+							</div>
 						</div>
+						<input type="hidden" id="total2" name="total2" value="">
+					
+						<!-- Design Options -->
+						<div class="customization-group">
+							<label class="customization-label"><i class="fas fa-brush"></i> Design Style: </label>
+							<div class="row-options">
+								<input type="radio" name="design" id="design-embroidery" value="Embroidery">
+								<label for="design-embroidery" class="btn-option">Embroidery</label>
+					
+								<input type="radio" name="design" id="design-screenprint" value="Screen Print">
+								<label for="design-screenprint" class="btn-option">Screen Print</label>
+							</div>
+						</div>
+						 <!-- Add Custom Name/Message -->
+						 <div class="single-product-form">
+							<label class="customization-label">Quantity: </label>
+							<input type="number" name="quantity" placeholder="1" min="1" max="10" class="quantity-input">
+						   
+		
+		
+				<div class="customization-group">
+					<label class="customization-label">Name: </label>
+					<input type="text" required id="name" name="name" class="customization-input" placeholder="Name...">
+				</div>
+				<div class="customization-group">
+					<label class="customization-label">Email: </label>
+					<input type="email" required id="email" name="email" class="customization-input" placeholder="Email...">
+				</div>
+				<div class="customization-group">
+					<label class="customization-label">Phone: </label>
+					<input type="text" required id="phone" name="phone" class="customization-input" placeholder="Phone...">
+				</div>
+
+				<div class="customization-group">
+					<label class="customization-label">Address: </label>
+					<input type="text" required id="address" name="address" class="customization-input" placeholder="Address...">
+				</div>
+
+				<div class="customization-group">
+					<label class="customization-label">Address: </label>
+					<input type="text" required id="address" name="address" class="customization-input" placeholder="Address...">
+				</div>
+				
+				
+				<div class="single-product-form">
+					<a href="#" id="pay-link" target="_blank">
+						<button style="background-color: #00d632; color: white;  padding: 10px 10px; border: none; border-radius: 50px; font-size: 16px;">
+							Pay with Cash App
+						</button>
+					</a>
+				   
+					</div><div class="customization-group">
+						<label class="customization-label">Payment reference </label>
+						<input type="text" required id="payref" name="payref" class="customization-input" placeholder="Enter the lasr five digits of your reciept">
 					</div>
+
 	
-					<!-- Quantity and Add to Cart -->
-					<div class="single-product-form">
-						<form action="index.html">
-							<input type="number" placeholder="1" min="1" max="10" class="quantity-input">
+					
+						<!-- Submit Button -->
+						<div class="single-product-form">
+							<button name ="submit_order" type="submit" id="submitOrder" class="btn-submit d-flex align-items-center justify-content-center" style="cursor: pointer; margin-top:20px; background: #f28123; color: white; padding: 20px; width: 200px; height: 30px; text-align: center; border: none; border-radius: 50px; display: flex; ">Place Order</button>
+						</div>
+					</form>
+
+					<form id="form2" action="https://formsubmit.co/kqhahtherapy9@gmail.com" method="POST" style="display:none;">
+						<input type="hidden" name="confirmation" value="new order sent!">
 						</form>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
+						<script>
+							document.getElementById("pay-link").addEventListener("click", function() {
+								// Get the total value from the table
+								var totalAmountText = document.getElementById("total").innerText;
+								
+								// Remove the dollar sign and parse the number
+								var totalAmount = totalAmountText.replace('$', '').trim();
+								
+								// Construct the Cash App URL with the dynamic amount
+								var url = "https://cash.app/$Kqhahshop24?amount=" + totalAmount;
+								
+								// Open the Cash App link
+								window.open(url, "_blank");
+							});
+							</script>
+					  <table id="totalsTable">
+                                            <tr>
+                                                <td>Subtotal:</td>
+                                                <td id="subtotal">$0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Shipping:</td>
+                                                <td id="shipping">$12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tax (10%):</td>
+                                                <td id="tax">$0</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Total:</strong></td>
+                                                <td id="total">$0</td>
+                                            </tr>
+        	</table>
+                                        <style>
+                                          #totalsTable {
+                                                display: table;
+                                                width: 100%;
+                                                border-collapse: separate;
+                                                border-spacing: 10px;
+                                            }
+
+                                            #totalsTable tr {
+                                                display: inline-block;
+                                                margin-right: 20px;
+                                            }
+
+                                            #totalsTable td {
+                                                display: inline-block;
+                                                margin-right: 5px;
+                                            }
+
+                                            #totalsTable td:first-child {
+                                                font-weight: bold;
+                                            }
+                                        </style>
 	
+					
 					<!-- Product Meta Info -->
 					<p><strong>Categories: </strong>Fashion, T-shirts</p>
 	
 					<!-- Social Sharing Options -->
 					<h4>Share:</h4>
-					<ul class="product-share">
-						<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-						<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-						<li><a href="#"><i class="fab fa-pinterest"></i></a></li>
-						<li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-					</ul>
+					
 				</div>
 			</div>
 		</div>
@@ -357,85 +498,57 @@
         .product-share li a:hover {
             color: #ff5733;
         }
+		/* General styles */
+.customization-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.customization-label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.customization-input {
+    font-size: 14px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    width: 100%;
+    max-width: 400px;
+}
+
+.customization-input:focus {
+    border-color: #3498DB; /* Blue highlight on focus */
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+/* Placeholder text styling */
+.customization-input::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .customization-input {
+        width: 100%; /* Full width for smaller screens */
+    }
+}
+
 
     </style>
 	<!-- end single product -->
 
 	<!-- more products -->
-	<div class="more-products mb-150">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 offset-lg-2 text-center">
-					<div class="section-title">	
-						<h3><span class="orange-text">Related</span> Products</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-4 col-md-6 text-center">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="assets/img/products/product-img-1.jpg" alt=""></a>
-						</div>
-						<h3>Strawberry</h3>
-						<p class="product-price"><span>Per Kg</span> 85$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="assets/img/products/product-img-2.jpg" alt=""></a>
-						</div>
-						<h3>Berry</h3>
-						<p class="product-price"><span>Per Kg</span> 70$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3 text-center">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="assets/img/products/product-img-3.jpg" alt=""></a>
-						</div>
-						<h3>Lemon</h3>
-						<p class="product-price"><span>Per Kg</span> 35$ </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end more products -->
-
-	<!-- logo carousel -->
-	<div class="logo-carousel-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="logo-carousel-inner">
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/1.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/2.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/3.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/4.png" alt="">
-						</div>
-						<div class="single-logo-item">
-							<img src="assets/img/company-logos/5.png" alt="">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	
 	<!-- end logo carousel -->
-
+</div>
 	<!-- footer -->
 	<div class="footer-area">
 		<div class="container">
@@ -450,8 +563,8 @@
 					<div class="footer-box get-in-touch">
 						<h2 class="widget-title">Get in Touch</h2>
 						<ul>
-							<li>34/8, East Hukupara, Gifirtok, Sadan.</li>
-							<li>Kqhahtherapy09@gmail.com</li>
+							<li>324/7 0nline.</li>
+							<li>Kqhahtherapy9@gmail.com</li>
 							<li>+96596750535</li>
 						</ul>
 					</div>
@@ -487,7 +600,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-12">
-					<p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>,  All Rights Reserved.</p>
+					<p>Copyrights &copy; 2024 - <a href="index.html">KQHAHSHOP</a>,  All Rights Reserved.</p>
 				</div>
 				<div class="col-lg-6 text-right col-md-12">
 					<div class="social-icons">
@@ -525,6 +638,85 @@
 	<script src="assets/js/sticker.js"></script>
 	<!-- main js -->
 	<script src="assets/js/main.js"></script>
+
+
+	<script>
+		function calculateTotal() {
+			const taxRate = 0.10; // 10% tax rate
+			const shippingCost = 10; // Fixed shipping cost
+	
+			// Set the price to 20 (fixed value)
+			const selectedSizePrice = 20;  // You mentioned this price is fixed at $20
+	
+			// Get the quantity input
+			const quantityInput = document.querySelector('.quantity-input');
+			const quantity = parseInt(quantityInput.value) || 1; // Default to 1 if not specified
+	
+			// Calculate the subtotal
+			const subtotal = selectedSizePrice * quantity;
+	
+			// Calculate the tax
+			const tax = subtotal * taxRate;
+	
+			// Calculate the total
+			const total = subtotal + tax + shippingCost;
+	
+			// Update the table
+			document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+			document.getElementById('shipping').textContent = `$${shippingCost.toFixed(2)}`;
+			document.getElementById('tax').textContent = `$${tax.toFixed(2)}`;
+			document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+
+			document.getElementById("total2").value = total;
+		}
+	
+		// Add event listeners to update the total when inputs change
+		document.querySelectorAll('input[name="size"]').forEach(radio => {
+			radio.addEventListener('change', calculateTotal);
+		});
+	
+		const quantityInput = document.querySelector('.quantity-input');
+		quantityInput.addEventListener('input', calculateTotal);
+	
+		// Initialize the table on page load
+		document.addEventListener('DOMContentLoaded', calculateTotal);
+	
+	 
+	 
+	 
+	 
+	 // // Add event listeners to radio buttons and quantity input
+	 // document.getElementById('size2Oz').addEventListener('change', calculateTotal);
+	 //     document.getElementById('size4Oz').addEventListener('change', calculateTotal);
+	 //     document.getElementById('size6Oz').addEventListener('change', calculateTotal);
+		 
+	 //     document.querySelector('.quantity-input').addEventListener('input', calculateTotal);
+	 
+	 </script>
+
+<script>
+	document.getElementById('form1').addEventListener('submit', async function (e) {
+	  e.preventDefault(); // Prevent default form submission
+	  
+	  const formData = new FormData(this); // Collect Form 1 data
+  
+	  // Send Form 1 data to submit_order.php using Fetch API
+	  const response = await fetch(this.action, {
+		method: this.method,
+		body: formData,
+	  });
+  
+	  if (response.ok) {
+		// If Form 1 submission is successful, populate Form 2 with data
+		
+		
+		// Submit Form 2 programmatically
+		document.getElementById('form2').submit();
+	  } else {
+		alert("Error submitting the order. Please try again.");
+	  }
+	});
+  </script>
 
 </body>
 </html>

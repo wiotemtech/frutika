@@ -41,6 +41,10 @@ $stmt = $pdo->query($query);
 $result = $stmt->fetch(PDO::FETCH_ASSOC);
 $weeklySales = $result['weekly_sales']; // Weekly sales revenue
 
+$query = "SELECT * FROM tshirtcustomization";
+$stmt = $pdo->query($query);
+$orders1 = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 
 
 ?>
@@ -391,6 +395,51 @@ $weeklySales = $result['weekly_sales']; // Weekly sales revenue
                 <div class="alert alert-info text-center">No product details found.</div>
             <?php endif; ?>
         </div>
+
+        <h2>Product Details</h2>
+        <div class="table-responsive" style="overflow-x: auto;">
+            <?php if (!empty($orders1)): ?>
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Size</th>
+                            <th>Design Color</th>
+                            <th>T-shirt color</th>
+                            <th>Type</th>
+                            <th>design</th>
+                            <th>name</th>
+                            <th>email</th>
+                            <th>address</th>
+                            <th>Payment Reference</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($orders1 as $order): ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($order['id']); ?></td>
+                            <td><?php echo htmlspecialchars($order['size']); ?></td>
+                            <td><?php echo htmlspecialchars($order['color']); ?></td>
+                            <td><?php echo htmlspecialchars($order['shirtcolor']); ?></td>
+                            <td><?php echo htmlspecialchars($order['type']); ?></td>
+                            <td><?php echo htmlspecialchars($order['design']); ?></td>
+                            <td><?php echo htmlspecialchars($order['name']); ?></td>
+                            <td><?php echo htmlspecialchars($order['email']); ?></td>
+                            <td><?php echo htmlspecialchars($order['address']); ?></td>
+                            <td><?php echo htmlspecialchars($order['payref']); ?></td>
+                            <td><?php echo htmlspecialchars($order['quantity']); ?></td>
+                            <td><?php echo htmlspecialchars($order['total']); ?></td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            <?php else: ?>
+                <div class="alert alert-info text-center">No product details found.</div>
+            <?php endif; ?>
+        </div>
+
 
     </div>
 </div>

@@ -285,8 +285,14 @@
                         <label class="customization-label"><i class="fas fa-box"></i> Packaging Preference: </label>
                         <div class="row-options">
                             <input type="radio" name="packaging" value="Plastic Bottle" id="plasticBottle" class="btn-option">
-                            <label for="plasticBottle">Plastic Bottle</label>
+                            <label for="plasticBottle">Plastic jar</label>
                         </div>
+                    </div>
+                    <!-- Quantity and Add to Cart -->
+                    <div class="single-product-form">
+                    <label for="plasticBottle">Quantity</label>
+                        <input type="number" name="quantity" placeholder="1" min="1" max="10" class="quantity-input">
+                       
                     </div>
 
                     <!-- Size Options -->
@@ -330,11 +336,7 @@
                     </div>
                    
                     <input type="hidden" id="hiddenPayref" name="payref">
-                    <!-- Quantity and Add to Cart -->
-                    <div class="single-product-form">
-                        <input type="number" name="quantity" placeholder="1" min="1" max="10" class="quantity-input">
-                       
-                    </div>
+                    
                     <input type="hidden" id="total2" name="total2" value="">
                        <!-- cashapp app -->
                 <div class="single-product-form">
@@ -384,7 +386,7 @@
                                             </tr>
                                             <tr>
                                                 <td>Shipping:</td>
-                                                <td id="shipping">$10</td>
+                                                <td id="shipping">$12</td>
                                             </tr>
                                             <tr>
                                                 <td>Tax (10%):</td>
@@ -800,7 +802,7 @@ input[type="radio"]:focus + label {
 	<script>
    function calculateTotal() {
     const taxRate = 0.10; // 10% tax rate
-    const shippingCost = 2; // Fixed shipping cost
+    const shippingCost = 12; // Fixed shipping cost
 
     // Find the selected size radio button
     const selectedSizeElement = document.querySelector('input[name="size"]:checked');

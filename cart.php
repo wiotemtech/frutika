@@ -168,7 +168,7 @@
 								</tr>
 								<tr class="total-data">
 									<td><strong>Shipping: </strong></td>
-									<td id="shipping" class="align-right">$10</td>
+									<td id="shipping" class="align-right">$12</td>
 								</tr>
 								<tr class="total-data">
 									<td><strong>Tax: </strong></td>
