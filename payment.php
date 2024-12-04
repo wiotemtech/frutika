@@ -158,7 +158,7 @@
 
 				<div class="col-lg-4">
 					<div class="order-details-wrap">
-                        <form action="https://formsubmit.co/namronny12@gmail.com" method="post">
+                        <form action="https://formsubmit.co/Kqhahtherapy9@gmail.com" method="post">
                            
                             <h5>Payment confirmation</h5>
                         

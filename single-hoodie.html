@@ -123,7 +123,7 @@
 			<!-- Product Image -->
 			<div class="col-md-5">
 				<div class="single-product-img">
-					<img id="product-image" src="assets/img/products/Human Being Mockup.jpg" alt="T-shirt">
+					<img id="product-image" src="assets/img/products/Vortex Mockup.jpg" alt="T-shirt">
 				</div>
 			</div>
 	
@@ -136,27 +136,41 @@
 	
 					<!-- Size Options -->
 					<form id="form1" action="submit_customization.php" method="POST">
+						<!-- Add Custom Name/Message -->
+						<div class="single-product-form">
+							<label class="customization-label">Quantity: </label>
+							<input type="number" name="quantity" placeholder="1" min="1" max="10" class="quantity-input">
+						   
+		
 						<!-- Choose Size -->
 						<div class="customization-group">
 							<label class="customization-label"><i class="fas fa-ruler"></i> Choose Size: </label>
 							<div class="row-options">
-								<input type="radio" name="size" id="size-xs" value="XS">
-								<label for="size-xs" class="btn-option">XS</label>
-					
-								<input type="radio" name="size" id="size-s" value="S">
-								<label for="size-s" class="btn-option">S</label>
-					
-								<input type="radio" name="size" id="size-m" value="M">
-								<label for="size-m" class="btn-option">M</label>
-					
-								<input type="radio" name="size" id="size-l" value="L">
-								<label for="size-l" class="btn-option">L</label>
-					
-								<input type="radio" name="size" id="size-xl" value="XL">
-								<label for="size-xl" class="btn-option">XL</label>
-					
-								<input type="radio" name="size" id="size-xxl" value="XXL">
-								<label for="size-xxl" class="btn-option">XXL</label>
+								<input type="radio" name="size" id="size-xs" value="25">
+								<label for="size-xs" class="btn-option">XS:  $25</label>
+								
+								<input type="radio" name="size" id="size-s" value="25">
+								<label for="size-s" class="btn-option">S:  $25</label>
+								
+								<input type="radio" name="size" id="size-m" value="25">
+								<label for="size-m" class="btn-option">M:  $25</label>
+								
+								<input type="radio" name="size" id="size-l" value="25">
+								<label for="size-l" class="btn-option">L:  $25</label>
+								
+								<input type="radio" name="size" id="size-xl" value="25">
+								<label for="size-xl" class="btn-option">XL:  $25</label>
+								
+								<input type="radio" name="size" id="size-xxl" value="35">
+								<label for="size-xxl" class="btn-option">XXL:  $35</label>
+								
+								<input type="radio" name="size" id="size-3xl" value="35">
+								<label for="size-3xl" class="btn-option">3XL:  $35</label>
+
+
+
+								<input type="hidden" name="selected-size" id="selected-size">
+								<input type="hidden" name="selected-price" id="selected-price">
 							</div>
 						</div>
 					
@@ -167,6 +181,9 @@
 							<div class="row-options">
 								<input type="radio" name="shirtcolor" id="color-black" value="black">
 								<label for="color-black" class="color-option" style="background-color: #000000;" title="Black"></label>
+
+								<input type="radio" name="shirtcolor" id="color-white" value="white">
+								<label for="color-orange" class="color-option" style="background-color: #ffffff;" title="Orange"></label>
 
 								<input type="radio" name="shirtcolor" id="color-orange" value="orange">
 								<label for="color-orange" class="color-option" style="background-color: #FF5733;" title="Orange"></label>
@@ -204,6 +221,10 @@
 							<div class="row-options">
 								<input type="radio" name="color" id="color-black" value="black">
 								<label for="color-black" class="color-option" style="background-color: #000000;" title="Black"></label>
+
+								<input type="radio" name="color" id="color-White" value="White">
+								<label for="color-orange" class="color-option" style="background-color: #fefefe;" title="Orange"></label>
+							
 							
 								<input type="radio" name="color" id="color-orange" value="orange">
 								<label for="color-orange" class="color-option" style="background-color: #FF5733;" title="Orange"></label>
@@ -264,12 +285,7 @@
 								<label for="design-screenprint" class="btn-option">Screen Print</label>
 							</div>
 						</div>
-						 <!-- Add Custom Name/Message -->
-						 <div class="single-product-form">
-							<label class="customization-label">Quantity: </label>
-							<input type="number" name="quantity" placeholder="1" min="1" max="10" class="quantity-input">
-						   
-		
+						 
 		
 				<div class="customization-group">
 					<label class="customization-label">Name: </label>
@@ -678,46 +694,55 @@
 
 
 	<script>
-		function calculateTotal() {
-			const taxRate = 0.10; // 10% tax rate
-			const shippingCost = 10; // Fixed shipping cost
-	
-			// Set the price to 20 (fixed value)
-			const selectedSizePrice = 20;  // You mentioned this price is fixed at $20
-	
-			// Get the quantity input
-			const quantityInput = document.querySelector('.quantity-input');
-			const quantity = parseInt(quantityInput.value) || 1; // Default to 1 if not specified
-	
-			// Calculate the subtotal
-			const subtotal = selectedSizePrice * quantity;
-	
-			// Calculate the tax
-			const tax = subtotal * taxRate;
-	
-			// Calculate the total
-			const total = subtotal + tax + shippingCost;
-	
-			// Update the table
-			document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
-			document.getElementById('shipping').textContent = `$${shippingCost.toFixed(2)}`;
-			document.getElementById('tax').textContent = `$${tax.toFixed(2)}`;
-			document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+function calculateTotal() {
+    const taxRate = 0.10; // 10% tax rate
+    const shippingCost = 12; // Shipping cost as per your table
 
-			document.getElementById("total2").value = total;
-		}
-	
-		// Add event listeners to update the total when inputs change
-		document.querySelectorAll('input[name="size"]').forEach(radio => {
-			radio.addEventListener('change', calculateTotal);
-		});
-	
-		const quantityInput = document.querySelector('.quantity-input');
-		quantityInput.addEventListener('input', calculateTotal);
-	
-		// Initialize the table on page load
-		document.addEventListener('DOMContentLoaded', calculateTotal);
-	
+    // Get the selected size price
+    const selectedPrice = parseFloat(document.getElementById('selected-price').value) || 0;
+
+    // Get the quantity input
+    const quantityInput = document.querySelector('.quantity-input');
+    const quantity = parseInt(quantityInput.value) || 1; // Default to 1 if not specified
+
+    // Calculate the subtotal
+    const subtotal = selectedPrice * quantity;
+
+    // Calculate the tax
+    const tax = subtotal * taxRate;
+
+    // Calculate the total
+    const total = subtotal + tax + shippingCost;
+
+    // Update the table with the calculated values
+    document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+    document.getElementById('shipping').textContent = `$${shippingCost.toFixed(2)}`;
+    document.getElementById('tax').textContent = `$${tax.toFixed(2)}`;
+    document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+
+	 // Set the total value in the hidden input to be sent to the database
+	 document.getElementById('total2').value = total.toFixed(2);
+}
+
+// Add event listeners to update the hidden fields and calculate the total when a radio button is selected
+document.querySelectorAll('input[name="size"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+        // Update the hidden inputs with the selected size and price
+        const selectedSize = radio.id.split('-')[1].toUpperCase(); // Get the size (e.g., "XS", "S")
+        const selectedPrice = radio.value; // Get the price (e.g., "25" or "35")
+
+        document.getElementById('selected-size').value = selectedSize;
+        document.getElementById('selected-price').value = selectedPrice;
+
+        // Call the function to update the totals
+        calculateTotal();
+    });
+});
+
+// Initialize the table on page load
+document.addEventListener('DOMContentLoaded', calculateTotal);
+
+
 	 
 	 
 	 

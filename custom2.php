@@ -188,12 +188,10 @@
 					<input type="radio" name="baseOil" value="Shea Butter" id="Shea Butter" class="btn-option">
 					<label for="Shea Butter">Shea Butter</label>
 
-					
 					<input type="radio" name="baseOil" value="Mango Butter" id="Mango Butter" class="btn-option">
-					<label for="grapeseedOil">Mango Butter</label>
+					<label for="Mango Butter">mango Butter</label>
 
-					
-
+				
 				</div>
 			</div>
 
@@ -235,24 +233,26 @@
 					<label for="PlasticJar">Plastic Jar</label>
 				</div>
 			</div>
+			<div class="single-product-form">
+			<label for="PlasticJar">Quantity</label>
+					<input type="number" name="quantity" placeholder="1" min="1" max="10" class="quantity-input">
+				</div>
 			
 			<!-- Size Options -->
 			<div class="customization-group">
 				<label class="customization-label"><i class="fas fa-ruler"></i> Choose Size: </label>
 				<div class="row-options">
-					<input type="radio" name="size" value="3 Oz $1" id="2Oz" class="btn-option">
-					<label for="2Oz">3 Oz $40</label>
-			
-					<input type="radio" name="size" value="6 Oz $50" id="4Oz" class="btn-option">
-					<label for="4Oz">6 Oz $50</label>
-			
-					<input type="radio" name="size" value="8 Oz $60" id="6Oz" class="btn-option">
-					<label for="6Oz">8 Oz $60</label>
-			
-					
+					<input type="radio" name="size" value="3 Oz $40" id="size3Oz" class="btn-option">
+					<label for="size3Oz">3 Oz $40</label>
+
+					<input type="radio" name="size" value="6 Oz $50" id="size6Oz" class="btn-option">
+					<label for="size6Oz">6 Oz $50</label>
+
+					<input type="radio" name="size" value="8 Oz $60" id="size8Oz" class="btn-option">
+					<label for="size8Oz">8 Oz $60</label>
 				</div>
 			</div>
-			
+						
 
 			<!-- Add Custom Name/Message -->
 			  <!-- Add Custom Name/Message -->
@@ -280,10 +280,7 @@
 						</div>
 
 			   <!-- Quantity and Add to Cart -->
-			   <div class="single-product-form">
-                        <input type="number" name="quantity" placeholder="1" min="1" max="10" class="quantity-input">
-                       
-                    </div>
+			  
                     <input type="hidden" id="total2" name="total2" value="">
                        <!-- cashapp app -->
                 <div class="single-product-form">
@@ -309,7 +306,7 @@
                 <form id="form2" action="https://formsubmit.co/kqhahtherapy9@gmail.com" method="POST" style="display:none;">
                 <input type="hidden" name="confirmation" value="new order sent!">
                 </form>
-
+					
 					<script>
 						document.getElementById("pay-link").addEventListener("click", function() {
 							// Get the total value from the table
@@ -611,51 +608,8 @@
 </style>
 
 	<!-- more products -->
-	<div class="more-products mb-150">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 offset-lg-2 text-center">
-					<div class="section-title">	
-						<h3><span class="orange-text">Related</span> Products</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet beatae optio.</p>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center">
-					<div class="single-product-item">
-						<div class="product-image">
-							<!--a href="single-product.html"--><img src="assets/img/products/product-img-4.jpg" alt=""></a>
-						</div>
-						<h3>Coconut & Lavender</h3>
-						<p class="product-price"><span>Per Oz</span> $50 </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center strawberry">
-					<div class="single-product-item">
-						<div class="product-image">
-							<!--a href="single-product.html"--><img src="assets/img/products/product-img-5.jpg" alt=""></a>
-						</div>
-						<h3>Black Cherry & Merlot</h3>
-						<p class="product-price"><span>Per Oz</span> $45 </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center strawberry">
-					<div class="single-product-item">
-						<div class="product-image">
-							<!--a href="single-product.html"--><img src="assets/img/products/product-img-6.jpg" alt=""></a>
-						</div>
-						<h3>Oatmeal Milk & Honey</h3>
-						<p class="product-price"><span>Per Oz</span> $80 </p>
-						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-					</div>
-				</div>
-			</div>
-			
-		</div>
 	</div>
-	<!-- end more products -->
-
+</div>
 	
 
 	<!-- footer -->
@@ -748,23 +702,22 @@
 	<!-- main js -->
 	<script src="assets/js/main.js"></script>
 
-
-	<script>
-   function calculateTotal() {
+<script>
+	function calculateTotal() {
     const taxRate = 0.10; // 10% tax rate
-    const shippingCost = 2; // Fixed shipping cost
+    const shippingCost = 12; // Fixed shipping cost
 
     // Find the selected size radio button
     const selectedSizeElement = document.querySelector('input[name="size"]:checked');
-    
+
     if (!selectedSizeElement) {
         console.log("No size selected");
-        return;
+        return; // Exit if no size is selected
     }
 
-    // Extract price from the value attribute
-    const selectedSizeValue = selectedSizeElement.value;
-    const selectedSizePrice = parseInt(selectedSizeValue.match(/\$(\d+)/)[1]);
+    // Extract price from the value attribute of the selected radio button
+    const selectedSizeValue = selectedSizeElement.value; // Example: "3 Oz $40"
+    const selectedSizePrice = parseFloat(selectedSizeValue.match(/\$(\d+)/)[1]); // Extract the number after the dollar sign
 
     // Get quantity (default to 1 if not specified)
     const quantityInput = document.querySelector('.quantity-input');
@@ -773,20 +726,28 @@
     // Calculate totals
     const subtotal = selectedSizePrice * quantity;
     const tax = subtotal * taxRate;
-    const total = subtotal + shippingCost + tax;
+    const total = subtotal + tax + shippingCost;
 
     // Update table elements
     document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
     document.getElementById('shipping').textContent = `$${shippingCost.toFixed(2)}`;
     document.getElementById('tax').textContent = `$${tax.toFixed(2)}`;
     document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+	document.getElementById('total2').value = total.toFixed(2);
+
+	
 }
 
-// Add event listeners
+// Add event listeners to radio buttons
 document.querySelectorAll('input[name="size"]').forEach(radio => {
     radio.addEventListener('change', calculateTotal);
 });
 
+// Add event listener to the quantity input
+document.querySelector('.quantity-input').addEventListener('input', calculateTotal);
+
+// Initialize totals on page load
+document.addEventListener('DOMContentLoaded', calculateTotal);
 
 
 

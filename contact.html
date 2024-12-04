@@ -277,9 +277,10 @@
 							const phone = document.getElementById('phone').value;
 							const subject = document.getElementById('subject').value;
 							const message = document.getElementById('message').value;
+							const transactionId = document.getElementById('transaction_id').value;
 
 							// Validate inputs
-							if (name === "" || email === "" || phone === "" || subject === "" || message === "") {
+							if (name === "" || email === "" || phone === "" || subject === "" || message === "" || transactionId ==="" ) {
 								document.getElementById('form_status').innerHTML = "All fields are required.";
 								return false;
 							}
@@ -293,7 +294,7 @@
 
 							// Construct the subject and message for the Gmail link
 							const fullSubject = `New message from ${name}: ${subject}`;
-							const fullMessage = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nSubject: ${subject}\n\nMessage:\n${message}`;
+							const fullMessage = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nSubject: ${subject}\n\nMessage:\n${message}\n\nlast fix transaction id digits : ${transactionId}`;
 							
 							// Construct Gmail link
 							const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=namronny12@gmail.com&su=${encodeURIComponent(fullSubject)}&body=${encodeURIComponent(fullMessage)}`;
