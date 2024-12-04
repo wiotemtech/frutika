@@ -14,7 +14,9 @@ if ($conn->connect_error) {
 }
 
 // Collect data from form
+
 $size = $_POST['selected-size'];
+
 $color = $_POST['color'];
 $shirtColor = $_POST['shirtcolor'];
 $type = $_POST['type'];
