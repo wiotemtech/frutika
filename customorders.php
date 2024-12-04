@@ -361,7 +361,7 @@ $orders1 = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <tr>
                             <th>Order ID</th>
                             <th>Custom Name</th>
-                            <th>Base Oil</th>
+                            <th>Base</th>
                             <th>Scent Profile</th>
                             <th>Intensity</th>
                             <th>Benefits</th>
