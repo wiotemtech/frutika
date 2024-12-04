@@ -1,10 +1,9 @@
 <?php
 // Database connection
-$servername = "localhost"; // Replace with your database server if not localhost
-$username = "root"; // Replace with your database username
-$password = ""; // Replace with your database password
-$dbname = "ordermanagement"; // Your existing database name
-
+$servername = "localhost"; // Replace with your database server if not localhost// Replace with your database password// Your existing database name
+$dbname = 'capsrxrv_kqhahshop';
+$username = 'capsrxrv_shaka';
+$password = '!isihaka1005';
 // Enable error reporting for debugging
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
