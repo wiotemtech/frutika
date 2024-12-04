@@ -41,9 +41,10 @@ $stmt = $pdo->query($query);
 $result = $stmt->fetch(PDO::FETCH_ASSOC);
 $weeklySales = $result['weekly_sales']; // Weekly sales revenue
 
-$query = "SELECT * FROM tshirtcustomization";
+$query = "SELECT * FROM tshirtcustomization ORDER BY id DESC LIMIT 5";
 $stmt = $pdo->query($query);
 $orders1 = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 
 
 
@@ -396,7 +397,7 @@ $orders1 = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <?php endif; ?>
         </div>
 
-        <h2>Product Details</h2>
+        <h2>Hoodie and T-shirts</h2>
         <div class="table-responsive" style="overflow-x: auto;">
             <?php if (!empty($orders1)): ?>
                 <table class="table table-striped table-hover">
