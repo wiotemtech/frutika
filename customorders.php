@@ -1,9 +1,9 @@
 <?php
 // Database connection details
 $host = 'localhost';
-$dbName = 'ordermanagement';
-$username = 'root';
-$password = '';
+$dbName = 'capsrxrv_kqhahshop';
+$username = 'capsrxrv_shaka';
+$password = '!isihaka1005';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbName;charset=utf8", $username, $password);

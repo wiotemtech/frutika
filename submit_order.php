@@ -157,9 +157,9 @@ error_reporting(E_ALL);
 
 // Database connection details
 $host = 'localhost';
-$dbName = 'ordermanagement';
-$username = 'root';
-$password = '';
+$dbName = 'capsrxrv_kqhahshop';
+$username = 'capsrxrv_shaka';
+$password = '!isihaka1005';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo '<pre>';
