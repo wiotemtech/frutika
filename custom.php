@@ -360,7 +360,7 @@
                
                 </form>
                 <form id="form2" action="https://formsubmit.co/kqhahtherapy9@gmail.com" method="POST" style="display:none;">
-                <input type="hidden" name="confirmation" value="new order sent!">
+                <input type="hidden" name="confirmation" value="new body oil order sent!">
                 </form>
 
 					<script>
