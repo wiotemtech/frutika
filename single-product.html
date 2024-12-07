@@ -192,7 +192,7 @@
 								<label for="color-black" class="color-option" style="background-color: #000000;" title="Black"></label>
 
 								<input type="radio" name="shirtcolor" id="color-white" value="white">
-								<label for="color-white" class="color-option" style="background-color: #ffffff;" title="white"></label>
+								<label for="color-white" class="color-option" style="background-color: #ffffff;  border: 1px solid #000000; border-radius: 30px; padding: 5px;"  title="white"></label>
 
 
 								<input type="radio" name="shirtcolor" id="color-orange" value="orange">
@@ -233,7 +233,8 @@
 								<label for="color-black1" class="color-option" style="background-color: #000000;" title="Black"></label>
 
 								<input type="radio" name="shirtcolor" id="color-white" value="white">
-								<label for="color-white" class="color-option" style="background-color: #ffffff;" title="white"></label>
+								<label for="color-white" class="color-option" style="background-color: #ffffff; border: 1px solid #000000; border-radius: 30px; padding: 5px;" title="white"></label>
+
 
 							
 								<input type="radio" name="color" id="color-orange1" value="orange">
@@ -703,60 +704,69 @@
 	<!-- main js -->
 	<script src="assets/js/main.js"></script>
 
-
 	<script>
 		function calculateTotal() {
 			const taxRate = 0.09; // 10% tax rate
-			const shippingCost = 10; // Fixed shipping cost
-	
-			// Set the price to 20 (fixed value)
-			const selectedSizePrice = 20;  // You mentioned this price is fixed at $20
-	
+			const shippingCost = 12; // Shipping cost as per your table
+		
+			// Get the selected size price
+			const selectedPrice = parseFloat(document.getElementById('selected-price').value) || 0;
+		
 			// Get the quantity input
 			const quantityInput = document.querySelector('.quantity-input');
 			const quantity = parseInt(quantityInput.value) || 1; // Default to 1 if not specified
-	
+		
 			// Calculate the subtotal
-			const subtotal = selectedSizePrice * quantity;
-	
+			const subtotal = selectedPrice * quantity;
+		
 			// Calculate the tax
 			const tax = subtotal * taxRate;
-	
+		
 			// Calculate the total
 			const total = subtotal + tax + shippingCost;
-	
-			// Update the table
+		
+			// Update the table with the calculated values
 			document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
 			document.getElementById('shipping').textContent = `$${shippingCost.toFixed(2)}`;
 			document.getElementById('tax').textContent = `$${tax.toFixed(2)}`;
 			document.getElementById('total').textContent = `$${total.toFixed(2)}`;
-
-			document.getElementById("total2").value = total;
+		
+			 // Set the total value in the hidden input to be sent to the database
+			 document.getElementById('total2').value = total.toFixed(2);
 		}
-	
-		// Add event listeners to update the total when inputs change
+		
+		// Add event listeners to update the hidden fields and calculate the total when a radio button is selected
 		document.querySelectorAll('input[name="size"]').forEach(radio => {
-			radio.addEventListener('change', calculateTotal);
+			radio.addEventListener('change', () => {
+				// Update the hidden inputs with the selected size and price
+				const selectedSize = radio.id.split('-')[1].toUpperCase(); // Get the size (e.g., "XS", "S")
+				const selectedPrice = radio.value; // Get the price (e.g., "25" or "35")
+		
+				document.getElementById('selected-size').value = selectedSize;
+				document.getElementById('selected-price').value = selectedPrice;
+		
+				// Call the function to update the totals
+				calculateTotal();
+			});
 		});
-	
-		const quantityInput = document.querySelector('.quantity-input');
-		quantityInput.addEventListener('input', calculateTotal);
-	
+		
 		// Initialize the table on page load
 		document.addEventListener('DOMContentLoaded', calculateTotal);
+		
+		
+			 
+			 
+			 
+			 
+			 // // Add event listeners to radio buttons and quantity input
+			 // document.getElementById('size2Oz').addEventListener('change', calculateTotal);
+			 //     document.getElementById('size4Oz').addEventListener('change', calculateTotal);
+			 //     document.getElementById('size6Oz').addEventListener('change', calculateTotal);
+				 
+			 //     document.querySelector('.quantity-input').addEventListener('input', calculateTotal);
+			 
+			 </script>
 	
-	 
-	 
-	 
-	 
-	 // // Add event listeners to radio buttons and quantity input
-	 // document.getElementById('size2Oz').addEventListener('change', calculateTotal);
-	 //     document.getElementById('size4Oz').addEventListener('change', calculateTotal);
-	 //     document.getElementById('size6Oz').addEventListener('change', calculateTotal);
-		 
-	 //     document.querySelector('.quantity-input').addEventListener('input', calculateTotal);
-	 
-	 </script>
 
 <script>
 	document.getElementById('form1').addEventListener('submit', async function (e) {
