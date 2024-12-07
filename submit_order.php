@@ -160,6 +160,11 @@ $host = 'localhost';
 $dbName = 'capsrxrv_kqhahshop';
 $username = 'capsrxrv_shaka';
 $password = '!isihaka1005';
+// $host = "localhost";
+// $username = "root";  // Change this to your database username
+// $password = "";      // Change this to your database password
+// $dbName = "ordermanagement"; // Change this to your database name
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo '<pre>';
@@ -193,10 +198,12 @@ if (isset($_POST['name']) && isset($_POST['email'])) { // Ensure required fields
     $quantity = $_POST['quantity'] ?? 1;
     $total = $_POST['total2'] ?? 0.0;
     $payref = $_POST['payref'] ?? 0.0;
+    $city = $_POST['city'] ?? null;
+    $zipcode = $_POST['zipcode'] ?? null;
 
     // Using prepared statements for security
-    $query = "INSERT INTO custom_orders (customer_name, customer_email, customer_phone, customer_address, custom_name, specific_fragrance, base_oil, scent_profile, scent_intensity, additional_benefits, packaging, size, price, quantity, total) 
-              VALUES (:name, :email, :phone, :address, :customName, :specificFragrance, :baseOil, :scentProfile, :intensity, :benefits, :packaging, :size, :payref, :quantity, :total)";
+    $query = "INSERT INTO custom_orders (customer_name, customer_email, customer_phone, customer_address, custom_name, specific_fragrance, base_oil, scent_profile, scent_intensity, additional_benefits, packaging, size, price, quantity, total, city, zipcode) 
+              VALUES (:name, :email, :phone, :address, :customName, :specificFragrance, :baseOil, :scentProfile, :intensity, :benefits, :packaging, :size, :payref, :quantity, :total, :city, :zipcode)";
     $stmt = $pdo->prepare($query);
 
     // Bind parameters
@@ -215,6 +222,9 @@ if (isset($_POST['name']) && isset($_POST['email'])) { // Ensure required fields
     $stmt->bindParam(':quantity', $quantity, PDO::PARAM_INT);
     $stmt->bindParam(':total', $total, PDO::PARAM_STR);
     $stmt->bindParam(':payref', $payref, PDO::PARAM_STR);
+    $stmt->bindParam(':city', $city, PDO::PARAM_STR);
+    $stmt->bindParam(':zipcode', $zipcode, PDO::PARAM_STR);
+    
 
     // Execute and handle response
     if ($stmt->execute()) {

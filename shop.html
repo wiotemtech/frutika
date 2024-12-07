@@ -127,12 +127,12 @@
 								<li>
 									<div class="header-icons">
 										<a class="shopping-cart" href="cart.php"><i class="fas fa-shopping-cart"></i></a>
-										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+										<!-- <a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a> -->
 									</div>
 								</li>
 							</ul>
 						</nav>
-						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+						<!-- <a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a> -->
 						<div class="mobile-menu"></div>
 						<!-- menu end -->
 					</div>
@@ -187,7 +187,7 @@
 							<li><a href="shop.html" class="border">All</li></a>
 							<li><a  href="shop4.html" class="boxed" active >Butter</li></a>
                             <li><a href="shop5.html" class="boxed">Body Oils</li></a>
-							<li><a  href="shirts.html" class="boxed" active >T-shirts</li></a>
+							<li><a  href="single-product.html" class="boxed" active >T-Shirts</li></a>
                         </ul>
                     </div>
                 </div>
@@ -319,10 +319,12 @@
 			</div>
 
 			<script>
+					document.addEventListener("DOMContentLoaded", function() {
 				function updatePrice(basePrice, priceId, quantity) {
 					let newPrice = basePrice * quantity;
 					document.getElementById(priceId).textContent = `$${newPrice}`;
 				}
+				});
 			</script>
 
 			
@@ -393,10 +395,12 @@
 		</div>
 
 		<script>
+			document.addEventListener("DOMContentLoaded", function() {
 			function updatePrice(basePrice, priceId, quantity) {
 				let newPrice = basePrice * quantity;
 				document.getElementById(priceId).textContent = `$${newPrice}`;
 			}
+		});
 		</script>
 	</div>
 	</div>
@@ -434,7 +438,7 @@
 					<div class="footer-box get-in-touch">
 						<h2 class="widget-title">Get in Touch</h2>
 						<ul>
-							<li>24/7 online</li>
+							<li>24/7 Online Support</li>
 							<li>Kqhahtherapy9@gmail.com</li>
 							<li>+96596750535</li>
 						</ul>
@@ -511,6 +515,7 @@
 	<script src="assets/js/main.js"></script>
 	<script>
 		// Add to Cart button functionality
+		document.addEventListener("DOMContentLoaded", function() {
 		document.querySelectorAll('.cart-btn').forEach(button => {
 		  button.addEventListener('click', function(event) {
 			event.preventDefault();
@@ -547,6 +552,7 @@
 		  localStorage.setItem('cart', JSON.stringify(cart));
 		  alert(`${name} has been added to your cart!`);
 		}
+	});
 		</script>
 
 

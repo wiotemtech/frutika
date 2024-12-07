@@ -77,7 +77,7 @@
 								</li>
 							</ul>
 						</nav>
-						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+						<i class="fas fa-search"></i>
 						<div class="mobile-menu"></div>
 						<!-- menu end -->
 					</div>
@@ -113,7 +113,7 @@
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="breadcrumb-text">
 						<p>Fresh and Organic</p>
-						<h1>Cart</h1>
+						<h1> Shopping Cart</h1>
 					</div>
 				</div>
 			</div>
@@ -168,11 +168,11 @@
 								</tr>
 								<tr class="total-data">
 									<td><strong>Shipping: </strong></td>
-									<td id="shipping" class="align-right">$12</td>
+									<td id="shipping" class="align-right">$10</td>
 								</tr>
 								<tr class="total-data">
 									<td><strong>Tax: </strong></td>
-									<td class="align-right">9%</td>
+									<td class="align-right">0.09%</td>
 								</tr>
 								<tr class="total-data">
 									<td><strong>Total: </strong></td>
@@ -250,7 +250,7 @@
 								<div class="card-header" id="headingOne">
 									<h5 class="mb-0">
 										<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-											shipping Address
+											Shipping Address
 										</button>
 									</h5>
 								</div>
@@ -260,30 +260,28 @@
 											<form type="POST" id="fruitkha-contact" onsubmit="sendEmail(event);">
 												<p><input type="text" id="billing-name" placeholder="Name" name="name" required></p>
 												<p><input type="email" id="billing-email" placeholder="Email" name="email" required></p>
-												<p><input type="text" id="billing-address" placeholder="Address" name="address" required></p>
+												<p><input type="text" id="billing-address" placeholder="Address: 1234/Elm Street " name="address" required></p>
 												<p><input type="text" id="billing-city" placeholder="City" name="city" required></p>
-												<p><input type="text" id="billing-street" placeholder="Street" name="street" required></p>
+												<p><input type="text" id="billing-street" placeholder="ZIP Code" name="street" required></p>
 												<p><input type="tel" id="billing-phone" placeholder="Phone" name="name" required></p>
 												<p><textarea id="billing-comments" cols="30" rows="3" placeholder="Additional Information" name="inform" required></textarea></p>
-												<!-- cashapp Pay -->
-												<!-- <a href="#" id="pay-link" target="_blank">
+												
+												 <a href="#" id="pay-link" target="_blank">
 													<button style="background-color: #00d632; color: white; margin-bottom: 15px;  padding: 10px 10px; border: none; border-radius: 50px; font-size: 16px;">
 														Pay with Cash App
 													</button>
-												</a> -->
+												</a>
 
-												<p><input type="hidden" id="payref"  placeholder="Enter the last 4 digits of you Order id" name="payref" ></p>
+												<p><input type="text" id="payref"  placeholder="Enter the lasr five digits of your reciept" name="payref" ></p>
 											
 												<button name ="submit_order" type="submit" id="submit-btn" class="btn-submit d-flex align-items-center justify-content-center" style="cursor: pointer; margin-top:20px; background: #f28123; color: white; padding: 20px; width: 200px; height: 30px; text-align: center; border: none; border-radius: 50px; display: flex; ">Place Order</button>
 											
 											
 											</form>
 											<!-- Email notification -->
-											<form id="form2"
-												 action="payment.php" 
-												 method="POST" style="display:none;">
-												<input type="hidden" name="confirmation" value="New order sent!">
-												</form>
+											<form id="form2" action="https://formsubmit.co/kqhahtherapy9@gmail.com" method="POST" style="display:none;">
+											<input type="hidden" name="confirmation" value="New hoodie order sent!">
+											</form>
 										</div>
 										<div id="form_status"></div>
 
@@ -435,7 +433,7 @@
 					<div class="footer-box get-in-touch">
 						<h2 class="widget-title">Get in Touch</h2>
 						<ul>
-							<li>24/7 Online</li>
+							<li>24/7 Online Support</li>
 							<li>Kqhahtherapy9@gmail.com/li>
 							<li>+96596750535</li>
 						</ul>

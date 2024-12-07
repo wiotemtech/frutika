@@ -123,12 +123,12 @@
 								<li>
 									<div class="header-icons">
 										<a class="shopping-cart" href="cart.php"><i class="fas fa-shopping-cart"></i></a>
-										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+										<!-- <a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a> -->
 									</div>
 								</li>
 							</ul>
 						</nav>
-						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+						<!-- <<i class="fas fa-search"></i> -->
 						<div class="mobile-menu"></div>
 						<!-- menu end -->
 					</div>
@@ -332,7 +332,15 @@
                     </div>
                     <div class="customization-group">
                         <label class="customization-label">Address: </label>
-                        <input type="text" required id="address" name="address" class="customization-input" placeholder="Address...">
+                        <input type="text" required id="address" name="address" class="customization-input" placeholder="1234/Elm Street">
+                    </div>
+                    <div class="customization-group">
+                        <label class="customization-label">City </label>
+                        <input type="text"  id="city" name="city" class="customization-input" placeholder="City...">
+                    </div>
+                    <div class="customization-group">
+                        <label class="customization-label">ZIP Code: </label>
+                        <input type="text" required id="zipcode" name="zipcode" class="customization-input" placeholder="ZIP Code">
                     </div>
                    
                     <input type="hidden" id="hiddenPayref" name="payref">
@@ -351,7 +359,7 @@
 
                 <div class="customization-group">
                         <label class="customization-label">Payment reference: </label>
-                        <input type="text" required id="payfer" name="payref" class="customization-input" placeholder="Enter the last four digits of your order ID">
+                        <input type="text" required id="payfer" name="payref" class="customization-input" placeholder="Enter the lasr five digits of your reciept">
                     </div>
 
 
@@ -679,7 +687,7 @@ input[type="radio"]:focus + label {
 					<div class="footer-box get-in-touch">
 						<h2 class="widget-title">Get in Touch</h2>
 						<ul>
-							<li>24/7 Online.</li>
+							<li>24/7 Online Support.</li>
 							<li>Kqhahtherapy9@gmail.com</li>
 							<li>+96596750535</li>
 						</ul>
