@@ -125,12 +125,12 @@
 								<li>
 									<div class="header-icons">
 										<a class="shopping-cart" href="cart.php"><i class="fas fa-shopping-cart"></i></a>
-										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+										<!-- <a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a> -->
 									</div>
 								</li>
 							</ul>
 						</nav>
-						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+						<!-- <a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a> -->
 						<div class="mobile-menu"></div>
 						<!-- menu end -->
 					</div>
@@ -185,7 +185,7 @@
                             <li><a href="shop.html" class="boxed">All</li></a>
 							<li><a  href="shop4.html" class="border" active >Butter</li></a>
                             <li><a href="shop5.html" class="boxed">Body Oils</li></a>
-							<li><a href="shirts.html" class="boxed">T-Shirts</li></a>
+							<li><a href="single-product.html" class="boxed">T-Shirts</li></a>
                         </ul>
                     </div>
                 </div>
@@ -317,10 +317,12 @@
 			</div>
 
 			<script>
+					document.addEventListener("DOMContentLoaded", function() {
 				function updatePrice(basePrice, priceId, quantity) {
 					let newPrice = basePrice * quantity;
 					document.getElementById(priceId).textContent = `$${newPrice}`;
 				}
+				});
 			</script>
 
 				
@@ -330,7 +332,7 @@
 		<div class="col-lg-4 col-md-6 text-center lemon">
 			<div class="single-product-item">
 				<div class="product-image">
-					<img src="assets/img/products/b6.png" alt="Baccarat 540">
+					<img src="assets/img/products/b2.jpg" alt="Baccarat 540">
 				</div>
 				<h3>Floating Island Paradise</h3>
 				
@@ -391,10 +393,12 @@
 		</div>
 
 		<script>
-			function updatePrice(basePrice, priceId, quantity) {
-				let newPrice = basePrice * quantity;
-				document.getElementById(priceId).textContent = `$${newPrice}`;
-			}
+				document.addEventListener("DOMContentLoaded", function() {
+				function updatePrice(basePrice, priceId, quantity) {
+					let newPrice = basePrice * quantity;
+					document.getElementById(priceId).textContent = `$${newPrice}`;
+				}
+				});
 		</script>
 	</div>
 	</div>
@@ -432,7 +436,7 @@
 					<div class="footer-box get-in-touch">
 						<h2 class="widget-title">Get in Touch</h2>
 						<ul>
-							<li>24/7 Online.</li>
+							<li>24/7 Online Support.</li>
 							<li>Kqhahtherapy9@gmail.com</li>
 							<li>+96596750535</li>
 						</ul>
@@ -498,7 +502,8 @@
 	<!-- main js -->
 	<script src="assets/js/main.js"></script>
 	<script>
-		// Add to Cart button functionality
+			// Add to Cart button functionality
+			document.addEventListener("DOMContentLoaded", function() {
 		document.querySelectorAll('.cart-btn').forEach(button => {
 		  button.addEventListener('click', function(event) {
 			event.preventDefault();
@@ -535,6 +540,7 @@
 		  localStorage.setItem('cart', JSON.stringify(cart));
 		  alert(`${name} has been added to your cart!`);
 		}
+	});
 		</script>
 
 

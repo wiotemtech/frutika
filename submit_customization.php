@@ -1,7 +1,10 @@
 <?php
 // Database connection (replace with your actual database credentials)
 $servername = "localhost";
- // Change this to your database name
+// $username = "root";  // Change this to your database username
+// $password = "";      // Change this to your database password
+// $dbname = "ordermanagement"; // Change this to your database name
+
 $dbname = 'capsrxrv_kqhahshop';
 $username = 'capsrxrv_shaka';
 $password = '!isihaka1005';
@@ -26,10 +29,12 @@ $address = $_POST['address'];
 $payref = $_POST['payref'];
 $quantity = $_POST['quantity'];
 $total = $_POST['total2'];
+$city = $_POST['city'];
+$zipcode = $_POST['zipcode'];
 
 // Insert data into the database
-$sql = "INSERT INTO tshirtcustomization (size, color, shirtcolor, type, design, name, email, phone, address, payref, quantity, total)
-VALUES ('$size', '$color', '$shirtColor', '$type', '$design', '$name', '$email', '$phone', '$address', '$payref', '$quantity', '$total')";
+$sql = "INSERT INTO tshirtcustomization (size, color, shirtcolor, type, design, name, email, phone, address, payref, quantity, total, city, zipcode)
+VALUES ('$size', '$color', '$shirtColor', '$type', '$design', '$name', '$email', '$phone', '$address', '$payref', '$quantity', '$total', '$city', '$zipcode')";
 
 if ($conn->query($sql) === TRUE) {
     // Display success message

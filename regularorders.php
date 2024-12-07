@@ -5,6 +5,12 @@ $dbName = 'capsrxrv_kqhahshop';
 $username = 'capsrxrv_shaka';
 $password = '!isihaka1005';
 
+
+// $host = "localhost";
+// $username = "root";  // Change this to your database username
+// $password = "";      // Change this to your database password
+// $dbName = "ordermanagement";
+
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbName;charset=utf8", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -334,6 +340,7 @@ $weeklySales = $result['weekly_sales']; // Weekly sales revenue
                             <th>Phone</th>
                             <th>Address</th>
                             <th>City</th>
+                            <th>ZIP code</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -345,6 +352,7 @@ $weeklySales = $result['weekly_sales']; // Weekly sales revenue
                             <td><?php echo htmlspecialchars($order['phone']); ?></td>
                             <td><?php echo htmlspecialchars($order['address']); ?></td>
                             <td><?php echo htmlspecialchars($order['city']); ?></td>
+                            <td><?php echo htmlspecialchars($order['street']); ?></td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>

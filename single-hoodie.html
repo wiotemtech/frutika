@@ -59,21 +59,21 @@
 						<!-- menu start -->
 						<nav class="main-menu">
 							<ul>
-								<li class="current-list-item"><a href="index.html">Home</a>
+								<li ><a href="index.html">Home</a>
 								</li>
-								<li><a href="shop.html">Product</a>
+								<li class="current-list-item"><a href="shop.html">Product</a>
 								</li>
 								<li><a href="about.html">About us</a></li>
 								<li><a href="contact.html">Contact</a></li>
 								<li>
 									<div class="header-icons">
 										<a class="shopping-cart" href="cart.php"><i class="fas fa-shopping-cart"></i></a>
-										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+										<!-- <a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a> -->
 									</div>
 								</li>
 							</ul>
 						</nav>
-						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+						<!-- <a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a> -->
 						<div class="mobile-menu"></div>
 						<!-- menu end -->
 					</div>
@@ -108,8 +108,10 @@
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="breadcrumb-text">
-						<p>Design Room</p>
-						<h1>Hoodies</h1>
+						<div class="hero-btns">
+							<a href="single-product.html" class="bordered-btn"> T-Shirts</a>
+							<a href="single-hoodie.html" class="boxed-btn">Hoodies</a>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -131,8 +133,8 @@
 			<div class="col-md-7">
 				<div class="single-product-content">
 					<h2 class="product-title">Customizable Stylish Hoodie</h2>
-					<p class="single-product-pricing"><span>Standard Price:</span> $25</p>
-					<p class="product-description">Design your own T-shirt with multiple customization options. Choose your favorite color, size, T-shirt type, and design style to create your unique look.</p>
+					<!-- <p class="single-product-pricing"><span>Price:</span> Xs-XL $25 shirts xxl-5xl-$35</p> -->
+					<p class="product-description">Design your own Hoodie with multiple customization options. Choose your favorite color, size, T-shirt type, and design style to create your unique look.</p>
 	
 					<!-- Size Options -->
 					<form id="form1" action="submit_customization.php" method="POST">
@@ -189,7 +191,7 @@
 								<label for="color-black" class="color-option" style="background-color: #000000;" title="Black"></label>
 
 								<input type="radio" name="shirtcolor" id="color-white" value="white">
-								<label for="color-orange" class="color-option" style="background-color: #ffffff;" title="Orange"></label>
+								<label for="color-white" class="color-option" style="background-color: #ffffff;" title="white"></label>
 
 								<input type="radio" name="shirtcolor" id="color-orange" value="orange">
 								<label for="color-orange" class="color-option" style="background-color: #FF5733;" title="Orange"></label>
@@ -228,9 +230,9 @@
 								<input type="radio" name="color" id="color-black1" value="black">
 								<label for="color-black1" class="color-option" style="background-color: #000000;" title="Black"></label>
 
-								<input type="radio" name="color" id="color-White1" value="White">
-								<label for="color-orange1" class="color-option" style="background-color: #fefefe;" title="Orange"></label>
-							
+								<input type="radio" name="shirtcolor" id="color-white" value="white">
+								<label for="color-white" class="color-option" style="background-color: #ffffff;" title="white"></label>
+
 							
 								<input type="radio" name="color" id="color-orange1" value="orange">
 								<label for="color-orange1" class="color-option" style="background-color: #FF5733;" title="Orange"></label>
@@ -275,13 +277,15 @@
 						<!-- Design Options -->
 						<div class="customization-group">
 							<label class="customization-label"><i class="fas fa-brush"></i> Design Style: </label>
-							<div class="row-options">
-								<input type="radio" name="design" id="design-embroidery" value="Embroidery">
-								<label for="design-embroidery" class="btn-option">Embroidery</label>
-					
-								<input type="radio" name="design" id="design-screenprint" value="Screen Print">
-								<label for="design-screenprint" class="btn-option">Screen Print</label>
-							</div>
+							
+								<div class="row-options">
+									<input type="radio" name="design" id="design-embroidery" value="Embroidery">
+									<label for="design-embroidery" class="btn-option">Embroidery</label>
+						
+									<input type="radio" name="design" id="design-screenprint" value="Screen Print">
+									<label for="design-screenprint" class="btn-option">Screen Print</label>
+								</div>
+						
 						</div>
 						 
 		
@@ -300,7 +304,15 @@
 
 				<div class="customization-group">
 					<label class="customization-label">Address: </label>
-					<input type="text" required id="address" name="address" class="customization-input" placeholder="Address...">
+					<input type="text" required id="address" name="address" class="customization-input" placeholder="1234/Elm Street">
+				</div>
+				<div class="customization-group">
+					<label class="customization-label">City </label>
+					<input type="text"  id="city" name="city" class="customization-input" placeholder="City...">
+				</div>
+				<div class="customization-group">
+					<label class="customization-label">ZIP Code: </label>
+					<input type="text" required id="zipcode" name="zipcode" class="customization-input" placeholder="ZIP Code">
 				</div>
 
 			
@@ -353,7 +365,7 @@
                                                 <td id="shipping">$12</td>
                                             </tr>
                                             <tr>
-                                                <td>Tax (10%):</td>
+                                                <td>Tax (0.09%):</td>
                                                 <td id="tax">$0</td>
                                             </tr>
                                             <tr>
@@ -689,7 +701,7 @@
 
 	<script>
 function calculateTotal() {
-    const taxRate = 0.10; // 10% tax rate
+    const taxRate = 0.09; // 10% tax rate
     const shippingCost = 12; // Shipping cost as per your table
 
     // Get the selected size price
