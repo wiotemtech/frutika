@@ -266,13 +266,13 @@
 												<p><input type="tel" id="billing-phone" placeholder="Phone" name="name" required></p>
 												<p><textarea id="billing-comments" cols="30" rows="3" placeholder="Additional Information" name="inform" required></textarea></p>
 												
-												 <a href="#" id="pay-link" target="_blank">
-													<button style="background-color: #00d632; color: white; margin-bottom: 15px;  padding: 10px 10px; border: none; border-radius: 50px; font-size: 16px;">
+												 <a href="#" id="pay-link" style="background-color: #00d632; color: white; margin-bottom: 40px;  padding: 10px 10px; border: none; border-radius: 50px; font-size: 16px;" target="_blank">
+													
 														Pay with Cash App
-													</button>
+													
 												</a>
 
-												<p><input type="text" id="payref"  placeholder="Enter the lasr five digits of your reciept" name="payref" ></p>
+												<p><input type="text" id="payref" style ="margin-top: 40px; "  placeholder="Enter the lasr five digits of your reciept" name="payref" ></p>
 											
 												<button name ="submit_order" type="submit" id="submit-btn" class="btn-submit d-flex align-items-center justify-content-center" style="cursor: pointer; margin-top:20px; background: #f28123; color: white; padding: 20px; width: 200px; height: 30px; text-align: center; border: none; border-radius: 50px; display: flex; ">Place Order</button>
 											
@@ -365,27 +365,60 @@
 
     // XMLHttpRequest response handling
     xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) { // Request complete
-            const formStatusElement = document.getElementById('form_status');
-            if (formStatusElement) {
-                if (xhr.status === 200) {
-                    formStatusElement.innerHTML = xhr.responseText;
+		if (xhr.readyState === 4) { // Request complete
+    const formStatusElement = document.getElementById('form_status');
+    if (formStatusElement) {
+        if (xhr.status === 200) {
+            formStatusElement.innerHTML = xhr.responseText;
+            console.log("Order submitted successfully.");
 
-                    // Submit hidden form for email confirmation
-                    const hiddenForm = document.getElementById('form2');
-                    if (hiddenForm) {
-                        hiddenForm.submit();
-                    } else {
-                        console.error("Hidden form with ID 'form2' not found.");
-                    }
-                } else {
-                    formStatusElement.innerHTML = "Error submitting order.";
-                    console.error("Server Error:", xhr.status, xhr.statusText);
-                }
+            // Clear the cart
+            const cartBody = document.querySelector('.cart-table tbody');
+            if (cartBody) {
+                cartBody.innerHTML = ''; // Clears all rows in the cart table
+                console.log("Cart cleared.");
             } else {
-                console.error("Element with ID 'form_status' not found.");
+                console.error("Cart body not found.");
             }
+
+            // Update totals
+            const subtotalElement = document.getElementById('subtotal');
+            const shippingElement = document.getElementById('shipping');
+            const totalElement = document.getElementById('total');
+
+            console.log("Updating totals...");
+            if (subtotalElement) subtotalElement.innerText = '0';
+            if (shippingElement) shippingElement.innerText = '0';
+            if (totalElement) totalElement.innerText = '0';
+
+            // Clear the billing form
+            const billingForm = document.getElementById('fruitkha-contact');
+            if (billingForm) {
+                billingForm.reset(); // Resets all input fields and textarea in the form
+                console.log("Billing form cleared.");
+            } else {
+                console.error("Billing form with ID 'fruitkha-contact' not found.");
+            }
+
+            // Submit hidden form for email confirmation
+            const hiddenForm = document.getElementById('form2');
+            if (hiddenForm) {
+                console.log("Submitting hidden form...");
+                hiddenForm.submit();
+            } else {
+                console.error("Hidden form with ID 'form2' not found.");
+            }
+        } else {
+            formStatusElement.innerHTML = "Error submitting order.";
+            console.error("Server Error:", xhr.status, xhr.statusText);
         }
+    } else {
+        console.error("Element with ID 'form_status' not found.");
+    }
+}
+
+
+
     };
 
     // Encode and send data

@@ -292,10 +292,10 @@
                     <input type="hidden" id="total2" name="total2" value="">
                        <!-- cashapp app -->
                 <div class="single-product-form">
-                <a href="#" id="pay-link" target="_blank">
-					<button style="background-color: #00d632; color: white;  padding: 10px 10px; border: none; border-radius: 50px; font-size: 16px;">
+                <a href="#" id="pay-link" style="background-color: #00d632; color: white;  padding: 10px 10px; border: none; border-radius: 50px; font-size: 16px;" target="_blank">
+					
 						Pay with Cash App
-					</button>
+					
 				</a>
                
                 </div>
