@@ -767,7 +767,7 @@ input[type="radio"]:focus + label {
 
 	<script>
    function calculateTotal() {
-    const taxRate = 0.10; // 10% tax rate
+    const taxRate = 10; // 10% tax rate
     const shippingCost = 12; // Fixed shipping cost
 
     // Find the selected size radio button
@@ -788,7 +788,7 @@ input[type="radio"]:focus + label {
 
     // Calculate totals
     const subtotal = selectedSizePrice * quantity;
-    const tax = subtotal * taxRate;
+    const tax = taxRate;
     const total = subtotal + shippingCost + tax;
 
     // Update table elements
