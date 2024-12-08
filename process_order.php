@@ -1,14 +1,14 @@
 <?php
 // Database connection
-// $servername = "localhost"; // Replace with your database server if not localhost// Replace with your database password// Your existing database name
-// $dbname = 'capsrxrv_kqhahshop';
-// $username = 'capsrxrv_shaka';
-// $password = '!isihaka1005';
+$servername = "localhost"; // Replace with your database server if not localhost// Replace with your database password// Your existing database name
+$dbname = 'capsrxrv_kqhahshop';
+$username = 'capsrxrv_shaka';
+$password = '!isihaka1005';
 
-$servername = "localhost";
-$username = "root";  // Change this to your database username
-$password = "";      // Change this to your database password
-$dbname = "ordermanagement";
+// $servername = "localhost";
+// $username = "root";  // Change this to your database username
+// $password = "";      // Change this to your database password
+// $dbname = "ordermanagement";
 // Enable error reporting for debugging
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
