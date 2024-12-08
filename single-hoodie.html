@@ -230,8 +230,8 @@
 								<input type="radio" name="color" id="color-black1" value="black">
 								<label for="color-black1" class="color-option" style="background-color: #000000;" title="Black"></label>
 
-								<input type="radio" name="shirtcolor" id="color-white" value="white">
-								<label for="color-white" class="color-option" style="background-color: #ffffff;  border: 1px solid #000000; border-radius: 30px; padding: 5px;""  title="white"></label>
+								<input type="radio" name="shirtcolor" id="color-white1" value="white">
+								<label for="color-white1" class="color-option" style="background-color: #ffffff;  border: 1px solid #000000; border-radius: 30px; padding: 5px;""  title="white"></label>
 
 							
 								<input type="radio" name="color" id="color-orange1" value="orange">
@@ -365,7 +365,7 @@
                                                 <td id="shipping">$10</td>
                                             </tr>
                                             <tr>
-                                                <td>Tax (0.09%):</td>
+                                                <td>Tax ($10):</td>
                                                 <td id="tax">$0</td>
                                             </tr>
                                             <tr>
@@ -701,7 +701,7 @@
 
 	<script>
 function calculateTotal() {
-    const taxRate = 0.09; // 10% tax rate
+    const taxRate = 10; // 10% tax rate
     const shippingCost = 10; // Shipping cost as per your table
 
     // Get the selected size price
@@ -715,7 +715,7 @@ function calculateTotal() {
     const subtotal = selectedPrice * quantity;
 
     // Calculate the tax
-    const tax = subtotal * taxRate;
+    const tax = taxRate;
 
     // Calculate the total
     const total = subtotal + tax + shippingCost;

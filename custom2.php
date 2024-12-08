@@ -341,7 +341,7 @@
                                                 <td id="shipping">$10</td>
                                             </tr>
                                             <tr>
-                                                <td>Tax (10%):</td>
+                                                <td>Tax ($10):</td>
                                                 <td id="tax">$0</td>
                                             </tr>
                                             <tr>
@@ -712,8 +712,8 @@
 
 <script>
 	function calculateTotal() {
-    const taxRate = 0.10; // 10% tax rate
-    const shippingCost = 12; // Fixed shipping cost
+    const taxRate = 10; // 10% tax rate
+    const shippingCost = 10; // Fixed shipping cost
 
     // Find the selected size radio button
     const selectedSizeElement = document.querySelector('input[name="size"]:checked');
@@ -733,7 +733,7 @@
 
     // Calculate totals
     const subtotal = selectedSizePrice * quantity;
-    const tax = subtotal * taxRate;
+    const tax = taxRate;
     const total = subtotal + tax + shippingCost;
 
     // Update table elements

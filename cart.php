@@ -172,7 +172,7 @@
 								</tr>
 								<tr class="total-data">
 									<td><strong>Tax: </strong></td>
-									<td class="align-right">0.09%</td>
+									<td class="align-right">$10.00</td>
 								</tr>
 								<tr class="total-data">
 									<td><strong>Total: </strong></td>
@@ -584,7 +584,7 @@
 		// Update totals
 		const shipping = 10; // Example shipping cost
 		shippingElement.innerText = `$${shipping.toFixed(2)}`;
-		const total = subtotal + shipping + subtotal * 0.09;
+		const total = subtotal + shipping + subtotal + 10;
 	
 		subtotalElement.innerText = `$${subtotal.toFixed(2)}`;
 		totalElement.innerText = `$${total.toFixed(2)}`;
