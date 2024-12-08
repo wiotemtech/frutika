@@ -382,12 +382,12 @@
         <p><strong>Categories: </strong>Beauty, Custom Butters</p>
 
         <!-- Social Sharing Options -->
-        <h4>Share:</h4>
+        <!-- <h4>Share:</h4> -->
         <ul class="product-share">
-            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+            <!-- <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
             <li><a href="#"><i class="fab fa-twitter"></i></a></li>
             <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
-            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="#"><i class="fab fa-linkedin"></i></a></li> -->
         </ul>
     </div>
 </div>
@@ -676,11 +676,11 @@
 				<div class="col-lg-6 text-right col-md-12">
 					<div class="social-icons">
 						<ul>
-							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+							<!-- <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
 							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
 							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
 							<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-							<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li> -->
 						</ul>
 					</div>
 				</div>

@@ -1,15 +1,15 @@
 <?php
 // Database connection details
-$host = 'localhost';
-$dbName = 'capsrxrv_kqhahshop';
-$username = 'capsrxrv_shaka';
-$password = '!isihaka1005';
+// $host = 'localhost';
+// $dbName = 'capsrxrv_kqhahshop';
+// $username = 'capsrxrv_shaka';
+// $password = '!isihaka1005';
 
 
-// $host = "localhost";
-// $username = "root";  // Change this to your database username
-// $password = "";      // Change this to your database password
-// $dbName = "ordermanagement";
+$host = "localhost";
+$username = "root";  // Change this to your database username
+$password = "";      // Change this to your database password
+$dbName = "ordermanagement";
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbName;charset=utf8", $username, $password);

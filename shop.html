@@ -319,12 +319,12 @@
 			</div>
 
 			<script>
-					document.addEventListener("DOMContentLoaded", function() {
+					
 				function updatePrice(basePrice, priceId, quantity) {
 					let newPrice = basePrice * quantity;
 					document.getElementById(priceId).textContent = `$${newPrice}`;
 				}
-				});
+			
 			</script>
 
 			
@@ -395,12 +395,12 @@
 		</div>
 
 		<script>
-			document.addEventListener("DOMContentLoaded", function() {
+			
 			function updatePrice(basePrice, priceId, quantity) {
 				let newPrice = basePrice * quantity;
 				document.getElementById(priceId).textContent = `$${newPrice}`;
 			}
-		});
+	
 		</script>
 	</div>
 	</div>
@@ -515,7 +515,7 @@
 	<script src="assets/js/main.js"></script>
 	<script>
 		// Add to Cart button functionality
-		document.addEventListener("DOMContentLoaded", function() {
+		
 		document.querySelectorAll('.cart-btn').forEach(button => {
 		  button.addEventListener('click', function(event) {
 			event.preventDefault();
@@ -552,7 +552,7 @@
 		  localStorage.setItem('cart', JSON.stringify(cart));
 		  alert(`${name} has been added to your cart!`);
 		}
-	});
+	
 		</script>
 
 

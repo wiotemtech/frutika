@@ -156,14 +156,14 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 // Database connection details
-$host = 'localhost';
-$dbName = 'capsrxrv_kqhahshop';
-$username = 'capsrxrv_shaka';
-$password = '!isihaka1005';
-// $host = "localhost";
-// $username = "root";  // Change this to your database username
-// $password = "";      // Change this to your database password
-// $dbName = "ordermanagement"; // Change this to your database name
+// $host = 'localhost';
+// $dbName = 'capsrxrv_kqhahshop';
+// $username = 'capsrxrv_shaka';
+// $password = '!isihaka1005';
+$host = "localhost";
+$username = "root";  // Change this to your database username
+$password = "";      // Change this to your database password
+$dbName = "ordermanagement"; // Change this to your database name
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

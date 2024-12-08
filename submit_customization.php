@@ -1,13 +1,13 @@
 <?php
 // Database connection (replace with your actual database credentials)
 $servername = "localhost";
-// $username = "root";  // Change this to your database username
-// $password = "";      // Change this to your database password
-// $dbname = "ordermanagement"; // Change this to your database name
+$username = "root";  // Change this to your database username
+$password = "";      // Change this to your database password
+$dbname = "ordermanagement"; // Change this to your database name
 
-$dbname = 'capsrxrv_kqhahshop';
-$username = 'capsrxrv_shaka';
-$password = '!isihaka1005';
+// $dbname = 'capsrxrv_kqhahshop';
+// $username = 'capsrxrv_shaka';
+// $password = '!isihaka1005';
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
