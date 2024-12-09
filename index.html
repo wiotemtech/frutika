@@ -304,6 +304,14 @@
 				</div>
 			</div>
 				
+			<script>
+					
+				function updatePrice(basePrice, priceId, quantity) {
+					let newPrice = basePrice * quantity;
+					document.getElementById(priceId).textContent = `$${newPrice}`;
+				}
+				
+			</script>
 	
 	<!-- end product section -->
 
