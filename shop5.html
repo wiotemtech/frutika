@@ -195,20 +195,449 @@
 
 			<div class="row product-lists">
 				<div class="col-lg-4 col-md-6 text-center strawberry">
+					<div class="single-product-item">
+						<div class="product-image">
+							<img src="assets/img/products/product-img-8.jpg" alt="Shea Butter">
+						</div>
+						<h3>Fair Orizon</h3>
+						
+						<div class="product-details">
+							<label for="quantity-select-1">Select Size:</label>
+							<select id="quantity-select-1" onchange="updatePrice(12.5, 'price-1', this.value)">
+								<option value="2">3oz - $25</option>
+								<option value="2.8">6oz - $35</option>
+								<option value="3.6">8oz - $45</option>
+							</select>
+							<p class="product-price">Price: <span id="price-1">$25</span></p>
+						</div>
+						
+						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					</div>
+				</div>
+
+				<div class="col-lg-4 col-md-6 text-center berry">
+					<div class="single-product-item">
+						<div class="product-image">
+							<img src="assets/img/products/product-img-2.jpg" alt="Coconut Oil">
+						</div>
+						<h3>Coconut Oil</h3>
+						
+						<div class="product-details">
+							<label for="quantity-select-2">Select Size:</label>
+							<select id="quantity-select-2" onchange="updatePrice(12.5, 'price-2', this.value)">
+								<option value="2">2oz - $25</option>
+								<option value="2.8">4oz - $35</option>
+								<option value="3.6">6oz - $45</option>
+							</select>
+							<p class="product-price">Price: <span id="price-2">$25</span></p>
+						</div>
+						
+						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					</div>
+				</div>
+
+				<div class="col-lg-4 col-md-6 text-center lemon">
+					<div class="single-product-item">
+						<div class="product-image">
+							<img src="assets/img/products/product-img-3.jpg" alt="Baccarat 540">
+						</div>
+						<h3>Butt Naked
+						</h3>
+						
+						<div class="product-details">
+							<label for="quantity-select-3">Select Size:</label>
+							<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-3', this.value)">
+								<option value="2">2oz - $25</option>
+								<option value="2.8">4oz - $35</option>
+								<option value="3.6">6oz - $45</option>
+							</select>
+							<p class="product-price">Price: <span id="price-3">$25</span></p>
+						</div>
+						
+						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					</div>
+				</div>
+			</div>
+			<div class="row product-lists">
+				<div class="col-lg-4 col-md-6 text-center lemon">
+					<div class="single-product-item">
+						<div class="product-image">
+							<img src="assets/img/products/product-img-4.jpg" alt="Baccarat 540">
+						</div>
+						<h3>Champagne Toast</h3>
+						
+						<div class="product-details">
+							<label for="quantity-select-3">Select Size:</label>
+							<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-4', this.value)">
+								<option value="2">2oz - $25</option>
+								<option value="2.8">4oz - $35</option>
+								<option value="3.6">6oz - $45</option>
+							</select>
+							<p class="product-price">Price: <span id="price-4">$25</span></p>
+						</div>
+						
+						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 text-center lemon">
+					<div class="single-product-item">
+						<div class="product-image">
+							<img src="assets/img/products/product-img-10.jpg" alt="Baccarat 540">
+						</div>
+						<h3>Lady Million</h3>
+						
+						<div class="product-details">
+							<label for="quantity-select-3">Select Size:</label>
+							<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-5', this.value)">
+								<option value="2">2oz - $25</option>
+								<option value="2.8">4oz - $35</option>
+								<option value="3.6">6oz - $45</option>
+							</select>
+							<p class="product-price">Price: <span id="price-5">$25</span></p>
+						</div>
+						
+						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 text-center lemon">
+					<div class="single-product-item">
+						<div class="product-image">
+							<img src="assets/img/products/product-img-12.jpg" alt="Baccarat 540">
+						</div>
+						<h3>Baccarat 540
+						</h3>
+						
+						<div class="product-details">
+							<label for="quantity-select-3">Select Size:</label>
+							<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-6', this.value)">
+								<option value="2">2oz - $25</option>
+								<option value="2.8">4oz - $35</option>
+								<option value="3.6">6oz - $45</option>
+							</select>
+							<p class="product-price">Price: <span id="price-6">$25</span></p>
+						</div>
+						
+						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					</div>
+				</div>
+
+			<script>
+				
+				function updatePrice(basePrice, priceId, quantity) {
+					let newPrice = basePrice * quantity;
+					document.getElementById(priceId).textContent = `$${newPrice}`;
+				}
+			
+			</script>
+			</div>
+
+	
+	
+			<div class="row">
+				<div class="col-lg-4 col-md-6 text-center lemon">
+					<div class="single-product-item">
+						<div class="product-image">
+							<img src="assets/img/products/product-img-9.jpg" alt="Baccarat 540">
+						</div>
+						<h3>Floating Island Paradise</h3>
+						
+						<div class="product-details">
+							<label for="quantity-select-3">Select Size:</label>
+							<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-7', this.value)">
+								<option value="2">2oz - $25</option>
+								<option value="2.8">4oz - $35</option>
+								<option value="3.6">6oz - $45</option>
+							</select>
+							<p class="product-price">Price: <span id="price-7">$25</span></p>
+						</div>
+						
+						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 text-center lemon">
+					<div class="single-product-item">
+						<div class="product-image">
+							<img src="assets/img/products/product-img-10.jpg" alt="Baccarat 540">
+						</div>
+						<h3>Pineapple Hisbiscus
+						</h3>
+						
+						<div class="product-details">
+							<label for="quantity-select-3">Select Size:</label>
+							<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-8', this.value)">
+								<option value="2">2oz - $25</option>
+								<option value="2.8">4oz - $35</option>
+								<option value="3.6">6oz - $45</option>
+							</select>
+							<p class="product-price">Price: <span id="price-8">$25</span></p>
+						</div>
+						
+						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 text-center lemon">
+					<div class="single-product-item">
+						<div class="product-image">
+							<img src="assets/img/products/product-img-8.jpg" alt="Baccarat 540">
+						</div>
+						<h3>Mr. Right
+						</h3>
+						
+						<div class="product-details">
+							<label for="quantity-select-3">Select Size:</label>
+							<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-9', this.value)">
+								<option value="2">2oz - $25</option>
+								<option value="2.8">4oz - $35</option>
+								<option value="3.6">6oz - $45</option>
+							</select>
+							<p class="product-price">Price: <span id="price-9">$25</span></p>
+						</div>
+						
+						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					</div>
+				</div>
+
+				<script>
+						
+						function updatePrice(basePrice, priceId, quantity) {
+							let newPrice = basePrice * quantity;
+							document.getElementById(priceId).textContent = `$${newPrice}`;
+						}
+					
+				</script>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-4 col-md-6 text-center strawberry">
+					<div class="single-product-item">
+						<div class="product-image">
+							<img src="assets/img/products/product-img-8.jpg" alt="Shea Butter">
+						</div>
+						<h3>Oud & Bergamot</h3>
+						
+						<div class="product-details">
+							<label for="quantity-select-1">Select Size:</label>
+							<select id="quantity-select-1" onchange="updatePrice(12.5, 'price-10', this.value)">
+								<option value="2">3oz - $25</option>
+								<option value="2.8">6oz - $35</option>
+								<option value="3.6">8oz - $45</option>
+							</select>
+							<p class="product-price">Price: <span id="price-10">$25</span></p>
+						</div>
+						
+						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					</div>
+				</div>
+
+				<div class="col-lg-4 col-md-6 text-center berry">
+					<div class="single-product-item">
+						<div class="product-image">
+							<img src="assets/img/products/product-img-2.jpg" alt="Coconut Oil">
+						</div>
+						<h3>Sauvage</h3>
+						
+						<div class="product-details">
+							<label for="quantity-select-2">Select Size:</label>
+							<select id="quantity-select-2" onchange="updatePrice(12.5, 'price-11', this.value)">
+								<option value="2">2oz - $25</option>
+								<option value="2.8">4oz - $35</option>
+								<option value="3.6">6oz - $45</option>
+							</select>
+							<p class="product-price">Price: <span id="price-11">$25</span></p>
+						</div>
+						
+						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					</div>
+				</div>
+
+				<div class="col-lg-4 col-md-6 text-center lemon">
+					<div class="single-product-item">
+						<div class="product-image">
+							<img src="assets/img/products/product-img-3.jpg" alt="Baccarat 540">
+						</div>
+						<h3>Butt Naked
+						</h3>
+						
+						<div class="product-details">
+							<label for="quantity-select-3">Select Size:</label>
+							<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-12', this.value)">
+								<option value="2">2oz - $25</option>
+								<option value="2.8">4oz - $35</option>
+								<option value="3.6">6oz - $45</option>
+							</select>
+							<p class="product-price">Price: <span id="price-12">$25</span></p>
+						</div>
+						
+						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					</div>
+				</div>
+			</div>	
+
+			<div class="row">
+				<div class="col-lg-4 col-md-6 text-center lemon">
+					<div class="single-product-item">
+						<div class="product-image">
+							<img src="assets/img/products/product-img-4.jpg" alt="Baccarat 540">
+						</div>
+						<h3> Jamaican Me Crazy</h3>
+						
+						<div class="product-details">
+							<label for="quantity-select-3">Select Size:</label>
+							<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-13', this.value)">
+								<option value="2">2oz - $25</option>
+								<option value="2.8">4oz - $35</option>
+								<option value="3.6">6oz - $45</option>
+							</select>
+							<p class="product-price">Price: <span id="price-13">$25</span></p>
+						</div>
+						
+						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 text-center lemon">
+					<div class="single-product-item">
+						<div class="product-image">
+							<img src="assets/img/products/product-img-10.jpg" alt="Baccarat 540">
+						</div>
+						<h3>Bahama Fizz Type</h3>
+						
+						<div class="product-details">
+							<label for="quantity-select-3">Select Size:</label>
+							<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-14', this.value)">
+								<option value="2">2oz - $25</option>
+								<option value="2.8">4oz - $35</option>
+								<option value="3.6">6oz - $45</option>
+							</select>
+							<p class="product-price">Price: <span id="price-14">$25</span></p>
+						</div>
+						
+						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 text-center lemon">
+					<div class="single-product-item">
+						<div class="product-image">
+							<img src="assets/img/products/product-img-12.jpg" alt="Baccarat 540">
+						</div>
+						<h3>Strawberries & Cream
+						</h3>
+						
+						<div class="product-details">
+							<label for="quantity-select-3">Select Size:</label>
+							<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-16', this.value)">
+								<option value="2">2oz - $25</option>
+								<option value="2.8">4oz - $35</option>
+								<option value="3.6">6oz - $45</option>
+							</select>
+							<p class="product-price">Price: <span id="price-16">$25</span></p>
+						</div>
+						
+						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					</div>
+				</div>
+
+				<script>
+						
+					function updatePrice(basePrice, priceId, quantity) {
+					let newPrice = basePrice * quantity;
+					document.getElementById(priceId).textContent = `$${newPrice}`;
+					}
+							
+				</script>
+			</div>
+
+
+
+		<div class="row">
+			<div class="col-lg-4 col-md-6 text-center lemon">
+				<div class="single-product-item">
+					<div class="product-image">
+						<img src="assets/img/products/product-img-9.jpg" alt="Baccarat 540">
+					</div>
+					<h3>Lavender Martin</h3>
+					
+					<div class="product-details">
+						<label for="quantity-select-3">Select Size:</label>
+						<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-17', this.value)">
+							<option value="2">2oz - $25</option>
+							<option value="2.8">4oz - $35</option>
+							<option value="3.6">6oz - $45</option>
+						</select>
+						<p class="product-price">Price: <span id="price-17">$25</span></p>
+					</div>
+					
+					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 text-center lemon">
+				<div class="single-product-item">
+					<div class="product-image">
+						<img src="assets/img/products/product-img-10.jpg" alt="Baccarat 540">
+					</div>
+					<h3>Lick Me All Over
+					</h3>
+					
+					<div class="product-details">
+						<label for="quantity-select-3">Select Size:</label>
+						<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-18', this.value)">
+							<option value="2">2oz - $25</option>
+							<option value="2.8">4oz - $35</option>
+							<option value="3.6">6oz - $45</option>
+						</select>
+						<p class="product-price">Price: <span id="price-18">$25</span></p>
+					</div>
+					
+					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 text-center lemon">
+				<div class="single-product-item">
+					<div class="product-image">
+						<img src="assets/img/products/product-img-8.jpg" alt="Baccarat 540">
+					</div>
+					<h3>Happy Hour
+					</h3>
+					
+					<div class="product-details">
+						<label for="quantity-select-3">Select Size:</label>
+						<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-19', this.value)">
+							<option value="2">2oz - $25</option>
+							<option value="2.8">4oz - $35</option>
+							<option value="3.6">6oz - $45</option>
+						</select>
+						<p class="product-price">Price: <span id="price-19">$25</span></p>
+					</div>
+					
+					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+				</div>
+			</div>
+
+			<script>
+					
+							function updatePrice(basePrice, priceId, quantity) {
+								let newPrice = basePrice * quantity;
+								document.getElementById(priceId).textContent = `$${newPrice}`;
+							}
+							
+			</script>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-4 col-md-6 text-center strawberry">
 				<div class="single-product-item">
 					<div class="product-image">
 						<img src="assets/img/products/product-img-8.jpg" alt="Shea Butter">
 					</div>
-					<h3>Fair Orizon</h3>
+					<h3>Myself</h3>
 					
 					<div class="product-details">
 						<label for="quantity-select-1">Select Size:</label>
-						<select id="quantity-select-1" onchange="updatePrice(12.5, 'price-1', this.value)">
+						<select id="quantity-select-1" onchange="updatePrice(12.5, 'price-20', this.value)">
 							<option value="2">3oz - $25</option>
 							<option value="2.8">6oz - $35</option>
 							<option value="3.6">8oz - $45</option>
 						</select>
-						<p class="product-price">Price: <span id="price-1">$25</span></p>
+						<p class="product-price">Price: <span id="price-20">$25</span></p>
 					</div>
 					
 					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
@@ -220,16 +649,16 @@
 					<div class="product-image">
 						<img src="assets/img/products/product-img-2.jpg" alt="Coconut Oil">
 					</div>
-					<h3>Coconut Oil</h3>
+					<h3>Tuxedo</h3>
 					
 					<div class="product-details">
 						<label for="quantity-select-2">Select Size:</label>
-						<select id="quantity-select-2" onchange="updatePrice(12.5, 'price-2', this.value)">
+						<select id="quantity-select-2" onchange="updatePrice(12.5, 'price-22', this.value)">
 							<option value="2">2oz - $25</option>
 							<option value="2.8">4oz - $35</option>
 							<option value="3.6">6oz - $45</option>
 						</select>
-						<p class="product-price">Price: <span id="price-2">$25</span></p>
+						<p class="product-price">Price: <span id="price-22">$25</span></p>
 					</div>
 					
 					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
@@ -241,37 +670,40 @@
 					<div class="product-image">
 						<img src="assets/img/products/product-img-3.jpg" alt="Baccarat 540">
 					</div>
-					<h3>Butt Naked
+					<h3>Pink Watermelon
 					</h3>
 					
 					<div class="product-details">
 						<label for="quantity-select-3">Select Size:</label>
-						<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-3', this.value)">
+						<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-23', this.value)">
 							<option value="2">2oz - $25</option>
-							<option value="2.8">4oz - $35</option>
+							<option value="2.8">4oz - $35</option>2
 							<option value="3.6">6oz - $45</option>
 						</select>
-						<p class="product-price">Price: <span id="price-3">$25</span></p>
+						<p class="product-price">Price: <span id="price-23">$25</span></p>
 					</div>
 					
 					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 				</div>
 			</div>
+		</div>
+
+		<div class="row">
 			<div class="col-lg-4 col-md-6 text-center lemon">
 				<div class="single-product-item">
 					<div class="product-image">
 						<img src="assets/img/products/product-img-4.jpg" alt="Baccarat 540">
 					</div>
-					<h3>Champagne Toast</h3>
+					<h3>Vodka on the Rocks</h3>
 					
 					<div class="product-details">
 						<label for="quantity-select-3">Select Size:</label>
-						<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-4', this.value)">
+						<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-24', this.value)">
 							<option value="2">2oz - $25</option>
 							<option value="2.8">4oz - $35</option>
 							<option value="3.6">6oz - $45</option>
 						</select>
-						<p class="product-price">Price: <span id="price-4">$25</span></p>
+						<p class="product-price">Price: <span id="price-24">$25</span></p>
 					</div>
 					
 					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
@@ -282,16 +714,16 @@
 					<div class="product-image">
 						<img src="assets/img/products/product-img-10.jpg" alt="Baccarat 540">
 					</div>
-					<h3>Lady Million</h3>
+					<h3>Coco Madamosielle</h3>
 					
 					<div class="product-details">
 						<label for="quantity-select-3">Select Size:</label>
-						<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-5', this.value)">
+						<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-25', this.value)">
 							<option value="2">2oz - $25</option>
 							<option value="2.8">4oz - $35</option>
 							<option value="3.6">6oz - $45</option>
 						</select>
-						<p class="product-price">Price: <span id="price-5">$25</span></p>
+						<p class="product-price">Price: <span id="price-25">$25</span></p>
 					</div>
 					
 					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
@@ -302,17 +734,17 @@
 					<div class="product-image">
 						<img src="assets/img/products/product-img-12.jpg" alt="Baccarat 540">
 					</div>
-					<h3>Baccarat 540
+					<h3>Gucci Guilty ( Men & Women )
 					</h3>
 					
 					<div class="product-details">
 						<label for="quantity-select-3">Select Size:</label>
-						<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-6', this.value)">
+						<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-26', this.value)">
 							<option value="2">2oz - $25</option>
 							<option value="2.8">4oz - $35</option>
 							<option value="3.6">6oz - $45</option>
 						</select>
-						<p class="product-price">Price: <span id="price-6">$25</span></p>
+						<p class="product-price">Price: <span id="price-26">$25</span></p>
 					</div>
 					
 					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
@@ -320,510 +752,92 @@
 			</div>
 
 			<script>
-				
-				function updatePrice(basePrice, priceId, quantity) {
-					let newPrice = basePrice * quantity;
-					document.getElementById(priceId).textContent = `$${newPrice}`;
-				}
-			
+					
+							function updatePrice(basePrice, priceId, quantity) {
+								let newPrice = basePrice * quantity;
+								document.getElementById(priceId).textContent = `$${newPrice}`;
+							}
+						
 			</script>
 
-	
-	
-	<div class="row">
-		<div class="col-lg-4 col-md-6 text-center lemon">
+		</div>
+
+		<div class="row">
+			<div class="col-lg-4 col-md-6 text-center lemon">
 			<div class="single-product-item">
 				<div class="product-image">
 					<img src="assets/img/products/product-img-9.jpg" alt="Baccarat 540">
 				</div>
-				<h3>Floating Island Paradise</h3>
+				<h3>My Way</h3>
 				
 				<div class="product-details">
 					<label for="quantity-select-3">Select Size:</label>
-					<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-7', this.value)">
+					<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-27', this.value)">
 						<option value="2">2oz - $25</option>
 						<option value="2.8">4oz - $35</option>
 						<option value="3.6">6oz - $45</option>
 					</select>
-					<p class="product-price">Price: <span id="price-7">$25</span></p>
+					<p class="product-price">Price: <span id="price-27">$25</span></p>
 				</div>
 				
 				<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 			</div>
-		</div>
-		<div class="col-lg-4 col-md-6 text-center lemon">
+			</div>
+			<div class="col-lg-4 col-md-6 text-center lemon">
 			<div class="single-product-item">
 				<div class="product-image">
 					<img src="assets/img/products/product-img-10.jpg" alt="Baccarat 540">
 				</div>
-				<h3>Pineapple Hisbiscus
+				<h3>Hudson Valley
 				</h3>
 				
 				<div class="product-details">
 					<label for="quantity-select-3">Select Size:</label>
-					<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-8', this.value)">
+					<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-28', this.value)">
 						<option value="2">2oz - $25</option>
 						<option value="2.8">4oz - $35</option>
 						<option value="3.6">6oz - $45</option>
 					</select>
-					<p class="product-price">Price: <span id="price-8">$25</span></p>
+					<p class="product-price">Price: <span id="price-28">$25</span></p>
 				</div>
 				
 				<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 			</div>
-		</div>
-		<div class="col-lg-4 col-md-6 text-center lemon">
+			</div>
+			<div class="col-lg-4 col-md-6 text-center lemon">
 			<div class="single-product-item">
 				<div class="product-image">
 					<img src="assets/img/products/product-img-8.jpg" alt="Baccarat 540">
 				</div>
-				<h3>Mr. Right
+				<h3>Chance Coco Chanel
 				</h3>
 				
 				<div class="product-details">
 					<label for="quantity-select-3">Select Size:</label>
-					<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-9', this.value)">
+					<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-29', this.value)">
 						<option value="2">2oz - $25</option>
 						<option value="2.8">4oz - $35</option>
 						<option value="3.6">6oz - $45</option>
 					</select>
-					<p class="product-price">Price: <span id="price-9">$25</span></p>
+					<p class="product-price">Price: <span id="price-29">$25</span></p>
 				</div>
 				
 				<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 			</div>
-		</div>
+			</div>
 
-		<script>
+			<script>
+							function updatePrice(basePrice, priceId, quantity) {
+								let newPrice = basePrice * quantity;
+								document.getElementById(priceId).textContent = `$${newPrice}`;
+							}
+						
+			</script>
+			</div>
+
+
+		
 				
-				function updatePrice(basePrice, priceId, quantity) {
-					let newPrice = basePrice * quantity;
-					document.getElementById(priceId).textContent = `$${newPrice}`;
-				}
-			
-		</script>
-	</div>
-	<div class="col-lg-4 col-md-6 text-center strawberry">
-		<div class="single-product-item">
-			<div class="product-image">
-				<img src="assets/img/products/product-img-8.jpg" alt="Shea Butter">
-			</div>
-			<h3>Oud & Bergamot</h3>
-			
-			<div class="product-details">
-				<label for="quantity-select-1">Select Size:</label>
-				<select id="quantity-select-1" onchange="updatePrice(12.5, 'price-10', this.value)">
-					<option value="2">3oz - $25</option>
-					<option value="2.8">6oz - $35</option>
-					<option value="3.6">8oz - $45</option>
-				</select>
-				<p class="product-price">Price: <span id="price-10">$25</span></p>
-			</div>
-			
-			<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-		</div>
-	</div>
-
-	<div class="col-lg-4 col-md-6 text-center berry">
-		<div class="single-product-item">
-			<div class="product-image">
-				<img src="assets/img/products/product-img-2.jpg" alt="Coconut Oil">
-			</div>
-			<h3>Sauvage</h3>
-			
-			<div class="product-details">
-				<label for="quantity-select-2">Select Size:</label>
-				<select id="quantity-select-2" onchange="updatePrice(12.5, 'price-11', this.value)">
-					<option value="2">2oz - $25</option>
-					<option value="2.8">4oz - $35</option>
-					<option value="3.6">6oz - $45</option>
-				</select>
-				<p class="product-price">Price: <span id="price-11">$25</span></p>
-			</div>
-			
-			<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-		</div>
-	</div>
-
-	<div class="col-lg-4 col-md-6 text-center lemon">
-		<div class="single-product-item">
-			<div class="product-image">
-				<img src="assets/img/products/product-img-3.jpg" alt="Baccarat 540">
-			</div>
-			<h3>Butt Naked
-			</h3>
-			
-			<div class="product-details">
-				<label for="quantity-select-3">Select Size:</label>
-				<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-12', this.value)">
-					<option value="2">2oz - $25</option>
-					<option value="2.8">4oz - $35</option>
-					<option value="3.6">6oz - $45</option>
-				</select>
-				<p class="product-price">Price: <span id="price-12">$25</span></p>
-			</div>
-			
-			<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-		</div>
-	</div>
-	<div class="col-lg-4 col-md-6 text-center lemon">
-		<div class="single-product-item">
-			<div class="product-image">
-				<img src="assets/img/products/product-img-4.jpg" alt="Baccarat 540">
-			</div>
-			<h3> Jamaican Me Crazy</h3>
-			
-			<div class="product-details">
-				<label for="quantity-select-3">Select Size:</label>
-				<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-13', this.value)">
-					<option value="2">2oz - $25</option>
-					<option value="2.8">4oz - $35</option>
-					<option value="3.6">6oz - $45</option>
-				</select>
-				<p class="product-price">Price: <span id="price-13">$25</span></p>
-			</div>
-			
-			<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-		</div>
-	</div>
-	<div class="col-lg-4 col-md-6 text-center lemon">
-		<div class="single-product-item">
-			<div class="product-image">
-				<img src="assets/img/products/product-img-10.jpg" alt="Baccarat 540">
-			</div>
-			<h3>Bahama Fizz Type</h3>
-			
-			<div class="product-details">
-				<label for="quantity-select-3">Select Size:</label>
-				<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-14', this.value)">
-					<option value="2">2oz - $25</option>
-					<option value="2.8">4oz - $35</option>
-					<option value="3.6">6oz - $45</option>
-				</select>
-				<p class="product-price">Price: <span id="price-14">$25</span></p>
-			</div>
-			
-			<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-		</div>
-	</div>
-	<div class="col-lg-4 col-md-6 text-center lemon">
-		<div class="single-product-item">
-			<div class="product-image">
-				<img src="assets/img/products/product-img-12.jpg" alt="Baccarat 540">
-			</div>
-			<h3>Strawberries & Cream
-			</h3>
-			
-			<div class="product-details">
-				<label for="quantity-select-3">Select Size:</label>
-				<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-16', this.value)">
-					<option value="2">2oz - $25</option>
-					<option value="2.8">4oz - $35</option>
-					<option value="3.6">6oz - $45</option>
-				</select>
-				<p class="product-price">Price: <span id="price-16">$25</span></p>
-			</div>
-			
-			<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-		</div>
-	</div>
-
-	<script>
-			
-		function updatePrice(basePrice, priceId, quantity) {
-		let newPrice = basePrice * quantity;
-		document.getElementById(priceId).textContent = `$${newPrice}`;
-		}
-				
-	</script>
-
-
-
-<div class="row">
-<div class="col-lg-4 col-md-6 text-center lemon">
-	<div class="single-product-item">
-		<div class="product-image">
-			<img src="assets/img/products/product-img-9.jpg" alt="Baccarat 540">
-		</div>
-		<h3>Lavender Martin</h3>
-		
-		<div class="product-details">
-			<label for="quantity-select-3">Select Size:</label>
-			<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-17', this.value)">
-				<option value="2">2oz - $25</option>
-				<option value="2.8">4oz - $35</option>
-				<option value="3.6">6oz - $45</option>
-			</select>
-			<p class="product-price">Price: <span id="price-17">$25</span></p>
-		</div>
-		
-		<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-	</div>
-</div>
-<div class="col-lg-4 col-md-6 text-center lemon">
-	<div class="single-product-item">
-		<div class="product-image">
-			<img src="assets/img/products/product-img-10.jpg" alt="Baccarat 540">
-		</div>
-		<h3>Lick Me All Over
-		</h3>
-		
-		<div class="product-details">
-			<label for="quantity-select-3">Select Size:</label>
-			<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-18', this.value)">
-				<option value="2">2oz - $25</option>
-				<option value="2.8">4oz - $35</option>
-				<option value="3.6">6oz - $45</option>
-			</select>
-			<p class="product-price">Price: <span id="price-18">$25</span></p>
-		</div>
-		
-		<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-	</div>
-</div>
-<div class="col-lg-4 col-md-6 text-center lemon">
-	<div class="single-product-item">
-		<div class="product-image">
-			<img src="assets/img/products/product-img-8.jpg" alt="Baccarat 540">
-		</div>
-		<h3>Happy Hour
-		</h3>
-		
-		<div class="product-details">
-			<label for="quantity-select-3">Select Size:</label>
-			<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-19', this.value)">
-				<option value="2">2oz - $25</option>
-				<option value="2.8">4oz - $35</option>
-				<option value="3.6">6oz - $45</option>
-			</select>
-			<p class="product-price">Price: <span id="price-19">$25</span></p>
-		</div>
-		
-		<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-	</div>
-</div>
-
-<script>
-		
-				function updatePrice(basePrice, priceId, quantity) {
-					let newPrice = basePrice * quantity;
-					document.getElementById(priceId).textContent = `$${newPrice}`;
-				}
-				
-</script>
-</div>
-<div class="col-lg-4 col-md-6 text-center strawberry">
-	<div class="single-product-item">
-		<div class="product-image">
-			<img src="assets/img/products/product-img-8.jpg" alt="Shea Butter">
-		</div>
-		<h3>Myself</h3>
-		
-		<div class="product-details">
-			<label for="quantity-select-1">Select Size:</label>
-			<select id="quantity-select-1" onchange="updatePrice(12.5, 'price-20', this.value)">
-				<option value="2">3oz - $25</option>
-				<option value="2.8">6oz - $35</option>
-				<option value="3.6">8oz - $45</option>
-			</select>
-			<p class="product-price">Price: <span id="price-20">$25</span></p>
-		</div>
-		
-		<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-	</div>
-</div>
-
-<div class="col-lg-4 col-md-6 text-center berry">
-	<div class="single-product-item">
-		<div class="product-image">
-			<img src="assets/img/products/product-img-2.jpg" alt="Coconut Oil">
-		</div>
-		<h3>Tuxedo</h3>
-		
-		<div class="product-details">
-			<label for="quantity-select-2">Select Size:</label>
-			<select id="quantity-select-2" onchange="updatePrice(12.5, 'price-22', this.value)">
-				<option value="2">2oz - $25</option>
-				<option value="2.8">4oz - $35</option>
-				<option value="3.6">6oz - $45</option>
-			</select>
-			<p class="product-price">Price: <span id="price-22">$25</span></p>
-		</div>
-		
-		<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-	</div>
-</div>
-
-<div class="col-lg-4 col-md-6 text-center lemon">
-	<div class="single-product-item">
-		<div class="product-image">
-			<img src="assets/img/products/product-img-3.jpg" alt="Baccarat 540">
-		</div>
-		<h3>Pink Watermelon
-		</h3>
-		
-		<div class="product-details">
-			<label for="quantity-select-3">Select Size:</label>
-			<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-23', this.value)">
-				<option value="2">2oz - $25</option>
-				<option value="2.8">4oz - $35</option>2
-				<option value="3.6">6oz - $45</option>
-			</select>
-			<p class="product-price">Price: <span id="price-23">$25</span></p>
-		</div>
-		
-		<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-	</div>
-</div>
-<div class="col-lg-4 col-md-6 text-center lemon">
-	<div class="single-product-item">
-		<div class="product-image">
-			<img src="assets/img/products/product-img-4.jpg" alt="Baccarat 540">
-		</div>
-		<h3>Vodka on the Rocks</h3>
-		
-		<div class="product-details">
-			<label for="quantity-select-3">Select Size:</label>
-			<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-24', this.value)">
-				<option value="2">2oz - $25</option>
-				<option value="2.8">4oz - $35</option>
-				<option value="3.6">6oz - $45</option>
-			</select>
-			<p class="product-price">Price: <span id="price-24">$25</span></p>
-		</div>
-		
-		<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-	</div>
-</div>
-<div class="col-lg-4 col-md-6 text-center lemon">
-	<div class="single-product-item">
-		<div class="product-image">
-			<img src="assets/img/products/product-img-10.jpg" alt="Baccarat 540">
-		</div>
-		<h3>Coco Madamosielle</h3>
-		
-		<div class="product-details">
-			<label for="quantity-select-3">Select Size:</label>
-			<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-25', this.value)">
-				<option value="2">2oz - $25</option>
-				<option value="2.8">4oz - $35</option>
-				<option value="3.6">6oz - $45</option>
-			</select>
-			<p class="product-price">Price: <span id="price-25">$25</span></p>
-		</div>
-		
-		<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-	</div>
-</div>
-<div class="col-lg-4 col-md-6 text-center lemon">
-	<div class="single-product-item">
-		<div class="product-image">
-			<img src="assets/img/products/product-img-12.jpg" alt="Baccarat 540">
-		</div>
-		<h3>Gucci Guilty ( Men & Women )
-		</h3>
-		
-		<div class="product-details">
-			<label for="quantity-select-3">Select Size:</label>
-			<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-26', this.value)">
-				<option value="2">2oz - $25</option>
-				<option value="2.8">4oz - $35</option>
-				<option value="3.6">6oz - $45</option>
-			</select>
-			<p class="product-price">Price: <span id="price-26">$25</span></p>
-		</div>
-		
-		<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-	</div>
-</div>
-
-<script>
-		
-				function updatePrice(basePrice, priceId, quantity) {
-					let newPrice = basePrice * quantity;
-					document.getElementById(priceId).textContent = `$${newPrice}`;
-				}
-			
-</script>
-
-</div>
-
-<div class="row">
-<div class="col-lg-4 col-md-6 text-center lemon">
-<div class="single-product-item">
-	<div class="product-image">
-		<img src="assets/img/products/product-img-9.jpg" alt="Baccarat 540">
-	</div>
-	<h3>My Way</h3>
-	
-	<div class="product-details">
-		<label for="quantity-select-3">Select Size:</label>
-		<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-27', this.value)">
-			<option value="2">2oz - $25</option>
-			<option value="2.8">4oz - $35</option>
-			<option value="3.6">6oz - $45</option>
-		</select>
-		<p class="product-price">Price: <span id="price-27">$25</span></p>
-	</div>
-	
-	<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-</div>
-</div>
-<div class="col-lg-4 col-md-6 text-center lemon">
-<div class="single-product-item">
-	<div class="product-image">
-		<img src="assets/img/products/product-img-10.jpg" alt="Baccarat 540">
-	</div>
-	<h3>Hudson Valley
-	</h3>
-	
-	<div class="product-details">
-		<label for="quantity-select-3">Select Size:</label>
-		<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-28', this.value)">
-			<option value="2">2oz - $25</option>
-			<option value="2.8">4oz - $35</option>
-			<option value="3.6">6oz - $45</option>
-		</select>
-		<p class="product-price">Price: <span id="price-28">$25</span></p>
-	</div>
-	
-	<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-</div>
-</div>
-<div class="col-lg-4 col-md-6 text-center lemon">
-<div class="single-product-item">
-	<div class="product-image">
-		<img src="assets/img/products/product-img-8.jpg" alt="Baccarat 540">
-	</div>
-	<h3>Chance Coco Chanel
-	</h3>
-	
-	<div class="product-details">
-		<label for="quantity-select-3">Select Size:</label>
-		<select id="quantity-select-3" onchange="updatePrice(12.5, 'price-29', this.value)">
-			<option value="2">2oz - $25</option>
-			<option value="2.8">4oz - $35</option>
-			<option value="3.6">6oz - $45</option>
-		</select>
-		<p class="product-price">Price: <span id="price-29">$25</span></p>
-	</div>
-	
-	<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
-</div>
-</div>
-
-<script>
-				function updatePrice(basePrice, priceId, quantity) {
-					let newPrice = basePrice * quantity;
-					document.getElementById(priceId).textContent = `$${newPrice}`;
-				}
-			
-</script>
-</div>
-
-
-	</div>
-	
 			
 
 			<div class="row">
