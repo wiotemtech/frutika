@@ -193,25 +193,25 @@
 
 			<div class="row product-lists">
 				<div class="col-lg-4 col-md-6 text-center strawberry">
-				<div class="single-product-item">
-					<div class="product-image">
-						<img src="assets/img/products/product-img-1.png" alt="Shea Butter">
+					<div class="single-product-item">
+						<div class="product-image">
+							<img src="assets/img/products/product-img-1.png" alt="Shea Butter">
+						</div>
+						<h3>Shea Butter</h3>
+						
+						<div class="product-details">
+							<label for="quantity-select-1">Select Size:</label>
+							<select id="quantity-select-1" onchange="updatePrice(15, 'price-1', this.value)">
+								<option value="2">3oz - $30</option>
+								<option value="2.67">6oz - $40</option>
+								<option value="3.33">8oz - $50</option>
+							</select>
+							<p class="product-price">Price: <span id="price-1">$30</span></p>
+						</div>
+						
+						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 					</div>
-					<h3>Shea Butter</h3>
-					
-					<div class="product-details">
-						<label for="quantity-select-1">Select Size:</label>
-						<select id="quantity-select-1" onchange="updatePrice(15, 'price-1', this.value)">
-							<option value="2">3oz - $30</option>
-							<option value="2.67">6oz - $40</option>
-							<option value="3.33">8oz - $50</option>
-						</select>
-						<p class="product-price">Price: <span id="price-1">$30</span></p>
-					</div>
-					
-					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 				</div>
-			</div>
 
 			<div class="col-lg-4 col-md-6 text-center berry">
 				<div class="single-product-item">
@@ -255,6 +255,8 @@
 					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 				</div>
 			</div>
+		</div>
+		<div class="row product-lists">
 			<div class="col-lg-4 col-md-6 text-center lemon">
 				<div class="single-product-item">
 					<div class="product-image">
@@ -315,6 +317,7 @@
 					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 				</div>
 			</div>
+		</div>
 
 			<script>
 					
@@ -326,7 +329,7 @@
 			</script>
 
 				
-	</div>
+	
 	
 	<div class="row">
 		<div class="col-lg-4 col-md-6 text-center lemon">
@@ -401,7 +404,7 @@
 			
 		</script>
 	</div>
-	</div>
+	
 	
 			
 
