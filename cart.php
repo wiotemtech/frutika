@@ -33,6 +33,8 @@
 	<link rel="stylesheet" href="assets/css/main.css">
 	<!-- responsive -->
 	<link rel="stylesheet" href="assets/css/responsive.css">
+	<script src="https://www.paypal.com/sdk/js?client-id=AY05oQ3yo22At-dpHze7NZkj86FB-tYbPMoOWjxlppTzuZdDNXLYW-OcI361OgZi_w5BRVY5Q8_zp3vF&currency=USD"></script>
+
 
 </head>
 <body>
@@ -258,6 +260,13 @@
 									<div class="card-body">
 										<div class="billing-address-form">
 											<form type="POST" id="fruitkha-contact" onsubmit="sendEmail(event);">
+											<div class="customization-group">
+												<label class="customization-label"><i class="fas fa-user"></i> Are you a Local in Kuwat(skip if not):</label>
+												<div class="row-options">
+													<input type="radio" name="customerType" value="local" id="localCustomer" class="btn-option">
+													<label for="localCustomer">Yes</label>
+												</div>
+											</div>
 												<p><input type="text" id="billing-name" placeholder="Name" name="name" required></p>
 												<p><input type="email" id="billing-email" placeholder="Email" name="email" required></p>
 												<p><input type="text" id="billing-address" placeholder="Address: 1234/Elm Street " name="address" required></p>
@@ -266,11 +275,11 @@
 												<p><input type="tel" id="billing-phone" placeholder="Phone" name="name" required></p>
 												<p><textarea id="billing-comments" cols="30" rows="3" placeholder="Additional Information" name="inform" required></textarea></p>
 												
-												 <a href="#" id="pay-link" style="background-color: #00d632; color: white; margin-bottom: 40px;  padding: 10px 10px; border: none; border-radius: 50px; font-size: 16px;" target="_blank">
-													
-														Pay with Cash App
-													
+												<a href="#" id="pay-link" style="background-color: #00d632; color: white; margin-bottom: 20px; padding: 10px 10px; border: none; border-radius: 0px; font-size: 16px; display: inline-block; width: 650px; text-align: center;" target="_blank">
+													Pay with Cash App
 												</a>
+												<div id="paypal-button-container" style="margin-top: 20px;"></div>
+
 
 												<p><input type="text" id="payref" style ="margin-top: 40px; "  placeholder="Enter the lasr five digits of your reciept" name="payref" ></p>
 											
@@ -543,92 +552,142 @@
 	<!-- main js -->
 	<script src="assets/js/main.js"></script>
 	<script>
-	document.addEventListener('DOMContentLoaded', function () {
-		displayCartItems();
-	});
-	
-	function displayCartItems() {
-		const cart = JSON.parse(localStorage.getItem('cart')) || [];
-		const cartTableBody = document.querySelector('.cart-table tbody');
-		const subtotalElement = document.getElementById('subtotal');
-		const shippingElement = document.getElementById('shipping');
-		const totalElement = document.getElementById('total');
-	
-		cartTableBody.innerHTML = ''; // Clear existing rows
-		let subtotal = 0;
-	
-		// Create table rows for each product in the cart
-		cart.forEach((product, index) => {
-			const { name, price, img, quantity } = product;
-	
-			// Clean the price string and extract only the numeric part
-			const productPrice = parseFloat(price.replace(/[^0-9.]/g, ''));
-			const productTotal = productPrice * quantity;
-			subtotal += productTotal;
-	
-			const row = document.createElement('tr');
-			row.classList.add('table-body-row');
-			row.innerHTML = `
-				<td class="product-remove"><a href="#" data-index="${index}"><i class="far fa-window-close"></i></a></td>
-				<td class="product-image"><img src="${img}" alt=""></td>
-				<td class="product-name">${name}</td>
-				<td class="product-price">$${productPrice.toFixed(2)}</td>
-				<td class="product-quantity">
-					<input type="number" value="${quantity}" min="1" data-index="${index}">
-				</td>
-				<td class="product-total">$${productTotal.toFixed(2)}</td>
-			`;
-			cartTableBody.appendChild(row);
-		});
-	
-		// Update totals
-		const shipping = 10; // Example shipping cost
-		shippingElement.innerText = `$${shipping.toFixed(2)}`;
-		const total = subtotal + shipping + subtotal + 10;
-	
-		subtotalElement.innerText = `$${subtotal.toFixed(2)}`;
-		totalElement.innerText = `$${total.toFixed(2)}`;
-	
-		// Add event listener for quantity input change
-		document.querySelectorAll('.product-quantity input').forEach(input => {
-			input.addEventListener('change', updateQuantity);
-		});
-	
-		// Add event listener for remove buttons
-		document.querySelectorAll('.product-remove a').forEach(button => {
-			button.addEventListener('click', removeProduct);
-		});
-	}
-	
-	function updateQuantity(event) {
-		const input = event.target;
-		const index = input.getAttribute('data-index');
-		const newQuantity = parseInt(input.value);
-	
-		if (newQuantity > 0) {
-			let cart = JSON.parse(localStorage.getItem('cart')) || [];
-			cart[index].quantity = newQuantity;
-			localStorage.setItem('cart', JSON.stringify(cart));
-			displayCartItems(); // Recalculate and update the cart
-		}
-	}
-	
-	function removeProduct(event) {
-		event.preventDefault(); // Prevent the default action
-	
-		const index = event.target.closest('a').getAttribute('data-index');
-		let cart = JSON.parse(localStorage.getItem('cart')) || [];
-	
-		// Remove the product from the cart
-		cart.splice(index, 1);
-	
-		// Update localStorage
-		localStorage.setItem('cart', JSON.stringify(cart));
-	
-		// Recalculate and update the cart display
-		displayCartItems();
-	}
+    document.addEventListener('DOMContentLoaded', function () {
+        setupCustomerType();
+        displayCartItems();
+    });
+
+    function setupCustomerType() {
+        const customerTypeInputs = document.querySelectorAll('input[name="customerType"]');
+        customerTypeInputs.forEach(input => {
+            input.addEventListener('change', handleCustomerTypeChange);
+        });
+    }
+
+    function getCustomerType() {
+        const selectedType = document.querySelector('input[name="customerType"]:checked');
+        return selectedType ? selectedType.value : null; // Return the selected value or null if none is selected
+    }
+
+    function handleCustomerTypeChange(event) {
+        const confirmed = confirm("Are you sure you want to select this customer type?");
+        if (!confirmed) {
+            event.target.checked = false; // Reset the selection
+        } else {
+            displayCartItems(); // Update cart if confirmed
+        }
+    }
+
+    function displayCartItems() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartTableBody = document.querySelector('.cart-table tbody');
+        const subtotalElement = document.getElementById('subtotal');
+        const shippingElement = document.getElementById('shipping');
+        const totalElement = document.getElementById('total');
+
+        cartTableBody.innerHTML = ''; // Clear existing rows
+        let subtotal = 0;
+
+        if (cart.length === 0) {
+            cartTableBody.innerHTML = '<tr><td colspan="6">Your cart is empty.</td></tr>';
+            subtotalElement.innerText = `$0.00`;
+            shippingElement.innerText = `$0.00`;
+            totalElement.innerText = `$0.00`;
+            return;
+        }
+
+        // Create table rows for each product in the cart
+        cart.forEach((product, index) => {
+            const { name, price, img, quantity } = product;
+
+            // Clean the price string and extract only the numeric part
+            const productPrice = parseFloat(price.replace(/[^0-9.]/g, ''));
+            const productTotal = productPrice * quantity;
+            subtotal += productTotal;
+
+            const row = document.createElement('tr');
+            row.classList.add('table-body-row');
+            row.innerHTML = `
+                <td class="product-remove"><a href="#" data-index="${index}"><i class="far fa-window-close"></i></a></td>
+                <td class="product-image"><img src="${img}" alt="${name}"></td>
+                <td class="product-name">${name}</td>
+                <td class="product-price">$${productPrice.toFixed(2)}</td>
+                <td class="product-quantity">
+                    <input type="number" value="${quantity}" min="1" data-index="${index}" oninput="handleInvalidInput(this)">
+                </td>
+                <td class="product-total">$${productTotal.toFixed(2)}</td>
+            `;
+            cartTableBody.appendChild(row);
+        });
+
+        // Determine shipping cost based on customer type
+        const customerType = getCustomerType();
+        let shipping = 0;
+
+        if (customerType === 'local') {
+            shipping = 0; // Free shipping for local customers
+        } else if (cart.length > 0) {
+            shipping = 10; // Default shipping cost
+        }
+
+        // Update totals
+        shippingElement.innerText = `$${shipping.toFixed(2)}`;
+        const total = subtotal + shipping;
+
+        subtotalElement.innerText = `$${subtotal.toFixed(2)}`;
+        totalElement.innerText = `$${total.toFixed(2)}`;
+
+        // Add event listener for quantity input change
+        document.querySelectorAll('.product-quantity input').forEach(input => {
+            input.addEventListener('change', updateQuantity);
+        });
+
+        // Add event listener for remove buttons
+        document.querySelectorAll('.product-remove a').forEach(button => {
+            button.addEventListener('click', removeProduct);
+        });
+    }
+
+    function updateQuantity(event) {
+        const input = event.target;
+        const index = input.getAttribute('data-index');
+        const newQuantity = parseInt(input.value);
+
+        if (newQuantity > 0) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart[index].quantity = newQuantity;
+            localStorage.setItem('cart', JSON.stringify(cart));
+            displayCartItems(); // Recalculate and update the cart
+        } else {
+            alert("Quantity must be at least 1.");
+            input.value = 1; // Reset to minimum valid value
+        }
+    }
+
+    function removeProduct(event) {
+        event.preventDefault(); // Prevent the default action
+
+        const index = event.target.closest('a').getAttribute('data-index');
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Remove the product from the cart
+        cart.splice(index, 1);
+
+        // Update localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Recalculate and update the cart display
+        displayCartItems();
+    }
+
+    function handleInvalidInput(input) {
+        if (input.value < 1) {
+            input.value = 1; // Enforce minimum value of 1
+        }
+    }
 </script>
+
+
 <script>
 	// Function to calculate and display totals
 	function populateOrderDetails() {
@@ -657,38 +716,38 @@
 	// Call populateOrderDetails on page load
 	window.onload = populateOrderDetails;
 	
-	// // PayPal button setup
-	// function setupPayPalButton() {
-	// 	paypal.Buttons({
-	// 		createOrder: function(data, actions) {
-	// 			const totalAmount = parseFloat(document.getElementById('total').textContent.replace('$', ''));
+	// PayPal button setup
+	function setupPayPalButton() {
+		paypal.Buttons({
+			createOrder: function(data, actions) {
+				const totalAmount = parseFloat(document.getElementById('total').textContent.replace('$', ''));
 	
-	// 			return actions.order.create({
-	// 				purchase_units: [{
-	// 					amount: {
-	// 						value: totalAmount.toFixed(2) // The total amount for the transaction
-	// 					}
-	// 				}]
-	// 			});
-	// 		},
-	// 		onApprove: function(data, actions) {
-	// 			return actions.order.capture().then(function(details) {
-	// 				alert('Transaction completed by ' + details.payer.name.given_name);
-	// 				document.getElementById('submit-btn').style.display = 'block';
-	// 				// You can redirect the user or update the UI as needed
-	// 			});
-	// 		},
-	// 		onError: function(err) {
-	// 			console.error(err);
-	// 		}
-	// 	}).render('#paypal-button-container'); // Render the PayPal button into the container
-	// }
+				return actions.order.create({
+					purchase_units: [{
+						amount: {
+							value: totalAmount.toFixed(2) // The total amount for the transaction
+						}
+					}]
+				});
+			},
+			onApprove: function(data, actions) {
+				return actions.order.capture().then(function(details) {
+					alert('Transaction completed by ' + details.payer.name.given_name);
+					document.getElementById('submit-btn').style.display = 'block';
+					// You can redirect the user or update the UI as needed
+				});
+			},
+			onError: function(err) {
+				console.error(err);
+			}
+		}).render('#paypal-button-container'); // Render the PayPal button into the container
+	}
 	
-	// // Setup the PayPal button after the page loads
-	// window.onload = function() {
-	// 	populateOrderDetails();
-	// 	setupPayPalButton();
-	// };
+	// Setup the PayPal button after the page loads
+	window.onload = function() {
+		populateOrderDetails();
+		setupPayPalButton();
+	};
     
 
 	</script>

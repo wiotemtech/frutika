@@ -31,6 +31,7 @@
 	<link rel="stylesheet" href="assets/css/main.css">
 	<!-- responsive -->
 	<link rel="stylesheet" href="assets/css/responsive.css">
+    <script src="https://www.paypal.com/sdk/js?client-id=AY05oQ3yo22At-dpHze7NZkj86FB-tYbPMoOWjxlppTzuZdDNXLYW-OcI361OgZi_w5BRVY5Q8_zp3vF&currency=USD"></script>
 
     
     
@@ -309,6 +310,14 @@
                             <label for="size6Oz">6 Oz - $55</label>
                         </div>
                     </div>
+                    <div class="customization-group">
+                        <label class="customization-label"><i class="fas fa-user"></i>Are you a Local in Kuwat(skip if not):</label>
+                        <div class="row-options">
+                            <input type="radio" name="customerType" value="local" id="localCustomer" class="btn-option">
+                            <label for="localCustomer">Yes</label>
+                        </div>
+                    </div>
+
 
 
                     <!-- Add Custom Name/Message -->
@@ -348,13 +357,14 @@
                     <input type="hidden" id="total2" name="total2" value="">
                        <!-- cashapp app -->
                 <div class="single-product-form">
-                <a href="#" id="pay-link" style="background-color: #00d632; color: white;  padding: 10px 10px; border: none; border-radius: 50px; font-size: 16px;" target="_blank">
+                <a href="#" id="pay-link" style="background-color: #00d632; color: white; margin-bottom: 20px; padding: 10px 10px; border: none; border-radius: 0px; font-size: 16px; display: inline-block; width: 630px; text-align: center;" target="_blank">
 					
 						Pay with Cash App
 					
 				</a>
                
                 </div>
+                <div id="paypal-button-container" style="margin-top: 20px;"></div>
 
 
                 <div class="customization-group">
@@ -765,58 +775,97 @@ input[type="radio"]:focus + label {
 
 	
 
-	<script>
-   function calculateTotal() {
-    const taxRate = 10; // 10% tax rate
-    const shippingCost = 12; // Fixed shipping cost
+    <script>
+    let previousCustomerType = null; // Track the previous customer type selection
 
-    // Find the selected size radio button
-    const selectedSizeElement = document.querySelector('input[name="size"]:checked');
-    
-    if (!selectedSizeElement) {
-        console.log("No size selected");
-        return;
+    function calculateTotal() {
+        const taxRate = 10; // 10% tax rate
+        const defaultShippingCost = 12; // Fixed shipping cost
+        let shippingCost = defaultShippingCost; // Initialize shipping cost
+
+        // Find the selected size radio button
+        const selectedSizeElement = document.querySelector('input[name="size"]:checked');
+        
+        if (!selectedSizeElement) {
+            console.log("No size selected");
+            return;
+        }
+
+        // Extract price from the value attribute
+        const selectedSizeValue = selectedSizeElement.value;
+        const selectedSizePrice = parseInt(selectedSizeValue.match(/\$(\d+)/)[1]);
+
+        // Get quantity (default to 1 if not specified)
+        const quantityInput = document.querySelector('.quantity-input');
+        const quantity = parseInt(quantityInput.value) || 1;
+
+        // Check if the local customer radio button is selected
+        const isLocalCustomer = document.getElementById('localCustomer').checked;
+        if (isLocalCustomer) {
+            shippingCost = 0; // Set shipping cost to 0
+        }
+
+        // Calculate totals
+        const subtotal = selectedSizePrice * quantity;
+        const tax = taxRate;
+        const total = subtotal + shippingCost + tax;
+
+        // Update table elements
+        document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+        document.getElementById('shipping').textContent = `$${shippingCost.toFixed(2)}`;
+        document.getElementById('tax').textContent = `$${tax.toFixed(2)}`;
+        document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+        document.getElementById('total2').value = total.toFixed(2);
     }
 
-    // Extract price from the value attribute
-    const selectedSizeValue = selectedSizeElement.value;
-    const selectedSizePrice = parseInt(selectedSizeValue.match(/\$(\d+)/)[1]);
+    function handleCustomerTypeChange(event) {
+        const selectedValue = event.target.value;
 
-    // Get quantity (default to 1 if not specified)
-    const quantityInput = document.querySelector('.quantity-input');
-    const quantity = parseInt(quantityInput.value) || 1;
+        if (selectedValue === "local") {
+            // Ask for confirmation
+            const confirmed = confirm("Are you sure you are a local customer? Selecting this option provides free shipping.");
+            if (!confirmed) {
+                // Revert to the previous selection if not confirmed
+                if (previousCustomerType) {
+                    document.querySelector(`input[name="customerType"][value="${previousCustomerType}"]`).checked = true;
+                } else {
+                    // If no previous selection, uncheck all options
+                    document.querySelectorAll('input[name="customerType"]').forEach(radio => (radio.checked = false));
+                }
+                return;
+            } else {
+                alert("Your shipping is free!"); // Notify the user of free shipping
+            }
+        }
 
-    // Calculate totals
-    const subtotal = selectedSizePrice * quantity;
-    const tax = taxRate;
-    const total = subtotal + shippingCost + tax;
+        // Update the previous customer type
+        previousCustomerType = selectedValue;
 
-    // Update table elements
-    document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
-    document.getElementById('shipping').textContent = `$${shippingCost.toFixed(2)}`;
-    document.getElementById('tax').textContent = `$${tax.toFixed(2)}`;
-    document.getElementById('total').textContent = `$${total.toFixed(2)}`;
-    document.getElementById('total2').value = total.toFixed(2);
-}
+        // Recalculate the totals
+        calculateTotal();
+    }
 
-// Add event listeners
-document.querySelectorAll('input[name="size"]').forEach(radio => {
-    radio.addEventListener('change', calculateTotal);
-});
+    // Add event listeners for customer type and size changes
+    document.querySelectorAll('input[name="customerType"]').forEach(radio => {
+        radio.addEventListener('change', handleCustomerTypeChange);
+    });
+    document.querySelectorAll('input[name="size"]').forEach(radio => {
+        radio.addEventListener('change', calculateTotal);
+    });
+    document.querySelector('.quantity-input').addEventListener('input', calculateTotal);
 
+    // Initialize totals on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        // Set the initial previous customer type
+        const initialCustomerType = document.querySelector('input[name="customerType"]:checked')?.value;
+        previousCustomerType = initialCustomerType || null;
 
-
-
-
-
-// // Add event listeners to radio buttons and quantity input
-// document.getElementById('size2Oz').addEventListener('change', calculateTotal);
-//     document.getElementById('size4Oz').addEventListener('change', calculateTotal);
-//     document.getElementById('size6Oz').addEventListener('change', calculateTotal);
-    
-//     document.querySelector('.quantity-input').addEventListener('input', calculateTotal);
-
+        // Calculate totals on load
+        calculateTotal();
+    });
 </script>
+
+
 <!-- <script>
 // Function to get the total from the table
 function getTotalAmount() {
@@ -828,8 +877,8 @@ function getTotalAmount() {
     const totalAmount = parseFloat(totalText.replace('$', '').trim());
     
     return totalAmount;
-}
-
+}-->
+<script>
 // PayPal button setup
 paypal.Buttons({
     createOrder: function(data, actions) {
@@ -854,7 +903,7 @@ paypal.Buttons({
         });
     }
 }).render('#paypal-button-container'); // This renders the PayPal button inside the container
-</script> -->
+</script> 
 
 
 <script>

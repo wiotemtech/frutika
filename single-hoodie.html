@@ -30,6 +30,8 @@
 	<link rel="stylesheet" href="assets/css/main.css">
 	<!-- responsive -->
 	<link rel="stylesheet" href="assets/css/responsive.css">
+	<script src="https://www.paypal.com/sdk/js?client-id=AY05oQ3yo22At-dpHze7NZkj86FB-tYbPMoOWjxlppTzuZdDNXLYW-OcI361OgZi_w5BRVY5Q8_zp3vF&currency=USD"></script>
+
 
 </head>
 <body>
@@ -148,32 +150,32 @@
 						<div class="customization-group">
 							<label class="customization-label"><i class="fas fa-ruler"></i> Choose Size: </label>
 							<div class="row-options">
-								<input type="radio" name="size" id="size-xs" value="25">
-								<label for="size-xs" class="btn-option">XS:  $25</label>
+								<input type="radio" name="size" id="size-xs" value="30">
+								<label for="size-xs" class="btn-option">XS:  $30</label>
 								
-								<input type="radio" name="size" id="size-s" value="25">
-								<label for="size-s" class="btn-option">S:  $25</label>
+								<input type="radio" name="size" id="size-s" value="30">
+								<label for="size-s" class="btn-option">S:  $30</label>
 								
-								<input type="radio" name="size" id="size-m" value="25">
-								<label for="size-m" class="btn-option">M:  $25</label>
+								<input type="radio" name="size" id="size-m" value="30">
+								<label for="size-m" class="btn-option">M:  $30</label>
 								
-								<input type="radio" name="size" id="size-l" value="25">
-								<label for="size-l" class="btn-option">L:  $25</label>
+								<input type="radio" name="size" id="size-l" value="30">
+								<label for="size-l" class="btn-option">L:  $30</label>
 								
-								<input type="radio" name="size" id="size-xl" value="25">
-								<label for="size-xl" class="btn-option">XL:  $25</label>
+								<input type="radio" name="size" id="size-xl" value="30">
+								<label for="size-xl" class="btn-option">XL:  30</label>
 								
-								<input type="radio" name="size" id="size-xxl" value="35">
-								<label for="size-xxl" class="btn-option">XXL:  $35</label>
+								<input type="radio" name="size" id="size-xxl" value="40">
+								<label for="size-xxl" class="btn-option">XXL:  $40</label>
 								
-								<input type="radio" name="size" id="size-xxxl" value="35">
-								<label for="size-xxxl" class="btn-option">3XL:  $35</label>
+								<input type="radio" name="size" id="size-xxxl" value="40">
+								<label for="size-xxxl" class="btn-option">3XL:  $40</label>
 
-								<input type="radio" name="size" id="size-xxxxl" value="35">
-								<label for="size-xxxxl" class="btn-option">4XL:  $35</label>
+								<input type="radio" name="size" id="size-xxxxl" value="40">
+								<label for="size-xxxxl" class="btn-option">4XL:  $40</label>
 
-								<input type="radio" name="size" id="size-xxxxxl" value="35">
-								<label for="size-xxxxxl" class="btn-option">5XL:  $35</label>
+								<input type="radio" name="size" id="size-xxxxxl" value="40">
+								<label for="size-xxxxxl" class="btn-option">5XL:  $40</label>
 
 								<input type="hidden" name="selected-size" id="selected-size">
 								<input type="hidden" name="selected-price" id="selected-price">
@@ -270,6 +272,7 @@
 							<div class="row-options">
 								<input type="radio" name="type" id="Hoodie" value="Hoodie">
 								<label for="Hoodie" class="btn-option">Hoodie</label>
+								
 					
 							</div>
 						</div>
@@ -288,7 +291,13 @@
 								</div>
 						
 						</div>
-						 
+						<div class="customization-group">
+							<label class="customization-label"><i class="fas fa-user"></i>Are you a Local in Kuwat(skip if not):</label>
+							<div class="row-options">
+								<input type="radio" name="customerType" value="local" id="localCustomer" class="btn-option">
+								<label for="localCustomer">Yes</label>
+							</div>
+						</div>
 		
 				<div class="customization-group">
 					<label class="customization-label">Name: </label>
@@ -319,11 +328,12 @@
 			
 				
 				<div class="single-product-form">
-					<a href="#" id="pay-link"  style="background-color: #00d632; color: white;  padding: 10px 10px; border: none; border-radius: 50px; font-size: 16px;" target="_blank">
+					<a href="#" id="pay-link" style="background-color: #00d632; color: white; margin-bottom: 20px; padding: 10px 10px; border: none; border-radius: 0px; font-size: 16px; display: inline-block; width: 650px; text-align: center;" target="_blank">
 						
 							Pay with Cash App
 						
 					</a>
+					<div id="paypal-button-container" style="margin-top: 20px;"></div>
 				   
 					</div><div class="customization-group">
 						<label class="customization-label">Payment reference </label>
@@ -701,68 +711,138 @@
 
 
 	<script>
-function calculateTotal() {
-    const taxRate = 10; // 10% tax rate
-    const shippingCost = 10; // Shipping cost as per your table
+		let previousCustomerType = null; // Track the previous customer type selection
+	
+		function calculateTotal() {
+			const taxRate = 10; // Fixed tax rate
+			const baseShippingCost = 10; // Base shipping cost
+			const embroideryCharge = 5; // Charge for Embroidery design
+			let designCharge = 0; // Initialize design charge
+			let shippingCost = baseShippingCost; // Initialize shipping cost
+	
+			// Check for the selected design option and set designCharge
+			const selectedDesign = document.querySelector('input[name="design"]:checked');
+			if (selectedDesign && selectedDesign.value === "Embroidery") {
+				designCharge = embroideryCharge;
+			}
+	
+			// Check if customer type is local (optional logic for free shipping)
+			const isLocalCustomer = document.querySelector('input[name="customerType"]:checked')?.value === "local";
+			if (isLocalCustomer) {
+				shippingCost = 0; // Free shipping for local customers
+			}
+	
+			// Get the selected size price
+			const selectedPrice = parseFloat(document.getElementById('selected-price').value) || 0;
+	
+			// Get the quantity input
+			const quantityInput = document.querySelector('.quantity-input');
+			const quantity = parseInt(quantityInput.value) || 1; // Default to 1 if not specified
+	
+			// Calculate the subtotal
+			const subtotal = selectedPrice * quantity;
+	
+			// Calculate the tax
+			const tax = taxRate;
+	
+			// Calculate the total
+			const total = subtotal + tax + shippingCost + designCharge;
+	
+			// Update the table with the calculated values
+			document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+			document.getElementById('shipping').textContent = `$${shippingCost.toFixed(2)}`;
+			document.getElementById('tax').textContent = `$${tax.toFixed(2)}`;
+			document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+	
+			// Set the total value in the hidden input to be sent to the database
+			document.getElementById('total2').value = total.toFixed(2);
+		}
+	
+		function handleCustomerTypeChange(event) {
+			const selectedValue = event.target.value;
+	
+			if (selectedValue === "local") {
+				// Ask for confirmation
+				const confirmed = confirm("Are you sure you are a local customer? Selecting this option provides free shipping.");
+				if (!confirmed) {
+					// Revert to previous selection if not confirmed
+					if (previousCustomerType) {
+						document.querySelector(`input[name="customerType"][value="${previousCustomerType}"]`).checked = true;
+					}
+					return;
+				}
+			}
+	
+			// Update the previousCustomerType variable
+			previousCustomerType = selectedValue;
+	
+			// Recalculate the total
+			calculateTotal();
+		}
+	
+		// Event listener for design option changes
+		document.querySelectorAll('input[name="design"]').forEach(radio => {
+			radio.addEventListener('change', calculateTotal);
+		});
+	
+		// Event listener for size option changes
+		document.querySelectorAll('input[name="size"]').forEach(radio => {
+			radio.addEventListener('change', () => {
+				const selectedSize = radio.id.split('-')[1].toUpperCase(); // Extract size (e.g., "XS", "S")
+				const selectedPrice = radio.value; // Get price associated with the size (e.g., "25" or "35")
+	
+				document.getElementById('selected-size').value = selectedSize;
+				document.getElementById('selected-price').value = selectedPrice;
+	
+				calculateTotal();
+			});
+		});
+	
+		// Event listener for quantity input changes
+		document.querySelector('.quantity-input').addEventListener('input', calculateTotal);
+	
+		// Event listener for customer type changes with confirmation logic
+		document.querySelectorAll('input[name="customerType"]').forEach(radio => {
+			radio.addEventListener('change', handleCustomerTypeChange);
+		});
+	
+		// Initialize the table on page load
+		document.addEventListener('DOMContentLoaded', () => {
+			// Set the previous customer type on page load
+			const initialCustomerType = document.querySelector('input[name="customerType"]:checked')?.value;
+			previousCustomerType = initialCustomerType || null;
+	
+			// Calculate the total on page load
+			calculateTotal();
+		});
+		function handleCustomerTypeChange(event) {
+    const selectedValue = event.target.value;
 
-    // Get the selected size price
-    const selectedPrice = parseFloat(document.getElementById('selected-price').value) || 0;
+    if (selectedValue === "local") {
+        // Ask for confirmation
+        const confirmed = confirm("Are you sure you are a local customer? Selecting this option provides free shipping.");
+        if (!confirmed) {
+            // Revert to the previous selection or a default option if none exists
+            if (previousCustomerType) {
+                document.querySelector(`input[name="customerType"][value="${previousCustomerType}"]`).checked = true;
+            } else {
+                // If no previous selection, uncheck all options (or select a default)
+                document.querySelectorAll('input[name="customerType"]').forEach(radio => (radio.checked = false));
+            }
+            return;
+        }
+    }
 
-    // Get the quantity input
-    const quantityInput = document.querySelector('.quantity-input');
-    const quantity = parseInt(quantityInput.value) || 1; // Default to 1 if not specified
+    // Update the previousCustomerType variable
+    previousCustomerType = selectedValue;
 
-    // Calculate the subtotal
-    const subtotal = selectedPrice * quantity;
-
-    // Calculate the tax
-    const tax = taxRate;
-
-    // Calculate the total
-    const total = subtotal + tax + shippingCost;
-
-    // Update the table with the calculated values
-    document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
-    document.getElementById('shipping').textContent = `$${shippingCost.toFixed(2)}`;
-    document.getElementById('tax').textContent = `$${tax.toFixed(2)}`;
-    document.getElementById('total').textContent = `$${total.toFixed(2)}`;
-
-	 // Set the total value in the hidden input to be sent to the database
-	 document.getElementById('total2').value = total.toFixed(2);
+    // Recalculate the total
+    calculateTotal();
 }
 
-// Add event listeners to update the hidden fields and calculate the total when a radio button is selected
-document.querySelectorAll('input[name="size"]').forEach(radio => {
-    radio.addEventListener('change', () => {
-        // Update the hidden inputs with the selected size and price
-        const selectedSize = radio.id.split('-')[1].toUpperCase(); // Get the size (e.g., "XS", "S")
-        const selectedPrice = radio.value; // Get the price (e.g., "25" or "35")
-
-        document.getElementById('selected-size').value = selectedSize;
-        document.getElementById('selected-price').value = selectedPrice;
-
-        // Call the function to update the totals
-        calculateTotal();
-    });
-});
-
-// Initialize the table on page load
-document.addEventListener('DOMContentLoaded', calculateTotal);
-
-
-	 
-	 
-	 
-	 
-	 // // Add event listeners to radio buttons and quantity input
-	 // document.getElementById('size2Oz').addEventListener('change', calculateTotal);
-	 //     document.getElementById('size4Oz').addEventListener('change', calculateTotal);
-	 //     document.getElementById('size6Oz').addEventListener('change', calculateTotal);
-		 
-	 //     document.querySelector('.quantity-input').addEventListener('input', calculateTotal);
-	 
-	 </script>
-
+	</script>
+	
+	
 <script>
 	document.getElementById('form1').addEventListener('submit', async function (e) {
 	  e.preventDefault(); // Prevent default form submission
@@ -785,7 +865,39 @@ document.addEventListener('DOMContentLoaded', calculateTotal);
 		alert("Error submitting the order. Please try again.");
 	  }
 	});
+
+
+    
   </script>
+
+<script>
+
+	// PayPal button setup
+	paypal.Buttons({
+		createOrder: function(data, actions) {
+			const totalAmount = getTotalAmount(); // Get the total dynamically
+			
+			if (totalAmount <= 0) {
+				alert("Please update the total before proceeding.");
+				return; // Prevent order creation if total is not valid
+			}
+	
+			return actions.order.create({
+				purchase_units: [{
+					amount: {
+						value: totalAmount.toFixed(2) // Use the total amount from the table
+					}
+				}]
+			});
+		},
+		onApprove: function(data, actions) {
+			return actions.order.capture().then(function(details) {
+				alert('Payment Successful!');
+			});
+		}
+	}).render('#paypal-button-container'); // This renders the PayPal button inside the container
+	</script>
+	
 
 </body>
 </html>
