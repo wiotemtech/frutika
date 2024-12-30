@@ -1,13 +1,13 @@
 <?php
 // Database connection (replace with your actual database credentials)
 $servername = "localhost";
-// $username = "root";  // Change this to your database username
-// $password = "";      // Change this to your database password
-// $dbname = "ordermanagement"; // Change this to your database name
+$username = "root";  // Change this to your database username
+$password = "";      // Change this to your database password
+$dbname = "ordermanagement"; // Change this to your database name
 
-$dbname = 'capsrxrv_kqhahshop';
-$username = 'capsrxrv_shaka';
-$password = '!isihaka1005';
+// $dbname = 'capsrxrv_kqhahshop';
+// $username = 'capsrxrv_shaka';
+// $password = '!isihaka1005';
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -20,7 +20,7 @@ if ($conn->connect_error) {
 $size = $_POST['selected-size'];
 $color = $_POST['color'];
 $shirtColor = $_POST['shirtcolor'];
-$type = $_POST['type'];
+$type1 = $_POST['type'];
 $design = $_POST['design'];
 $name = $_POST['name'];
 $email = $_POST['email'];
@@ -34,7 +34,7 @@ $zipcode = $_POST['zipcode'];
 
 // Insert data into the database
 $sql = "INSERT INTO tshirtcustomization (size, color, shirtcolor, type, design, name, email, phone, address, payref, quantity, total, city, zipcode)
-VALUES ('$size', '$color', '$shirtColor', '$type', '$design', '$name', '$email', '$phone', '$address', '$payref', '$quantity', '$total', '$city', '$zipcode')";
+VALUES ('$size', '$color', '$shirtColor', '$type1', '$design', '$name', '$email', '$phone', '$address', '$payref', '$quantity', '$total', '$city', '$zipcode')";
 
 if ($conn->query($sql) === TRUE) {
     // Display success message
